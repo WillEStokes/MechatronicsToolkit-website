@@ -13,7 +13,7 @@ Use the following commands to commit changes and merge them to the master branch
 * 'git add .': This command stages all modified files
 * 'git commit -m "\<your commit message\>"': This command creates a new commit with the specified commit message and the files that have been staged using the git add command
 * 'git checkout master': loads the master branch
-* 'git merge \<your bramch name\>': merges the new branch with the master
+* 'git merge \<your branch name\>': merges the new branch with the master
 
 Note: when viewing changes that you've made to the source code in your browser, it is sometimes necessary to clear your browsers cache to ensure you are viewing the up-to-date version of the code.
 
