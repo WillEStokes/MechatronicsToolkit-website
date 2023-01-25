@@ -11,6 +11,6 @@ Use the following commands to commit changes to the repository:
 * 'git commit -m "\<your commit message\>"': This command creates a new commit with the specified commit message and the files that have been staged using the git add command
 * 'git push origin main': This command pushes your commits to the remote repository on GitHub
 
-Note: when viewing changes that you've made to the source code, it is sometimes necessary to clear you browsers cache to ensure you are viewing the up-to-date version of the code.
+Note: when viewing changes that you've made to the source code in your browser, it is sometimes necessary to clear your browsers cache to ensure you are viewing the up-to-date version of the code.
 
 This can be achieved in Chrome by navigating to Settings>Privacy and security>Clear browing data
