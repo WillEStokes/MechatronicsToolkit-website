@@ -5,7 +5,7 @@
 
 Create a new branch before modifying the source code:
 
-* 'git checkout -m \<your branch name\>': creates a new branch, changes will not affect the master branch
+* 'git branch \<your branch name\>': creates a new branch, changes will not affect the master branch
 
 Use the following commands to commit changes and merge them to the master branch:
 
