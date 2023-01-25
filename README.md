@@ -10,7 +10,7 @@ Create a new branch before modifying the source code:
 Use the following commands to commit changes and merge them to the master branch, before pushing them to the remote repository:
 
 * 'git status': This command displays the current status of your local repository, including which files have been modified and which ones are ready to be committed
-* 'git add .': This command stages all modified files
+* 'git add .': This command stages all modified files for commit
 * 'git commit -m "\<your commit message\>"': This command creates a new commit with the specified commit message and the files that have been staged using the git add command
 * 'git checkout master': This command loads the master branch
 * 'git merge \<your branch name\>': This command merges the new branch with the master
