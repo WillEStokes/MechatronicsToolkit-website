@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Blinking LED Tutorial</title>
+        <link rel="stylesheet" type="text/css" href="styles.css">
+    </head>
+    <body>
+        <h1>Blinking LED Tutorial</h1>
+        <section id="introduction">
+            <h2>Introduction</h2>
+            <p>In this tutorial, we will learn how to control an LED using a microcontroller. We will be using a simple program to blink an LED on and off.</p>
+        </section>
+        <section id="materials">
+            <h2>Materials</h2>
+            <ul>
+                <li>Microcontroller (e.g., Arduino, Raspberry Pi)</li>
+                <li>LED</li>
+                <li>Resistor (220 ohm)</li>
+                <li>Jumper wires</li>
+            </ul>
+        </section>
+        <section id="wiring">
+            <h2>Wiring</h2>
+            <p>To wire the circuit, connect the positive leg of the LED (the longer leg) to a digital pin on the microcontroller. Connect the negative leg of the LED (the shorter leg) to a 220 ohm resistor. Connect the other end of the resistor to the GND pin on the microcontroller.</p>
+            <img src="images/wiring.png" width="80%" alt="Blinking LED wiring diagram">
+        </section>
+        <section id="code">
+            <h2>Code</h2>
+            <p>To make the LED blink, we will use the built-in `digitalWrite()` and `delay()` functions of the microcontroller. The `digitalWrite()` function sets a digital pin to either HIGH or LOW, and the delay() function pauses the program for a specified amount of time. Here is an example of how you can blink the LED using Arduino code:</p>
+            <pre>
+                <code>
+                    <span class="datatype">int</span> <span class="variable">led</span> = <span class="number">13</span>;
+                    <span class="datatype">void</span> <span class="function">setup</span>() {
+                        <span class="function">pinMode</span>(<span class="variable">led</span>, <span class="datatype">OUTPUT</span>);
+                    }
+                    <span class="datatype">void</span> <span class="function">loop</span>() {
+                        <span class="function">digitalWrite</span>(<span class="variable">led</span>, <span class="datatype">HIGH</span>);
+                        <span class="function">delay</span>(<span class="number">1000</span>);
+                        <span class="function">digitalWrite</span>(<span class="variable">led</span>, <span class="datatype">LOW</span>);
+                        <span class="function">delay</span>(<span class="number">1000</span>);
+                    }
+                </code>
+            </pre>                       
+            <p>In this example, the LED is connected to pin 13 on the microcontroller. In the setup function, we set the pin as an output using the `pinMode()` function. In the loop function, we use the `digitalWrite()` function to turn the LED on and off, and the `delay()` function to wait for 1 second between each change in state. 
+                You should also make sure that the code is compatible with the microcontroller board that you are using.
+                
+                </p>
+                        <section id="conclusion">
+                            <h2>Conclusion</h2>
+                            <p>Congratulations! You have successfully learned how to blink an LED using a microcontroller. Now you can use this knowledge to create more advanced projects, such as a traffic light or a night light. Remember to always use a resistor when connecting an LED to a microcontroller to protect the circuit from damage. Happy building!</p>
+                        </section>
+                    </body>
+                </html>
+                <a href="index.html" class="back-button">Back to Homepage</a>
+

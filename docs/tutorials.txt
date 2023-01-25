@@ -1,0 +1,12 @@
+bayesian optimisation tool
+pid controller design and implementation with MOSFET
+architecture for TCP or serial communication in C++
+peak finding algorithm
+bit checking algorithm
+designing a PCB board
+object orientated programming architecture
+labview messenger library
+html and css webpage designs
+configuring vs code for mbed
+electrochemical techniques
+fliudic components (IDEX and delivery valve)

@@ -1,0 +1,192 @@
+/* ------- headers ------- */
+h1 {
+    text-align: center;
+    font-family: "Verdana", sans-serif;
+    font-weight: lighter;
+    color: #2054ff;
+    margin-bottom: 40px;
+}
+
+h2 {
+    text-align: center;
+    font-family: "Verdana", sans-serif;
+    font-weight: lighter;
+    color: #2054ff;
+    margin-bottom: 10px;
+}
+
+/* ------- hyperlinks ------- */
+
+a {
+    text-decoration: none; /* removes underline */
+}
+
+a[href*='topics'] {
+    min-width: fit-content;
+    text-align: center;
+    margin: 20px auto;
+}
+
+/* ------- body ------- */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fbf5ee;
+    text-align: left;
+    margin: 0 450px;
+    /* padding: 0 200px; */
+    line-height: 1.5; /* Adjust this value as needed */
+}
+
+/* ------- image container ------- */
+
+.toolkit-container {
+    display: flex;
+    justify-content: center;
+}
+  
+.toolkit-container a {
+    position: relative;
+    text-align: center;
+    margin: 20px;
+}
+  
+.image-container {
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 10px;
+    border: 1px solid #2054ff;
+    position: relative;
+    width: 350px;
+    height: 350px;
+}
+
+.image-container img{
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.image-container:hover .overlay {
+    visibility: visible;
+    opacity: 1;
+}
+  
+.toolkit-container img {
+    max-width: 300px;
+    max-height: 300px;
+    margin: 25px;
+    object-fit: contain;
+}
+  
+.overlay {
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s linear;
+}
+  
+.overlay p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+}
+
+/* ------- preformatted text ------- */
+
+pre {
+    background-color: #252525;
+    padding: 1em;
+    border-radius: 4px;
+    overflow-x: auto; /* Allows horizontal scrolling on small screens */
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
+/* ------- content text ------- */
+
+#content-conclusion {
+    margin-bottom: 20px;
+}
+
+/* ------- image ------- */
+
+.tuning-image img{
+    width: 60%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    /* object-fit: cover; /* this makes the image fill the container while preserving its aspect ratio */
+}
+
+/* ------- code ------- */
+
+code {
+    font-family: Consolas, "Courier New", monospace;
+    color: rgb(255, 255, 255);
+    font-size: 0.9em;
+}
+
+.python {
+    font-weight: 500;
+}
+
+.datatype {
+    color: rgb(0, 42, 98);
+    font-weight: bold;
+}
+
+.variable {
+    color: #7cc5ef;
+}
+
+.function {
+    color: #ffe281;
+}
+
+.number {
+    color: #b3ce9c;
+}
+
+.return {
+    color: #9b6c97;
+}
+
+.keyword {
+    color: #4959c5;
+}
+
+.comment {
+    color: #479950;
+}
+
+.class {
+    color: rgb(25, 116, 0);
+}
+
+.classname {
+    color: #39c3b5;
+}
+
+/* ------- terminal ------- */
+
+#terminal-output {
+    /* border: 1px solid #2054ff; */
+    color: #ffffff;
+}
+
+/* ------- footer button ------- */
+
+.footer {
+    text-align: center;
+    margin-bottom: 50px;
+}

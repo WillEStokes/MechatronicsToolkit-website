@@ -1,0 +1,22 @@
+{
+    "featuredProjects": [
+        {
+            "name": "Arduino",
+            "description": "Learn how to program an Arduino microcontroller.",
+            "imageUrl": "images/led.png",
+            "tutorialUrl": "blinking-led-tutorial.html"
+        },
+        {
+            "name": "Mbed",
+            "description": "Learn how to program an mbed microcontroller.",
+            "imageUrl": "images/sensor.png",
+            "tutorialUrl": "temperature-sensor-tutorial.html"
+        },
+        {
+            "name": "Numerical Control",
+            "description": "Learn numerical control techniques.",
+            "imageUrl": "images/car.png",
+            "tutorialUrl": "remote-control-car-tutorial.html"
+        }
+    ]
+}
