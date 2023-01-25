@@ -7,7 +7,7 @@ Create a new branch before modifying the source code:
 
 * 'git branch \<your branch name\>': This command creates a new branch, changes will not affect the master branch
 
-Use the following commands to commit changes and merge them to the master branch, then push them to the repository:
+Use the following commands to commit changes and merge them to the master branch, before pushing them to the remote repository:
 
 * 'git status': This command displays the current status of your local repository, including which files have been modified and which ones are ready to be committed
 * 'git add .': This command stages all modified files
