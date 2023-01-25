@@ -3,13 +3,17 @@
 2. Open a terminal and run 'python -m http.server' to host a local server, this is necessary for the website to call external scripts and json files
 3. Open a browser and go to 'http://localhost:8000/index.html' to view the homepage
 
-Use the following commands to commit changes to the repository:
+Create a new branch before modifying the source code:
 
-* 'git pull origin main': fetches any updates from the remote repository before pushing your own changes
+* 'git checkout -m \<your bramch name\>': creates a new branch, changes will not affect the master branch
+
+Use the following commands to commit changes and merge them to the master branch:
+
 * 'git status': This command will show you the current status of your local repository, including which files have been modified and which ones are ready to be committed
-* 'git add \<file\>': This command stages the specified file for commit. You can also use 'git add .' to stage all modified files
+* 'git add .': This command stages all modified files
 * 'git commit -m "\<your commit message\>"': This command creates a new commit with the specified commit message and the files that have been staged using the git add command
-* 'git push origin main': This command pushes your commits to the remote repository on GitHub
+* 'git checkout master': loads the master branch
+* 'git merge \<your bramch name\>': merges the new branch with the master
 
 Note: when viewing changes that you've made to the source code in your browser, it is sometimes necessary to clear your browsers cache to ensure you are viewing the up-to-date version of the code.
 
