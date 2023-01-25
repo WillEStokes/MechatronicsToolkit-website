@@ -5,15 +5,17 @@
 
 Create a new branch before modifying the source code:
 
-* 'git branch \<your branch name\>': creates a new branch, changes will not affect the master branch
+* 'git branch \<your branch name\>': This command creates a new branch, changes will not affect the master branch
 
-Use the following commands to commit changes and merge them to the master branch:
+Use the following commands to commit changes and merge them to the master branch, them push them to the repository:
 
-* 'git status': This command will show you the current status of your local repository, including which files have been modified and which ones are ready to be committed
+* 'git status': This command displays the current status of your local repository, including which files have been modified and which ones are ready to be committed
 * 'git add .': This command stages all modified files
 * 'git commit -m "\<your commit message\>"': This command creates a new commit with the specified commit message and the files that have been staged using the git add command
-* 'git checkout master': loads the master branch
-* 'git merge \<your branch name\>': merges the new branch with the master
+* 'git checkout master': This command loads the master branch
+* 'git merge \<your branch name\>': This command merges the new branch with the master
+* 'git pull origin master': This command integrates remote changes
+* 'git push origin master': This command pushes the commits to the remote repository
 
 Note: when viewing changes that you've made to the source code in your browser, it is sometimes necessary to clear your browsers cache to ensure you are viewing the up-to-date version of the code.
 
