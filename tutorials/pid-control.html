@@ -3,17 +3,16 @@
   <head>
     <title>PID Control</title>
     <link rel="stylesheet" type="text/css" href="../styles.css">
-    <script src="https://cdn.jsdelivr.net/pyodide/v0.16.1/full/pyodide.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <!-- <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script> -->
   </head>
-  <body>
+  <body onload="initResponsePlot()">
     <h1>PID Control</h1>
     <section id="introduction"></section>
       <h2>Introduction</h2>
       <div id="content-intro"></div>
         <script>
-            fetch('../content/pid-control-intro.txt')
+            fetch('./content/pid-control-intro.txt')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById("content-intro").innerHTML = data;
@@ -26,7 +25,7 @@
       <h2>Theory</h2>
       <div id="content-theory"></div>
         <script>
-            fetch('../content/pid-control-theory.txt')
+            fetch('./content/pid-control-theory.txt')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById("content-theory").innerHTML = data;
@@ -38,11 +37,30 @@
     <section id="implementation"></section>
       <h2>Implementation</h2>
       <p>In this section, we will discuss how to implement a PID controller in a real-world scenario, including the use of a feedforward component to create a PIDF controller and the use of lambda tuning to optimize the controller in slow response systems.</p>
-        <p>To calculate the proportional, integral and derivative terms, the following equations are used:</p>
-        <p>$$P = K_p \cdot e$$</p>
-        <p>$$I = I + K_i \cdot e \cdot \Delta t$$</p>
-        <p>$$D = K_d \cdot \frac{\Delta e}{\Delta t}$$</p>
-        <p>Where \(P\), \(I\), \(D\) are the proportional, integral, and derivative terms respectively. \(K_p\), \(K_i\), \(K_d\) are the corresponding gain constants, \(e\) is the error, \(\Delta t\) is the change in time, and \(\Delta e\) is the change in error.</p>
+      <p>To calculate the proportional, integral and derivative terms, the following equations are used:</p>
+      <p>$$P = K_p \cdot e$$</p>
+      <p>$$I = I + K_i \cdot e \cdot \Delta t$$</p>
+      <p>$$D = K_d \cdot \frac{\Delta e}{\Delta t}$$</p>
+      <p>Where \(P\), \(I\), \(D\) are the proportional, integral, and derivative terms respectively. \(K_p\), \(K_i\), \(K_d\) are the corresponding gain constants, \(e\) is the error, \(\Delta t\) is the change in time, and \(\Delta e\) is the change in error.</p>
+      <!-- <div id="response-plot-container"> -->
+        <form>
+            <label>Enter P value:</label>
+            <input type="text" id="P-input" placeholder="10">
+            <br>
+            <label>Enter I value:</label>
+            <input type="text" id="I-input" placeholder="1">
+            <br>
+            <!-- <label>Enter D value:</label>
+            <input type="text" id="D-input" placeholder="0">
+            <br> -->
+            <label>Enter F value:</label>
+            <input type="text" id="F-input" placeholder="0">
+            <br><br>
+            <button type="button" onclick="plotResponse()">Plot Response</button>
+            <br><br>
+        </form>
+        <div id="response-plot"></div>
+    <!-- </div> -->
     <section id="code"></section>
       <h3>Example Python code</h3>
       <pre>
@@ -54,7 +72,7 @@
         <span class="variable">self</span>.<span class="variable">Kd</span> = <span class="variable">Kd</span>
         <span class="variable">self</span>.<span class="variable">previous_error</span> = <span class="number">0</span>
         <span class="variable">self</span>.<span class="variable">integral</span> = <span class="number">0</span>
-        
+
     <span class="keyword">def</span> <span class="function">calculate</span>(<span class="variable">self</span>, <span class="variable">setpoint</span>, <span class="variable">pv</span>):
         <span class="variable">error</span> = <span class="variable">setpoint</span> - <span class="variable">pv</span>
         <span class="variable">self</span>.<span class="variable">integral</span> += <span class="variable">error</span>
@@ -68,9 +86,7 @@
 <span class="function">print</span>(<span class="variable">output</span>)
         </code>
       </pre>
-      <textarea id="code-input"></textarea>
-      <button id="run-button">Run</button>
-      <pre id="terminal-output"></pre>
+      <a href="../tools/python-console.html">Practice your coding skills with our Python console</a>
     <section id="tuning"></section>
       <h2>Tuning</h2>
         <p>Lambda tuning is a method for determining the optimal values of the proportional, integral, and derivative gain parameters (\(K_p\), \(K_i\), \(K_d\)) in a PID controller.
@@ -78,24 +94,44 @@
         <div class="tuning-image">
           <img src="../images/metrics-image.png" alt="Diagram showing Td and tau calculated from controller output step change">
         </div>
-
-        To calculate the proportional term, we use the equation:
-        <p>$$P = K_c \times e(t)$$<p>
-        Where \(K_c\) is the controller gain, and \(e(t)\) is the error at time \(t\).
-
-        The integral term is calculated using:
-        <p>$$I = \frac{K_c}{\tau} \times \int e(t) dt$$<p>
-        Where \(\tau\) is the controller time constant, and the integral is taken over the entire time period of the step response.
-
-        The derivative term is calculated using:
-        <p>$$D = \frac{K_c \times \lambda}{T_d}$$<p></p>
-        Where \(\lambda\) is the controller damping factor, and \(T_d\) is the controller derivative time constant.
-
+        <p>To calculate the proportional term, we use the equation:</p>
+        <p>$$P = K_c \times e(t)$$</p>
+        <p>Where \(K_c\) is the controller gain, and \(e(t)\) is the error at time \(t\).
+        The integral term is calculated using:</p>
+        <p>$$I = \frac{K_c}{\tau} \times \int e(t) dt$$</p>
+        <p>Where \(\tau\) is the controller time constant, and the integral is taken over the entire time period of the step response.
+        The derivative term is calculated using:</p>
+        <p>$$D = \frac{K_c \times \lambda}{T_d}$$</p>
+        <p>Where \(\lambda\) is the controller damping factor, and \(T_d\) is the controller derivative time constant.
         By tuning the values of \(K_p\), \(K_i\), and \(K_d\) using the lambda tuning method, it is possible to achieve faster and more stable control of the system.</p>
+        <form>
+          <label>Enter \(\gamma\) value:</label>
+          <input type="text" id="gamma-input" placeholder="1">
+          <br>
+          <label>Enter \(\tau\) value:</label>
+          <input type="text" id="tau-input" placeholder="1540">
+          <br>
+          <label>Enter \(\Delta PV\) value:</label>
+          <input type="text" id="dpv-input" placeholder="15">
+          <br>
+          <label>Enter \(\Delta DutyCycle\) value:</label>
+          <input type="text" id="ddc-input" placeholder="20">
+          <br>
+          <label>Enter \(T_d\) value:</label>
+          <input type="text" id="td-input" placeholder="118">
+          <br><br>
+          <button type="button" onclick="calculatePID()">Calculate PID</button>
+          <br><br>
+          <label>\(P\):</label>
+          <input type="text" id="p-output" readonly>
+          <br>
+          <label>\(I\):</label>
+          <input type="text" id="i-output" readonly>
+      </form>
       <h2>Conclusion</h2>
       <div id="content-conclusion"></div>
         <script>
-            fetch('../content/pid-control-conclusion.txt')
+            fetch('./content/pid-control-conclusion.txt')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById("content-conclusion").innerHTML = data;
@@ -104,7 +140,7 @@
                     console.log(error);
                 });
         </script>
-    <script src="../script.js"></script>
+        <script src="./pid-control.js"></script>
   </body>
 </html>
 <div class="footer">

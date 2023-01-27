@@ -1,5 +1,4 @@
 languagePluginLoader.then(() => {
-    // JavaScript to handle user input and run code
     const input = document.getElementById("code-input");
     const runButton = document.getElementById("run-button");
 
