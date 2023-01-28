@@ -1,0 +1,10 @@
+{
+    "tutorials": [
+        {
+            "title": "Bayesian Optimisation",
+            "image": "../images/bayesian.png",
+            "link": "../tutorials/bayesian-optimisation.html",
+            "description": "Learn how to use Bayesian Optimization to efficiently optimize black-box functions in real-world scenarios with examples and code snippets."
+        }
+    ]
+}

@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="../styles.css">
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- <script src="../lib/MathJax-2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
   </head>
   <body onload="initResponsePlot()">
     <h1>PID Control</h1>
@@ -44,21 +45,28 @@
       <p>Where \(P\), \(I\), \(D\) are the proportional, integral, and derivative terms respectively. \(K_p\), \(K_i\), \(K_d\) are the corresponding gain constants, \(e\) is the error, \(\Delta t\) is the change in time, and \(\Delta e\) is the change in error.</p>
       <!-- <div id="response-plot-container"> -->
         <form>
-            <label>Enter P value:</label>
-            <input type="text" id="P-input" placeholder="10">
-            <br>
-            <label>Enter I value:</label>
-            <input type="text" id="I-input" placeholder="1">
-            <br>
-            <!-- <label>Enter D value:</label>
-            <input type="text" id="D-input" placeholder="0">
-            <br> -->
-            <label>Enter F value:</label>
-            <input type="text" id="F-input" placeholder="0">
-            <br><br>
-            <button type="button" onclick="plotResponse()">Plot Response</button>
-            <br><br>
-        </form>
+          <div class="pid-input-container">
+              <label>Enter P value:</label>
+              <input type="text" id="P-input" placeholder="10">
+              <button type="button" onclick="incrementValue('P-input', 1)">+</button>
+              <button type="button" onclick="decrementValue('P-input', 1)">-</button>
+          </div>
+          <div class="pid-input-container">
+              <label>Enter I value:</label>
+              <input type="text" id="I-input" placeholder="1">
+              <button type="button" onclick="incrementValue('I-input', 0.1)">+</button>
+              <button type="button" onclick="decrementValue('I-input', 0.1)">-</button>
+          </div>
+          <div class="pid-input-container">
+              <label>Enter F value:</label>
+              <input type="text" id="F-input" placeholder="0">
+              <button type="button" onclick="incrementValue('F-input', 1)">+</button>
+              <button type="button" onclick="decrementValue('F-input', 1)">-</button>
+          </div>
+          <br><br>
+          <button type="button" onclick="plotResponse()">Plot Response</button>
+          <br><br>
+      </form>
         <div id="response-plot"></div>
     <!-- </div> -->
     <section id="code"></section>
@@ -109,7 +117,7 @@
           <input type="text" id="gamma-input" placeholder="1">
           <br>
           <label>Enter \(\tau\) value:</label>
-          <input type="text" id="tau-input" placeholder="1540">
+          <input type="text" id="tau-input" placeholder="1500">
           <br>
           <label>Enter \(\Delta PV\) value:</label>
           <input type="text" id="dpv-input" placeholder="15">
@@ -118,7 +126,7 @@
           <input type="text" id="ddc-input" placeholder="20">
           <br>
           <label>Enter \(T_d\) value:</label>
-          <input type="text" id="td-input" placeholder="118">
+          <input type="text" id="td-input" placeholder="120">
           <br><br>
           <button type="button" onclick="calculatePID()">Calculate PID</button>
           <br><br>
@@ -144,5 +152,5 @@
   </body>
 </html>
 <div class="footer">
-  <a class='back-to-topics' href="../topics/numerical-analysis.html" style="border: 1px solid blue; border-radius: 25px; padding: 10px 20px; text-decoration: none; color: blue;">Back to Topics</a>
+  <a class='back-to-topics' href="../topics/numerical-control.html" style="border: 1px solid blue; border-radius: 25px; padding: 10px 20px; text-decoration: none; color: blue;">Back to Topics</a>
 </div>

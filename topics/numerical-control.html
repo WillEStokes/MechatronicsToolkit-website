@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Numerical Analysis</title>
+    <title>Numerical Control</title>
     <link rel="stylesheet" type="text/css" href="../styles.css">
   </head>
   <body>
-    <h1>Numerical Analysis</h1>
-    <div id="tutorials-container" style="display: flex;">
+    <h1>Numerical Control</h1>
+    <div id="tutorials-container">
     </div>
     <div class="footer">
       <a href="../index.html" style="border: 1px solid blue; border-radius: 25px; padding: 10px 20px; text-decoration: none; color: blue;">Back to Homepage</a>
     </div>
     <script>
-      fetch('numerical-analysis.json')
+      fetch('numerical-control.json')
         .then(response => response.json())
         .then(data => {
           let tutorialsContainer = document.getElementById("tutorials-container");
@@ -30,6 +30,7 @@
                   </div>
                 </a>
               </div>
+            </div>  
             `;
             tutorialsContainer.appendChild(tutorialDiv);
           });

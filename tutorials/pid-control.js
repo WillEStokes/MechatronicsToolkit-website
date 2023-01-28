@@ -22,9 +22,45 @@ class PID {
   }
 }
 
+function incrementValue(inputId, amount) {
+  let input = document.getElementById(inputId);
+  input.value = (Number(input.value) + amount).toPrecision(3);
+}
+
+function decrementValue(inputId, amount) {
+  let input = document.getElementById(inputId);
+  input.value = (Number(input.value) - amount).toPrecision(3);
+}
+
 function initResponsePlot() {
+  let timeArray = [];
+  let setpointArray = [];
+  let processVariableArray = [];
+
+  for (let i=0; i < 1001; i++) {
+    timeArray.push(i);
+    setpointArray.push(30);
+    processVariableArray.push(-1);
+  }
+
+  var trace1 = {
+    x: timeArray,
+    y: processVariableArray,
+    type: 'scatter',
+    name: 'Process Variable'
+  };
+  
+  var trace2 = {
+    x: timeArray,
+    y: setpointArray,
+    type: 'scatter',
+    name: 'Setpoint'
+  };
+  
+  var data = [trace1, trace2];
+  
   // Define blank data for the plot
-  let data = [{ y: [] }];
+  // let data = [{ y: [] }];
 
   // Define the layout for the plot
   let layout = {
@@ -33,7 +69,7 @@ function initResponsePlot() {
         title: 'Time (s)'
     },
     yaxis: {
-        range: [0, 35],
+        range: [0, 32.5],
         title: 'Response'
     }
   };
@@ -43,11 +79,10 @@ function initResponsePlot() {
 }
 
 function plotResponse() {
-  // Get the user input values for P, I, D, and F
   var P = parseFloat(document.getElementById("P-input").value);
   var I = parseFloat(document.getElementById("I-input").value);
-  // var D = parseFloat(document.getElementById("D-input").value);
   var F = parseFloat(document.getElementById("F-input").value);
+  console.log(P)
 
   let pid = new PID(P,I,F);
 
