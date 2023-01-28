@@ -16,7 +16,7 @@
             "title": "C++ Pointers and References",
             "image": "../images/cpp-pointers-and-references.png",
             "link": "../tutorials/cpp-pointers-and-references.html",
-            "description": "Learn the basics of C++ Pointers and References, covering memory allocation and deallocation, passing by reference and passing by pointer."
+            "description": "Learn the basics of C++ pointers and references, covering memory allocation and deallocation, passing by reference and passing by pointer."
         },
         {
             "title": "Communication Architecture",
