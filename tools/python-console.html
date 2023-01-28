@@ -1,16 +1,26 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>PID Control</title><textarea id="code-input"></textarea>
+        <title>PID Control</title>
         <link rel="stylesheet" type="text/css" href="../styles.css">
         <script src="https://cdn.jsdelivr.net/pyodide/v0.16.1/full/pyodide.js"></script>
-        <button id="run-button" onclick="runPython()">Run</button>
-        <pre id="terminal-output"></pre>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.57.0/codemirror.min.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.57.0/codemirror.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.57.0/mode/python/python.min.js"></script>
     </head>
     <body>
+        <div class="console-container">
+            <div class="code-input-container">
+                <textarea id="code-input"></textarea>
+            </div>
+            <div class="terminal-output-container">
+                <div id="terminal-output" style="overflow: auto;"></div>
+            </div>
+        </div> 
+        <button id="run-button" class="run-python-button" onclick="runPython()">Run</button>
         <script src="./python-console.js"></script>
     </body>
+    <div class="footer">
+      <a class='back-to-topics' href="../topics/numerical-analysis.html" style="border: 1px solid blue; border-radius: 25px; padding: 10px 20px; text-decoration: none; color: blue;">Back to Topics</a>
+    </div>    
 </html>
-<div class="footer">
-  <a class='back-to-topics' href="../topics/numerical-analysis.html" style="border: 1px solid blue; border-radius: 25px; padding: 10px 20px; text-decoration: none; color: blue;">Back to Topics</a>
-</div>
