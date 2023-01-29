@@ -2,13 +2,12 @@
 
 <ul>
 <li><b>Proportional control:</b> The Proportional control term is based on the current error e(t) between the process variable (PV) and the set point (SP).
-The proportional term generates a control output that is proportional to the current error. The proportionality constant is called the gain of the controller.
+The proportional term generates a control output that is proportional to the current error. The proportionality constant is called the gain of the controller.</Li>
 
-<li><b>Integral control:</b> The Integral control term is based on the accumulated error over time. It compensates for the steady-state error that occurs with a pure proportional controller.
-The integral term generates a control output that is proportional to the accumulated error over time. The integral action will increase or decrease the control output until the error is zero.
+<li><b>Integral control:</b> The Integral control term is based on the accumulated error over time. It compensates for the steady-state error that occurs with a pure proportional controller. The integral term generates a control output that is proportional to the accumulated error over time. The integral action will increase or decrease the control output until the error is zero.</Li>
 
 <li><b>Derivative control:</b> The Derivative control term is based on the rate of change of the error. It predicts the future error based on the current rate of change.
-The derivative term generates a control output that is proportional to the rate of change of the error. The derivative action will reduce the control output if the error is increasing and increase the control output if the error is decreasing.
+The derivative term generates a control output that is proportional to the rate of change of the error. The derivative action will reduce the control output if the error is increasing and increase the control output if the error is decreasing.</Li>
 </ul>
 
 <p>The PID controller is the most popular controller in industrial control systems. It has wide range of applications such as temperature control, flow control, pressure control, level control, etc.

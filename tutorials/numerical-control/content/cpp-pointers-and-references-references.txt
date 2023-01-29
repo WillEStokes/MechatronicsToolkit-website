@@ -1,4 +1,4 @@
-<p>References are a powerful feature in C++ that allow you to create aliases for variables and manipulate memory in a more efficient way. In this section, we will be discussing the basics of references, including how to declare them, how to access the value of a reference, and the differences between references and pointers. By the end of this section, you will have a solid understanding of references and how to use them in your C++ programs.</p>
+<p>How to declare references and access their values.</p>
 
 <p><b>Declaring References</b>
 
@@ -39,6 +39,6 @@ cout << x << endl; // Outputs 10
 </code>
 </pre>
 
-<p>It's important to note that a reference cannot be null, unlike pointers. This means that you cannot create a reference that does not refer to a variable.</p>
+<p>It's important to note that a reference cannot be <code>null</code>, unlike pointers. This means that you cannot create a reference that does not refer to a variable.</p>
 
 <p>When using references, it's also important to remember that they are an alias for the original variable and any changes made to the reference will be reflected in the original variable and vice-versa.</p>

@@ -1,4 +1,4 @@
-<p>Pointers are a powerful feature in C++ that allow you to manipulate memory and create more efficient programs. In this section, we will be discussing the basics of pointers, including how to declare them, how to access the value of a pointer, and the differences between pointers and references. By the end of this section, you will have a solid understanding of pointers and how to use them in your C++ programs.</p>
+<p>How to declare pointers and access their values.</p>
 
 <p><b>Declaring Pointers</b>
 
@@ -12,7 +12,7 @@ int *ptr;
 
 <p>This creates a pointer called <code>ptr</code> that can point to an <code>int</code>. Note that the * operator goes before the variable name, not after. It is important to remember that a pointer is just a variable that holds the memory address of another variable. Therefore, you must initialize a pointer before you can use it.</p>
 
-<p>You can initialize a pointer by assigning it the memory address of a variable using the & operator. For example:</p>
+<p>You can initialize a pointer by assigning it the memory address of a variable using the <code>&</code> operator. For example:</p>
 
 <pre>
 <code class="cpp">
