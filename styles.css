@@ -111,17 +111,6 @@ body {
     opacity: 1;
 }
 
-/* ------- preformatted text ------- */
-
-pre {
-    background-color: #252525;
-    padding: 1em;
-    border-radius: 4px;
-    overflow-x: auto; /* Allows horizontal scrolling on small screens */
-    border: 1px solid #ccc;
-    text-align: left;
-}
-
 /* ------- content text ------- */
 
 #content-conclusion {
@@ -140,14 +129,28 @@ pre {
 
 /* ------- code ------- */
 
+pre {
+    background-color: #252525;
+    padding: 1em;
+    border-radius: 4px;
+    overflow-x: auto; /* Allows horizontal scrolling on small screens */
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
 code {
     font-family: Consolas, "Courier New", monospace;
-    color: rgb(255, 255, 255);
+    /* color: rgb(255, 255, 255); */
     font-size: 0.9em;
+    font-weight: 500;
+}
+
+.cpp {
+    color: rgb(255, 255, 255);
 }
 
 .python {
-    font-weight: 500;
+    color: rgb(255, 255, 255);
 }
 
 .datatype {

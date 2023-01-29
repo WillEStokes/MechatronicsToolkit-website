@@ -4,7 +4,8 @@ languagePluginLoader.then(() => {
     const editor = CodeMirror.fromTextArea(textarea, {
         mode: "python",
         lineNumbers: true,
-        theme: "default",
+        // theme: "default",
+        theme: 'juejin',
     });
     editor.getWrapperElement().style.height = "400px";
     editor.getWrapperElement().style.marginTop = "10px";
@@ -34,5 +35,4 @@ callback(sys.stdout.getvalue())`);
             document.getElementById("terminal-output").innerText = error;
         }
     });
-    
 });

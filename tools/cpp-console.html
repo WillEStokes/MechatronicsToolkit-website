@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Python Console</title>
+        <title>CPP Console</title>
         <link rel="stylesheet" type="text/css" href="../styles.css">
-        <link rel="stylesheet" href="../juejin.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.57.0/codemirror.min.css" />
-        <script src="https://cdn.jsdelivr.net/pyodide/v0.16.1/full/pyodide.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@3.0.0/dist/fetch.umd.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.57.0/codemirror.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.57.0/mode/python/python.min.js"></script>
     </head>
@@ -18,8 +17,8 @@
                 <div id="terminal-output" style="overflow: auto;"></div>
             </div>
         </div> 
-        <button id="run-button" class="run-python-button" onclick="runPython()">Run</button>
-        <script src="./python-console.js"></script>
+        <button id="run-button">Run</button>
+        <script src="./cpp-console.js"></script>
     </body>
     <div class="footer">
       <a class='back-to-homepage' href="../index.html" style="border: 1px solid blue; border-radius: 25px; padding: 10px 20px; text-decoration: none; color: blue;">Back to Homepage</a>

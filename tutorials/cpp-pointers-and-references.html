@@ -1,1 +1,63 @@
-hi
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>C++ Pointers and References</title>
+    <link rel="stylesheet" type="text/css" href="../styles.css">
+    <!-- <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+  </head>
+  <body>
+    <h1>C++ Pointers and References</h1>
+    <h2>Introduction</h2>
+    <div id="content-intro"></div>
+        <script>
+            fetch('./content/cpp-pointers-and-references-intro.txt')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("content-intro").innerHTML = data;
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        </script>
+    <h2>Pointers</h2>
+    <div id="content-pointers"></div>
+        <script>
+            fetch('./content/cpp-pointers-and-references-pointers.txt')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("content-pointers").innerHTML = data;
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        </script>
+    <h2>References</h2>
+    <div id="content-references"></div>
+        <script>
+            fetch('./content/cpp-pointers-and-references-references.txt')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("content-references").innerHTML = data;
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        </script>
+    <a href="../tools/cpp-console.html">Practice using pointers and references with our C++ console</a>
+    <h2>Conclusion</h2>
+    <div id="content-conclusion"></div>
+        <script>
+            fetch('./content/cpp-pointers-and-references-conclusion.txt')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("content-conclusion").innerHTML = data;
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        </script>
+  </body>
+</html>
+<div class="footer">
+    <a class='back-to-topics' href="../topics/numerical-control.html" style="border: 1px solid blue; border-radius: 25px; padding: 10px 20px; text-decoration: none; color: blue;">Back to Topics</a>
+  </div>
