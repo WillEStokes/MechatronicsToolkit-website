@@ -1,63 +1,69 @@
 document.addEventListener("DOMContentLoaded", function() {
     const spinner = document.querySelector("#spinner");
+
     if (spinner) {
-        spinner.style.display = "block";
+        spinner.style.display = "none";
     }
+
     const runButton = document.getElementById("run-button");
     const textarea = document.getElementById("code-input");
     const editor = CodeMirror.fromTextArea(textarea, {
-        mode: "cpp",
+        mode: "text/x-c++src",
         lineNumbers: true,
-        theme: 'juejin',
+        theme: 'default',
     });
+
     editor.getWrapperElement().style.height = "400px";
     editor.getWrapperElement().style.marginTop = "10px";
     editor.getWrapperElement().style.marginBottom = "10px";
-    editor.setValue(``);
+    editor.setValue(`#include <iostream>
+using namespace std;
+
+int main() {
+    int x = 10;
+    int *ptr = &x; // pointer to x
+    int &ref = x; // reference to x
+
+    cout << "x = " << x << endl;
+    cout << "ptr = " << ptr << ", *ptr = " << *ptr << endl;
+    cout << "ref = " << ref << endl;
+
+    *ptr = 20; // modify x through ptr
+    cout << "x = " << x << endl;
+
+    ref = 30; // modify x through ref
+    cout << "x = " << x << endl;
+
+    return 0;
+}`);
     runButton.addEventListener("click", () => {
-        document.getElementById("terminal-output").style.display = "none";
-        
+        document.getElementById("spinner").style.display = "block";
         const code = editor.getValue();
+
         try {
-            fetch('https://run.glot.io/languages/cpp/latest', {
-                method: 'POST',
-                mode: 'no-cors',
-                headers: {
-                    "Accept":"application/json",
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Bearer bce2da54-ebb8-4a85-868f-f8be12d4727d'
-                },
-                body: JSON.stringify({
-                    'files': [
-                        {
-                            'name': 'main.cpp',
-                            'content': code
-                        }
-                    ]
-                })
+            axios.post('http://localhost:3000/run-code', {    
+            code: code
             })
             .then(res => {
-                if(res.ok) {
-                    return res.json();
+                console.log(res.data);
+                const output = res.data.stdout;
+                if (output === '') {
+                    document.getElementById("terminal-output").innerText = res.data.error + '\n' + res.data.stderr;
                 } else {
-                    throw new Error(res.statusText);
+                    document.getElementById("terminal-output").innerText = output;
                 }
-            })
-            .then(data => {
-                console.log(data);
-                const output = data.stdout;
-                document.getElementById("terminal-output").innerText = output;
-                document.getElementById("terminal-output").style.display = "block";
-            })
+                document.getElementById("spinner").style.display = "none";
+            })            
             .catch(error => {
                 console.log(error);
-                document.getElementById("terminal-output").innerText = error;
-                document.getElementById("terminal-output").style.display = "block";
-            })
-            } catch (error) {
+                document.getElementById("terminal-output").innerText = error || error;
+                document.getElementById("spinner").style.display = "none";
+            });
+        } catch (error) {
             console.log(error);
-            document.getElementById("terminal-output").innerText = error;
-            document.getElementById("terminal-output").style.display = "block";
-            }
-    })
+            document.getElementById("terminal-output").innerText = error || error;
+            document.getElementById("spinner").style.display = "none";
+        }
+    });
 });
+  

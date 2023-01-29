@@ -3,9 +3,11 @@
     <head>
         <title>CPP Console</title>
         <link rel="stylesheet" type="text/css" href="../styles.css">
+        <link rel="stylesheet" href="../juejin.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.57.0/codemirror.min.css" />
-        <script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@3.0.0/dist/fetch.umd.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.57.0/codemirror.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.42.2/mode/clike/clike.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.57.0/mode/python/python.min.js"></script>
     </head>
     <body>
@@ -14,10 +16,11 @@
                 <textarea id="code-input"></textarea>
             </div>
             <div class="terminal-output-container">
+                <div id="spinner" class="spinner" style="display: none;"></div>
                 <div id="terminal-output" style="overflow: auto;"></div>
             </div>
         </div> 
-        <button id="run-button">Run</button>
+        <button id="run-button" class="run-button" >Run</button>
         <script src="./cpp-console.js"></script>
     </body>
     <div class="footer">

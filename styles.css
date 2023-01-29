@@ -204,13 +204,14 @@ code {
 
 .terminal-output-container {
     width: 50%;
-    align-items: flex-start;
-}
-
-#terminal-output {
+    height: 400px;
+    position: relative;
+  }
+  
+  #terminal-output {
     background-color: rgb(36, 36, 36);
     width: 100%;
-    height: 400px;
+    height: 100%;
     padding: 10px;
     box-sizing: border-box;
     border: 1px solid #ccc;
@@ -220,11 +221,31 @@ code {
     overflow-y: scroll;
     resize: none;
     color: #ffffff;
-}
+  }
+  
+  /* ------- spinner ------- */
+  
+  .spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid blue;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }  
 
 /* ------- buttons ------- */
 
-.run-python-button {
+.run-button {
     font-size: 16px;
     padding: 5px 30px;
 }
