@@ -2,27 +2,21 @@
     "tutorials": [
         {
             "title": "Basics of Machine Learning",
-            "image": "../images/pid.png",
+            "image": "../images/ML-basics.png",
             "link": "../tutorials/machine-learning/ML-basics.html",
             "description": "An overview of several common terms."
         },
         {
             "title": "Linear Regression",
-            "image": "../images/object-oriented-programming.png",
-            "link": "../tutorials/object-oriented-programming.html",
-            "description": "Discover techniques for designing efficient communication networks in mechatronics systems."
+            "image": "../images/linear-regression.png",
+            "link": "../tutorials/linear-regression.html",
+            "description": ""
         },
         {
             "title": "Gradient Descent",
-            "image": "../images/cpp-pointers-and-references.png",
-            "link": "../tutorials/cpp-pointers-and-references.html",
-            "description": "Learn the basics of C++ Pointers and References, covering memory allocation and deallocation, passing by reference and passing by pointer."
-        },
-        {
-            "title": "Communication Architecture",
-            "image": "../images/communication.png",
-            "link": "../tutorials/communication-architecture.html",
-            "description": "Learn the fundamentals of I2C and serial protocols, using robust communication architecture."
+            "image": "../images/gradient-descent.png",
+            "link": "../tutorials/gradient-descent.html",
+            "description": ""
         }
     ]
 }
