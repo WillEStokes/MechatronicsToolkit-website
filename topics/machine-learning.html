@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Machine Learning</title>
+    <link rel="stylesheet" type="text/css" href="../styles.css">
+  </head>
+  <body>
+    <h1>Machine Learningl</h1>
+    <div id="tutorials-container">
+    </div>
+    <div class="footer">
+      <a href="../index.html" style="border: 1px solid blue; border-radius: 25px; padding: 10px 20px; text-decoration: none; color: blue;">Back to Homepage</a>
+    </div>
+    <script>
+      fetch('machine-learning.json')
+        .then(response => response.json())
+        .then(data => {
+          let tutorialsContainer = document.getElementById("tutorials-container");
+          tutorialsContainer.classList.add("grid-container");
+          data.tutorials.forEach(tutorial => {
+            let tutorialDiv = document.createElement("div");
+            tutorialDiv.style.margin = "10px 10px";
+            tutorialDiv.innerHTML = `
+              <h2> ${tutorial.title} </h2>
+              <div class="image-container">
+                <a href="${tutorial.link}">
+                  <img src="${tutorial.image}" alt="${tutorial.title}">
+                  <div class="overlay">
+                    <p>${tutorial.description}</p>
+                  </div>
+                </a>
+              </div>
+            </div>  
+            `;
+            tutorialsContainer.appendChild(tutorialDiv);
+          });
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    </script>
+  </body>
+</html>
