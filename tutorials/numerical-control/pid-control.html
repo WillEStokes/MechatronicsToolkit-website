@@ -3,6 +3,10 @@
   <head>
     <title>PID Control</title>
     <link rel="stylesheet" type="text/css" href="../../styles.css">
+    <link rel="stylesheet" href="../../themes/vscode-dark.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.57.0/codemirror.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.57.0/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.57.0/mode/python/python.min.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <!-- <script src="../lib/MathJax-2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
@@ -43,64 +47,45 @@
       <p>$$I = I + K_i \cdot e \cdot \Delta t$$</p>
       <p>$$D = K_d \cdot \frac{\Delta e}{\Delta t}$$</p>
       <p>Where \(P\), \(I\), \(D\) are the proportional, integral, and derivative terms respectively. \(K_p\), \(K_i\), \(K_d\) are the corresponding gain constants, \(e\) is the error, \(\Delta t\) is the change in time, and \(\Delta e\) is the change in error.</p>
-      <!-- <div id="response-plot-container"> -->
-        <form>
-          <div class="pid-input-container">
-              <label>Enter P value:</label>
-              <input type="text" id="P-input" placeholder="10">
-              <button type="button" onclick="incrementValue('P-input', 1)">+</button>
-              <button type="button" onclick="decrementValue('P-input', 1)">-</button>
-          </div>
-          <div class="pid-input-container">
-              <label>Enter I value:</label>
-              <input type="text" id="I-input" placeholder="1">
-              <button type="button" onclick="incrementValue('I-input', 0.1)">+</button>
-              <button type="button" onclick="decrementValue('I-input', 0.1)">-</button>
-          </div>
-          <div class="pid-input-container">
-              <label>Enter F value:</label>
-              <input type="text" id="F-input" placeholder="0">
-              <button type="button" onclick="incrementValue('F-input', 1)">+</button>
-              <button type="button" onclick="decrementValue('F-input', 1)">-</button>
-          </div>
-          <br><br>
-          <button type="button" onclick="plotResponse()">Plot Response</button>
-          <br><br>
+      <form>
+        <div class="pid-input-container">
+            <label>Enter P value:</label>
+            <input type="text" id="P-input" placeholder="10">
+            <button type="button" onclick="incrementValue('P-input', 1)">+</button>
+            <button type="button" onclick="decrementValue('P-input', 1)">-</button>
+        </div>
+        <div class="pid-input-container">
+            <label>Enter I value:</label>
+            <input type="text" id="I-input" placeholder="1">
+            <button type="button" onclick="incrementValue('I-input', 0.1)">+</button>
+            <button type="button" onclick="decrementValue('I-input', 0.1)">-</button>
+        </div>
+        <div class="pid-input-container">
+            <label>Enter F value:</label>
+            <input type="text" id="F-input" placeholder="0">
+            <button type="button" onclick="incrementValue('F-input', 1)">+</button>
+            <button type="button" onclick="decrementValue('F-input', 1)">-</button>
+        </div>
+        <br><br>
+        <button type="button" onclick="plotResponse()">Plot Response</button>
+        <br><br>
       </form>
         <div id="response-plot"></div>
-    <!-- </div> -->
     <section id="code"></section>
       <h3>Example Python code</h3>
-      <pre>
-        <code class="python">
-<span class="keyword">class</span> <span class="classname">PID</span>:
-    <span class="keyword">def</span> <span class="function">__init__</span>(<span class="variable">self</span>, <span class="variable">Kp</span>, <span class="variable">Ki</span>, <span class="variable">Kd</span>):
-        <span class="variable">self</span>.<span class="variable">Kp</span> = <span class="variable">Kp</span>
-        <span class="variable">self</span>.<span class="variable">Ki</span> = <span class="variable">Ki</span>
-        <span class="variable">self</span>.<span class="variable">Kd</span> = <span class="variable">Kd</span>
-        <span class="variable">self</span>.<span class="variable">previous_error</span> = <span class="number">0</span>
-        <span class="variable">self</span>.<span class="variable">integral</span> = <span class="number">0</span>
-
-    <span class="keyword">def</span> <span class="function">calculate</span>(<span class="variable">self</span>, <span class="variable">setpoint</span>, <span class="variable">pv</span>):
-        <span class="variable">error</span> = <span class="variable">setpoint</span> - <span class="variable">pv</span>
-        <span class="variable">self</span>.<span class="variable">integral</span> += <span class="variable">error</span>
-        <span class="variable">derivative</span> = <span class="variable">error</span> - <span class="variable">self</span>.<span class="variable">previous_error</span>
-        <span class="variable">self</span>.<span class="variable">previous_error</span> = <span class="variable">error</span>
-        <span class="return">return</span> <span class="variable">self</span>.<span class="variable">Kp</span> * <span class="variable">error</span> + <span class="variable">self</span>.<span class="variable">Ki</span> * <span class="variable">self</span>.<span class="variable">integral</span> + <span class="variable">self</span>.<span class="variable">Kd</span> * <span class="variable">derivative</span>
-
-<span class="comment"># Usage example</span>
-<span class="variable">pid</span> = <span class="classname">PID</span>(<span class="number">1</span>, <span class="number">0.1</span>, <span class="number">0.01</span>)
-<span class="variable">output</span> = <span class="variable">pid</span>.<span class="function">calculate</span>(<span class="variable">setpoint</span>=<span class="number">50</span>, <span class="variable">pv</span>=<span class="number">40</span>)
-<span class="function">print</span>(<span class="variable">output</span>)
-        </code>
-      </pre>
-      <a href="../../tools/python-console.html">Practice your coding skills with our Python console</a>
+      <!-- <pre> -->
+        <!-- <code id="content-python"> -->
+      <p><textarea id="content-python"></textarea></p>
+      <p><textarea id="content-python-usage"></textarea></p>
+        <!-- </code> -->
+      <!-- </pre> -->
+      <p><a href="../../tools/python-console.html">Practice your coding skills with our Python console</a></p>
     <section id="tuning"></section>
       <h2>Tuning</h2>
         <p>Lambda tuning is a method for determining the optimal values of the proportional, integral, and derivative gain parameters (\(K_p\), \(K_i\), \(K_d\)) in a PID controller.
           The method is based on measuring the system's step response and calculating the optimal values of \(K_p\), \(K_i\), and \(K_d\) based on the values of \(T_d\) and \(\tau\), which are calculated from the step response.
         <div class="tuning-image">
-          <img src="../images/metrics-image.png" alt="Diagram showing Td and tau calculated from controller output step change">
+          <img src="../../images/metrics-image.png" alt="Diagram showing Td and tau calculated from controller output step change">
         </div>
         <p>To calculate the proportional term, we use the equation:</p>
         <p>$$P = K_c \times e(t)$$</p>

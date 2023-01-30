@@ -4,22 +4,15 @@
 
 <p>To declare a pointer in C++, you use the * operator. For example, to create a pointer to an int, you would write:</p>
 
-<pre>
-<code class="cpp">
-int *ptr;
-</code>
-</pre>
+<p><textarea class="content-cpp">
+int *ptr;</textarea></p>
 
 <p>This creates a pointer called <code>ptr</code> that can point to an <code>int</code>. Note that the * operator goes before the variable name, not after. It is important to remember that a pointer is just a variable that holds the memory address of another variable. Therefore, you must initialize a pointer before you can use it.</p>
 
 <p>You can initialize a pointer by assigning it the memory address of a variable using the <code>&</code> operator. For example:</p>
 
-<pre>
-<code class="cpp">
-int x = 5;
-int *ptr = &x;
-</code>
-</pre>
+<p><textarea class="content-cpp">int x = 5;
+int *ptr = &x;</textarea></p>
 
 <p>This assigns the memory address of <code>x</code> to <code>ptr</code>. Now, <code>ptr</code> points to <code>x</code> and can be used to manipulate the value of <code>x</code>.</p>
 
@@ -27,26 +20,18 @@ int *ptr = &x;
 
 <p>Once you have a pointer, you can use it to access the value of the variable it points to. To do this, you use the * operator. For example:</p>
 
-<pre>
-<code class="cpp">
-int x = 5;
+<p><textarea class="content-cpp">int x = 5;
 int *ptr = &x;
-cout << *ptr << endl; // Outputs 5
-</code>
-</pre>
+cout << *ptr << endl; // Outputs 5</textarea></p>
 
 <p>The * operator is called the dereference operator. It allows you to access the value of the variable at the memory address stored in the pointer.</p>
 
 <p>You can also use the pointer to change the value of the variable it points to. For example:</p>
 
-<pre>
-<code class="cpp">
-int x = 5;
+<p><textarea class="content-cpp">int x = 5;
 int *ptr = &x;
 *ptr = 10;
-cout << x << endl; // Outputs 10
-</code>
-</pre>
+cout << x << endl; // Outputs 10</textarea></p>
 
 <p>By using the dereference operator to change the value of the variable at the memory address stored in the pointer, we have also changed the value of the original variable <code>x</code>.</p>
 

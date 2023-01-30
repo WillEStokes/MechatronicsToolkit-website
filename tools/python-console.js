@@ -5,7 +5,7 @@ languagePluginLoader.then(() => {
         mode: "python",
         lineNumbers: true,
         // theme: "default",
-        theme: 'juejin',
+        theme: 'mdn-like',
     });
     editor.getWrapperElement().style.height = "400px";
     editor.getWrapperElement().style.marginTop = "10px";

@@ -3,6 +3,7 @@ h1 {
     text-align: center;
     font-family: "Verdana", sans-serif;
     font-weight: lighter;
+    font-size: 1.6vw;
     color: #2054ff;
     margin-bottom: 40px;
 }
@@ -11,7 +12,7 @@ h2 {
     text-align: center;
     font-family: "Verdana", sans-serif;
     font-weight: lighter;
-    /* font-size: 20px; */
+    font-size: 1.2vw;
     color: #2054ff;
     margin-bottom: 10px;
 }
@@ -42,21 +43,21 @@ body {
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr) !important;
+    grid-template-columns: repeat(4, 1fr) !important;
     grid-gap: 10px;
     justify-content: center;
+    align-items: end;
 }
 
 .image-container {
     border-radius: 10px;
     overflow: hidden;
-    margin: 10px;
+    /* margin: 10px; */
     border: 1px solid #2054ff;
     position: relative;
     max-width: 100%;
     max-height: 100%;
-    width: 350px;
-    height: 350px;
+    aspect-ratio: 1;
 }
 
 .image-container img{
@@ -109,6 +110,10 @@ body {
 }
 
 /* ------- code ------- */
+
+.CodeMirror {
+    height: auto;
+}
 
 pre {
     background-color: #252525;

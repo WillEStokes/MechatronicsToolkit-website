@@ -2,47 +2,51 @@
 <html>
   <head>
     <title>C++ Pointers and References</title>
-    <link rel="stylesheet" type="text/css" href="../../styles.css">
+    <link rel="stylesheet" href="../../themes/vscode-dark.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.57.0/codemirror.min.css">
+    <link rel="stylesheet" type="text/css" href="../../styles.css"> <!-- link our styles last so that they override codemirror -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.57.0/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.42.2/mode/clike/clike.min.js"></script>
     <!-- <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
   </head>
   <body>
     <h1>C++ Pointers and References</h1>
     <h2>Introduction</h2>
     <div id="content-intro"></div>
-        <script>
-            fetch('./content/cpp-pointers-and-references-intro.txt')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById("content-intro").innerHTML = data;
-                })
-                .catch(error => {
-                    console.log(error);
-                });
-        </script>
+    <script>
+        fetch('./content/cpp-pointers-and-references-intro.txt')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("content-intro").innerHTML = data;
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    </script>
     <h2>Pointers</h2>
     <div id="content-pointers"></div>
-        <script>
-            fetch('./content/cpp-pointers-and-references-pointers.txt')
+    <script>
+        fetch('./content/cpp-pointers-and-references-pointers.txt')
                 .then(response => response.text())
                 .then(data => {
-                    document.getElementById("content-pointers").innerHTML = data;
-                })
-                .catch(error => {
-                    console.log(error);
-                });
-        </script>
+                document.getElementById("content-pointers").innerHTML = data;
+            })
+            .catch(error => {
+                console.log(error);
+            }); 
+    </script>
     <h2>References</h2>
     <div id="content-references"></div>
-        <script>
-            fetch('./content/cpp-pointers-and-references-references.txt')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById("content-references").innerHTML = data;
-                })
-                .catch(error => {
-                    console.log(error);
-                });
-        </script>
+    <script>
+        fetch('./content/cpp-pointers-and-references-references.txt')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("content-references").innerHTML = data;
+            })
+            .catch(error => {
+                console.log(error);
+            }); 
+    </script>
     <a href="../../tools/cpp-console.html">Practice using pointers and references with our C++ console</a>
     <h2>Conclusion</h2>
     <div id="content-conclusion"></div>
@@ -51,6 +55,19 @@
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById("content-conclusion").innerHTML = data;
+                })
+                .then(() => {
+                    // only call codemirror once after fetch to format the entire document
+                    const codeElements = document.getElementsByClassName("content-cpp");
+                    for (let i = 0; i < codeElements.length; i++) {
+                        CodeMirror.fromTextArea(codeElements[i], {
+                        mode: "text/x-c++src",
+                        lineNumbers: true,
+                        theme: 'vscode-dark',
+                        readOnly: true,
+                        outerHeight: 100,
+                        });
+                    }
                 })
                 .catch(error => {
                     console.log(error);

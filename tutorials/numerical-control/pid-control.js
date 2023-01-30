@@ -1,3 +1,36 @@
+const code = document.getElementById("content-python");
+const codeusage = document.getElementById("content-python-usage");
+
+fetch('./content/pid-control-python-function.txt')
+.then(response => response.text())
+.then(data => {
+  document.getElementById("content-python").innerHTML = data;
+  CodeMirror.fromTextArea(code, {
+    mode: "python",
+    lineNumbers: true,
+    theme: 'vscode-dark',
+    readOnly: true,
+  }); 
+})
+.catch(error => {
+    console.log(error);
+});
+
+fetch('./content/pid-control-python-function-usage.txt')
+.then(response => response.text())
+.then(data => {
+  document.getElementById("content-python-usage").innerHTML = data;
+  CodeMirror.fromTextArea(codeusage, {
+    mode: "python",
+    lineNumbers: true,
+    theme: 'vscode-dark',
+    readOnly: true,
+  });
+})
+.catch(error => {
+    console.log(error);
+});
+
 class PID {
   constructor(Kp, Ki, Kf) {
     this._Kp = Kp;

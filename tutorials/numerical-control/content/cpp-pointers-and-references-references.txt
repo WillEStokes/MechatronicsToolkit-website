@@ -4,40 +4,27 @@
 
 <p>In C++, you can create a reference to a variable by using the & operator. A reference is an alias for a variable and cannot be reassigned to point to another variable. For example:</p>
 
-<pre>
-<code class="cpp">
-int x = 5;
-int &ref = x;
-</code>
-</pre>
+<p><textarea class="content-cpp">int x = 5;
+int &ref = x;</textarea></p>
 
 <p>This creates a reference called ref that is an alias for the variable <code>x</code>. Now, you can use ref just like you would use <code>x</code>, and any changes made to ref will also be made to <code>x</code>.</p>
 
 <p>It's important to note that a reference must be initialized when it is declared, unlike pointers which can be initialized later.</p>
 
-
 <p><b>Accessing the Value of a Reference</b>
 
 <p>You can access the value of a reference just like you would access the value of the original variable. For example:</p>
 
-<pre>
-<code class="cpp">
-int x = 5;
+<p><textarea class="content-cpp">int x = 5;
 int &ref = x;
-cout << ref << endl; // Outputs 5
-</code>
-</pre>
+cout << ref << endl; // Outputs 5</textarea></p>
 
 <p>You can also use a reference to change the value of the original variable. For example:</p>
 
-<pre>
-<code class="cpp">
-int x = 5;
+<p><textarea class="content-cpp">int x = 5;
 int &ref = x;
 ref = 10;
-cout << x << endl; // Outputs 10
-</code>
-</pre>
+cout << x << endl; // Outputs 10</textarea></p>
 
 <p>It's important to note that a reference cannot be <code>null</code>, unlike pointers. This means that you cannot create a reference that does not refer to a variable.</p>
 
