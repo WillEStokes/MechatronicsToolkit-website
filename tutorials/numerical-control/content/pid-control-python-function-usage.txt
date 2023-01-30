@@ -1,0 +1,23 @@
+# Import the PID class from the module
+from pid_controller import PID
+
+# Initialize the PID instance
+dt = 0.1 # sample time
+max_output = 100 # maximum output value
+min_output = 0 # minimum output value
+kp = 0.5 # proportional gain
+kd = 0.1 # derivative gain
+ki = 0.01 # integral gain
+kf = 0.0 # feedforward gain
+step = 0.1 # step size for setpoint ramping
+setpoint = 50 # initial setpoint
+method = 0 # clamping method
+pwm_pin = 0 # dummy value, not used in the code
+pid_controller = PID(dt, max_output, min_output, kp, kd, ki, kf, step, setpoint, method, pwm_pin)
+
+# Use the calculate function to get the controller output
+setpoint_target = 75 # target setpoint
+pv = 60 # process variable
+init_setpoint = True # flag for initializing setpoint
+output = pid_controller.calculate(setpoint_target, pv, init_setpoint)
+print(f"Controller output: {output}")

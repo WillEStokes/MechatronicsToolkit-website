@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const editor = CodeMirror.fromTextArea(textarea, {
         mode: "text/x-c++src",
         lineNumbers: true,
-        theme: 'default',
+        theme: 'mdn-like',
     });
 
     editor.getWrapperElement().style.height = "400px";

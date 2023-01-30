@@ -1,0 +1,72 @@
+class PID:
+    def __init__(self, dt, max_val, min_val, Kp, Kd, Ki, Kf, step, setpoint, method, mosfetPWM):
+        self._dt = dt
+        self._max = max_val
+        self._min = min_val
+        self._Kp = Kp
+        self._Kd = Kd
+        self._Ki = Ki
+        self._Kf = Kf
+        self._step = step
+        self._setpoint = setpoint
+        self._method = method
+        self._pwmDutyCycle = mosfetPWM
+        self._pre_error = 0
+        self._integral = 0
+        self._limit = 1
+
+    def calculate(self, setpointTarget, pv, initSetpoint):
+        if initSetpoint: # Initialise _setpoint to measured temp on first call
+            self._setpoint = pv
+
+        # Setpoint ramping
+        if self._setpoint + self._step < setpointTarget:
+            self._setpoint = self._setpoint + self._step
+        elif self._setpoint - self._step >= setpointTarget:
+            self._setpoint = self._setpoint - self._step
+        elif (self._setpoint - self._step < setpointTarget) or (self._setpoint + self._step > setpointTarget):
+            self._setpoint = setpointTarget
+
+        # Calculate error
+        self._error = self._setpoint - pv
+
+        # Proportional term
+        self._Pout = self._Kp * self._error
+
+        # Integral term
+        self._temp_integral = self._integral + self._error * self._dt
+
+        self._Iout = self._Ki * self._temp_integral
+
+        # Derivative term
+        self._derivative = (self._error - self._pre_error) / self._dt
+        self._Dout = self._Kd * self._derivative
+
+        # Feedforward term
+        self._Fout = self._Kf * self._setpoint
+
+        # Calculate total output
+        self._output = self._Pout + self._Iout + self._Dout + self._Fout
+
+        # Implement clamping
+        if self._method == "NONE":
+            self._integral = self._temp_integral
+        elif self._method == "CLAMPING":
+            if self._output > self._max:
+                if self._error < 0:
+                    self._integral = self._temp_integral
+            elif self._output < self._min:
+                if self._error > 0:
+                    self._integral = self._temp_integral
+
+        if self._output > self._max:
+            self._output = self._max
+        elif self._output < self._min:
+            self._output = self._min
+
+        # Save error to previous error
+        self._pre_error = self._error
+
+        self._pwmDutyCycle = self._output / (self._max - self._min)
+
+        return self._output

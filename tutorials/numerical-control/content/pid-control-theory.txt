@@ -1,21 +1,21 @@
 <p>PID control is a feedback control loop mechanism that is commonly used in industrial control systems and other applications that require continuously modulated control. The name of the controller derives from its three correcting terms, Proportional, Integral and Derivative, which are summed to compute the control output.</p>
 
 <ul>
-<li><b>Proportional control:</b> The Proportional control term is based on the current error e(t) between the process variable (PV) and the set point (SP).
-The proportional term generates a control output that is proportional to the current error. The proportionality constant is called the gain of the controller.</Li>
+<li><b>Proportional control:</b> The Proportional (P) term represents the proportional <i>gain</i> and affects the output proportionally to the error (e(t)) between the setpoint and process variable (PV). A high P gain will result in a large output change for a large error, leading to quicker correction but also potential overshoot.</Li>
 
-<li><b>Integral control:</b> The Integral control term is based on the accumulated error over time. It compensates for the steady-state error that occurs with a pure proportional controller. The integral term generates a control output that is proportional to the accumulated error over time. The integral action will increase or decrease the control output until the error is zero.</Li>
+<li><b>Integral control:</b> The Integral control term is based on the accumulated error over time. It compensates for the steady-state error that occurs with a pure proportional controller. The integral term generates a control output that is proportional to the accumulated error over time. The integral action will increase or decrease the control output until the error is zero. A high I gain will result in a large output change for a long-term error, leading to correction of the error but also potential steady-state overshoot and slow response.</Li>
 
 <li><b>Derivative control:</b> The Derivative control term is based on the rate of change of the error. It predicts the future error based on the current rate of change.
-The derivative term generates a control output that is proportional to the rate of change of the error. The derivative action will reduce the control output if the error is increasing and increase the control output if the error is decreasing.</Li>
+The derivative term generates a control output that is proportional to the rate of change of the error. The derivative action will reduce the control output if the error is increasing and increase the control output if the error is decreasing. A high D gain will result in a large output change for a rapid change in error, leading to quicker response and reduced overshoot.</Li>
 </ul>
 
 <p>The PID controller is the most popular controller in industrial control systems. It has wide range of applications such as temperature control, flow control, pressure control, level control, etc.
 
 <p>However, the PID controller has some limitations, such as the steady-state error and the overshoot problem. One way to overcome these limitations is by using a feedforward component to create a PIDF controller.</p>
 
-<p>A feedforward controller is a controller that uses a model of the process to predict the future output and adjust the control signal accordingly. This will result in a faster response time and better set point tracking performance.
-The feedforward controller is used in combination with the PID controller to create the PIDF controller which is more suitable for slow response systems.</p>
+<p>Feedforward control predicts and compensates for the future process behavior based on the setpoint, rather than relying on feedback from the process variable as in a standard PID controller. The feedforward term, is usually based on a mathematical model of the process, and it is added to the output of the PID controller. It can also be defined based on experimentation.</p>
+
+<p>The use of feedforward can improve the performance of the control system by reducing the steady-state error and improving the response time to setpoint changes. The feedforward term allows the controller to take into account the expected process behavior based on the setpoint, before the actual process variable measurement is available.</p>
 
 <p>In order to achieve optimal performance, it is essential to tune the PID controller parameters. One popular method for tuning PID controllers is called Lambda tuning.
 This method involves measuring the process's closed-loop transfer function and using it to calculate the optimal controller gains. Lambda tuning is especially useful in slow response systems, as it takes into account the dynamics of the process and allows for a more precise tuning of the controller.</p>
@@ -25,5 +25,3 @@ A technique that limits the integral term of the PID controller. This is done to
 
 <p><b>Wind-up:</b>
 A phenomenon that occurs when the integral term of the PID controller reaches its limit and no longer responds to changes in the error. This can happen when the set point changes suddenly or when the process is highly nonlinear. Wind-up can cause the controller to become unstable and generate large control output. To prevent wind-up, various anti-wind-up techniques can be used. One common method is to reset the integral term when the control output reaches its limit.</p>
-
-<p>In summary, the PID controller is a widely used feedback control mechanism that uses Proportional, Integral and Derivative terms to generate a control output. The PID controller has some limitations, such as steady-state error and overshoot, which can be overcome by using a feedforward component to create a PIDF controller. Tuning the controller parameters is crucial to achieve optimal performance, and Lambda tuning is a popular method for this purpose. It takes into account the dynamics of the process and allows for a more precise tuning of the controller.</p>
