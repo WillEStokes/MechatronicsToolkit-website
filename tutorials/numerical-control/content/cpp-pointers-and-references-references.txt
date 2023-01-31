@@ -1,4 +1,10 @@
-<p>How to declare references and access their values.</p>
+<p>References are useful in C++ programming because they:</p>
+
+<ul>
+<li>Provide a way to access the original object, instead of a copy, improving performance and memory usage.</Li>
+<li>Allow for easier function argument passing and return values.</Li>
+<li>Offer a cleaner and simpler syntax for accessing object members.</Li>
+</ul>
 
 <p><b>Declaring References</b>
 
@@ -7,7 +13,7 @@
 <p><textarea class="content-cpp">int x = 5;
 int &ref = x;</textarea></p>
 
-<p>This creates a reference called ref that is an alias for the variable <code>x</code>. Now, you can use ref just like you would use <code>x</code>, and any changes made to ref will also be made to <code>x</code>.</p>
+<p>This creates a reference called <code>ref</code> that is an alias for the variable <code>x</code>. Now, you can use <code>ref</code> just like you would use <code>x</code>, and any changes made to <code>ref</code> will also be made to <code>x</code>.</p>
 
 <p>It's important to note that a reference must be initialized when it is declared, unlike pointers which can be initialized later.</p>
 

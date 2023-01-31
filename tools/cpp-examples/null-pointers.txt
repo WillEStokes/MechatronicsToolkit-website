@@ -1,0 +1,35 @@
+//In this example, a null pointer is declared using the nullptr keyword. The if (ptr) condition checks if
+//the pointer is null, and outputs a message accordingly. The pointer is then assigned the address of a
+//variable, and the condition is checked again, which outputs that the pointer is not null. The pointer is
+//then assigned nullptr again, and the condition is checked once more, which outputs that the pointer is null.
+
+#include <iostream>
+
+int main() {
+    int *ptr = nullptr; // Declare a null pointer
+
+    if (ptr) {
+        std::cout << "Pointer is not null." << std::endl;
+    } else {
+        std::cout << "Pointer is null." << std::endl; // Outputs "Pointer is null."
+    }
+
+    int x = 10;
+    ptr = &x;
+
+    if (ptr) {
+        std::cout << "Pointer is not null." << std::endl; // Outputs "Pointer is not null."
+    } else {
+        std::cout << "Pointer is null." << std::endl;
+    }
+
+    ptr = nullptr;
+
+    if (ptr) {
+        std::cout << "Pointer is not null." << std::endl;
+    } else {
+        std::cout << "Pointer is null." << std::endl; // Outputs "Pointer is null."
+    }
+
+    return 0;
+}

@@ -1,0 +1,23 @@
+//This code declares an int variable x, and two pointers ptr1 and ptr2. ptr1 is assigned the address of x,
+//and ptr2 is assigned the address of ptr1. The output of the code demonstrates how the value stored in ptr2
+//and the value stored in the address pointed by ptr2 is the same as the value of x.
+
+#include <iostream>
+
+int main() {
+  int x = 5;
+  int *ptr1 = &x;
+  int **ptr2 = &ptr1;  // Pointer to a pointer
+
+  std::cout << "Value of x: " << x << std::endl;
+  std::cout << "Address of x: " << &x << std::endl;
+  std::cout << "Value of ptr1: " << ptr1 << std::endl;
+  std::cout << "Address of ptr1: " << &ptr1 << std::endl;
+  std::cout << "Value stored in ptr1: " << *ptr1 << std::endl;
+  std::cout << "Value of ptr2: " << ptr2 << std::endl;
+  std::cout << "Address of ptr2: " << &ptr2 << std::endl;
+  std::cout << "Value stored in ptr2: " << *ptr2 << std::endl;
+  std::cout << "Value stored in the address pointed by ptr2: " << **ptr2 << std::endl;
+  
+  return 0;
+}

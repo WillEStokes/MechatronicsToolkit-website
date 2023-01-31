@@ -1,0 +1,31 @@
+//In this example the program dynamically allocates memory for an integer array of size n
+//using the 'new' operator. After filling the array with values, the program prints out
+//the elements of the array and deallocates the dynamically allocated memory using the
+//delete [] operator to prevent memory leaks.
+
+#include <iostream>
+#include <string>
+
+int main() {
+  int n = 12;
+
+  // dynamically allocate an array of n integers
+  int *arr = new int[n];
+
+  // fill the array with values
+  for (int i = 0; i < n; i++) {
+    arr[i] = i * i;
+  }
+
+  // print the array
+  std::cout << "The elements of the array are: ";
+  for (int i = 0; i < n; i++) {
+    std::cout << arr[i] << " ";
+  }
+  std::cout << std::endl;
+
+  // deallocate the memory
+  delete [] arr;
+
+  return 0;
+}

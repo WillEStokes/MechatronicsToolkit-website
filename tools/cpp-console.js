@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     const runButton = document.getElementById("run-button");
+    const exampleCodeSelect = document.getElementById("example-code-select");
     const textarea = document.getElementById("code-input");
     const editor = CodeMirror.fromTextArea(textarea, {
         mode: "text/x-c++src",
@@ -36,6 +37,19 @@ int main() {
 
     return 0;
 }`);
+
+    exampleCodeSelect.addEventListener("change", () => {
+        const exampleCode = exampleCodeSelect.value;
+        fetch(`./cpp-examples/${exampleCode}.txt`)
+            .then(response => response.text())
+            .then(data => {
+                editor.setValue(data);
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    });
+
     runButton.addEventListener("click", () => {
         document.getElementById("spinner").style.display = "block";
         const code = editor.getValue();

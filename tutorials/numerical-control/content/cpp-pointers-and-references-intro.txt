@@ -1,9 +1,9 @@
 <p>Pointers and references are features in C++ that allow you to manipulate memory and create more efficient programs.</p>
 
 <ul>
-<li><b>Pointers:</b> variables that hold the memory address of another variable, this allows you to manipulate the value of the variable at that memory address, as well as create more efficient programs by reducing the amount of memory needed to store data.</Li>
+<li><b>Pointers:</b> variables that hold the memory address of another variable.</Li>
 
-<li><b>References:</b> similar to pointers but with a few key differences, a reference is an alias for a variable and cannot be reassigned to point to another variable.</Li>
+<li><b>References:</b> an alias for a variable and cannot be reassigned to point to another variable.</Li>
 </ul>
 
 <p>In this tutorial, we will cover the basics of pointers and references, including how to declare them, how to access their values, and the differences between the two. By the end, you will have an understanding of how to implement these features in your C++ programs.</p>
