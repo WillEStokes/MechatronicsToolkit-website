@@ -2,8 +2,8 @@
 <html>
   <head>
     <title>PID Control</title>
-    <link rel="stylesheet" type="text/css" href="../../styles.css">
-    <link rel="stylesheet" href="../../themes/vscode-dark.css">
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+    <link rel="stylesheet" href="/themes/vscode-dark.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.57.0/codemirror.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.57.0/codemirror.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.57.0/mode/python/python.min.js"></script>
@@ -12,6 +12,25 @@
     <!-- <script src="../lib/MathJax-2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
   </head>
   <body onload="initResponsePlot()">
+    <div id="nav"></div>
+    <script>
+      fetch('/navigation.html')
+      .then(response => response.text())
+      .then(html => {
+        let navContainer = document.getElementById("nav");
+        navContainer.innerHTML = html;
+        const currentPage = window.location.pathname;
+        const links = document.querySelectorAll('a');
+        links.forEach(link => {
+          if (link.getAttribute('href') === currentPage) {
+            link.classList.add('active');
+          }
+        });
+      })
+      .catch(error => {
+        console.error(error);
+      });
+    </script>
     <h1>PID Control</h1>
     <section id="introduction"></section>
       <h2>Introduction</h2>
@@ -79,13 +98,13 @@
       <p><textarea id="content-python-usage"></textarea></p>
         <!-- </code> -->
       <!-- </pre> -->
-      <p><a href="../../tools/python-console.html">Practice your coding skills with our Python console</a></p>
+      <p><a href="/tools/python-console.html">Practice your coding skills with our Python console</a></p>
     <section id="tuning"></section>
       <h2>Tuning</h2>
         <p>Lambda tuning is a method for determining the optimal values of the proportional, integral, and derivative gain parameters (\(K_p\), \(K_i\), \(K_d\)) in a PID controller.
           The method is based on measuring the system's step response and calculating the optimal values of \(K_p\), \(K_i\), and \(K_d\) based on the values of \(T_d\) and \(\tau\), which are calculated from the step response.
         <div class="tuning-image">
-          <img src="../../images/metrics-image.png" alt="Diagram showing Td and tau calculated from controller output step change">
+          <img src="/images/metrics-image.png" alt="Diagram showing Td and tau calculated from controller output step change">
         </div>
         <p>To calculate the proportional term, we use the equation:</p>
         <p>$$P = K_c \times e(t)$$</p>
@@ -137,5 +156,5 @@
   </body>
 </html>
 <div class="footer">
-  <a class='back-to-topics' href="../../topics/numerical-control.html" style="border: 1px solid blue; border-radius: 25px; padding: 10px 20px; text-decoration: none; color: blue;">Back to Topics</a>
+  <a class='back-to-tutorials' href="/topics/numerical-control.html" style="border: 1px solid blue; border-radius: 25px; padding: 10px 20px; text-decoration: none; color: blue;">Back to Tutorials</a>
 </div>

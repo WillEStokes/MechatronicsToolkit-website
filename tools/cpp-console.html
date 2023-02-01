@@ -2,14 +2,33 @@
 <html>
     <head>
         <title>CPP Console</title>
-        <link rel="stylesheet" type="text/css" href="../styles.css">
-        <link rel="stylesheet" href="../themes/mdn-like.css">
+        <link rel="stylesheet" type="text/css" href="/styles.css">
+        <link rel="stylesheet" href="/themes/mdn-like.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.57.0/codemirror.min.css">
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.57.0/codemirror.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.42.2/mode/clike/clike.min.js"></script>
     </head>
     <body>
+        <div id="nav"></div>
+        <script>
+            fetch('/navigation.html')
+            .then(response => response.text())
+            .then(html => {
+              let navContainer = document.getElementById("nav");
+              navContainer.innerHTML = html;
+              const currentPage = window.location.pathname;
+              const links = document.querySelectorAll('a');
+              links.forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                  link.classList.add('active');
+                }
+              });
+            })
+            .catch(error => {
+              console.error(error);
+            });
+          </script>
         <div class="console-container">
             <div class="code-input-container">
                 <textarea id="code-input"></textarea>

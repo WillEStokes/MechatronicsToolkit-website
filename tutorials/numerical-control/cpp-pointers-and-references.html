@@ -2,14 +2,33 @@
 <html>
   <head>
     <title>C++ Pointers and References</title>
-    <link rel="stylesheet" href="../../themes/vscode-dark.css">
+    <link rel="stylesheet" href="/themes/vscode-dark.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.57.0/codemirror.min.css">
-    <link rel="stylesheet" type="text/css" href="../../styles.css"> <!-- link our styles last so that they override codemirror -->
+    <link rel="stylesheet" type="text/css" href="/styles.css"> <!-- link our styles last so that they override codemirror -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.57.0/codemirror.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.42.2/mode/clike/clike.min.js"></script>
     <!-- <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
   </head>
   <body>
+    <div id="nav"></div>
+    <script>
+        fetch('/navigation.html')
+        .then(response => response.text())
+        .then(html => {
+          let navContainer = document.getElementById("nav");
+          navContainer.innerHTML = html;
+          const currentPage = window.location.pathname;
+          const links = document.querySelectorAll('a');
+          links.forEach(link => {
+            if (link.getAttribute('href') === currentPage) {
+              link.classList.add('active');
+            }
+          });
+        })
+        .catch(error => {
+          console.error(error);
+        });
+      </script>
     <h1>C++ Pointers and References</h1>
     <h2>Introduction</h2>
     <div id="content-intro"></div>
@@ -57,7 +76,7 @@
                     document.getElementById("content-conclusion").innerHTML = data;
                 })
                 .then(() => {
-                    // only call codemirror once after fetch to format the entire document
+                    // only call codemirror once after fetch to format the entire document code
                     const codeElements = document.getElementsByClassName("content-cpp");
                     for (let i = 0; i < codeElements.length; i++) {
                         CodeMirror.fromTextArea(codeElements[i], {
@@ -76,5 +95,5 @@
   </body>
 </html>
 <div class="footer">
-    <a class='back-to-topics' href="../../topics/numerical-control.html" style="border: 1px solid blue; border-radius: 25px; padding: 10px 20px; text-decoration: none; color: blue;">Back to Topics</a>
+  <a class='back-to-tutorials' href="/topics/numerical-control.html" style="border: 1px solid blue; border-radius: 25px; padding: 10px 20px; text-decoration: none; color: blue;">Back to Tutorials</a>
 </div>

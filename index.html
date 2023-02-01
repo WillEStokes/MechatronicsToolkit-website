@@ -2,9 +2,28 @@
 <html>
   <head>
     <title>Mechatronics Toolkit</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="./styles.css">
   </head>
   <body>
+    <div id="nav"></div>
+    <script>
+      fetch('/navigation.html')
+      .then(response => response.text())
+      .then(html => {
+        let navContainer = document.getElementById("nav");
+        navContainer.innerHTML = html;
+        const currentPage = window.location.pathname;
+        const links = document.querySelectorAll('a');
+        links.forEach(link => {
+          if (link.getAttribute('href') === currentPage) {
+            link.classList.add('active');
+          }
+        });
+      })
+      .catch(error => {
+        console.error(error);
+      });
+    </script>
     <h1>Mechatronics Toolkit</h1>
     <div class="grid-container">
       <a href="topics/arduino.html">
@@ -30,7 +49,7 @@
         <div class="image-container">
           <img src="images/numerical-analysis.png" alt="Numerical Analysis Tutorials">
           <div class="overlay">
-            <p>Explore techniques for numerical modeling and data analysis.</p>
+            <p>Explore techniques for numerical modelling and data analysis.</p>
           </div>
         </div       >
       </a>      

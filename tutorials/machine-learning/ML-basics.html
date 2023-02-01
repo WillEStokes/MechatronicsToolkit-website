@@ -1,9 +1,28 @@
 <html>
     <head>
         <title>Machine Learning Basics</title>
-        <link rel="stylesheet" type="text/css" href="../../styles.css">
+        <link rel="stylesheet" type="text/css" href="/styles.css">
     </head>
     <body>
+        <div id="nav"></div>
+        <script>
+        fetch('/navigation.html')
+        .then(response => response.text())
+        .then(html => {
+            let navContainer = document.getElementById("nav");
+            navContainer.innerHTML = html;
+            const currentPage = window.location.pathname;
+            const links = document.querySelectorAll('a');
+            links.forEach(link => {
+            if (link.getAttribute('href') === currentPage) {
+                link.classList.add('active');
+            }
+            });
+        })
+        .catch(error => {
+            console.error(error);
+        });
+        </script>
         <h1>Machine Learning Basics</h1>
         <div id="sidebar">
             <ul>
@@ -49,5 +68,5 @@
     </body>
 </html>
 <div class="footer">
-    <a class='back-to-topics' href="../../topics/machine-learning.html" style="border: 1px solid blue; border-radius: 25px; padding: 10px 20px; text-decoration: none; color: blue;">Back to Topics</a>
+    <a class='back-to-tutorials' href="/topics/machine-learning.html" style="border: 1px solid blue; border-radius: 25px; padding: 10px 20px; text-decoration: none; color: blue;">Back to Tutorials</a>
 </div>
