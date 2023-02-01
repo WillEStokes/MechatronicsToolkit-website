@@ -17,26 +17,16 @@ document.addEventListener("DOMContentLoaded", function() {
     editor.getWrapperElement().style.height = "400px";
     editor.getWrapperElement().style.marginTop = "10px";
     editor.getWrapperElement().style.marginBottom = "10px";
-    editor.setValue(`#include <iostream>
-using namespace std;
-
-int main() {
-    int x = 10;
-    int *ptr = &x; // pointer to x
-    int &ref = x; // reference to x
-
-    cout << "x = " << x << endl;
-    cout << "ptr = " << ptr << ", *ptr = " << *ptr << endl;
-    cout << "ref = " << ref << endl;
-
-    *ptr = 20; // modify x through ptr
-    cout << "x = " << x << endl;
-
-    ref = 30; // modify x through ref
-    cout << "x = " << x << endl;
-
-    return 0;
-}`);
+    
+    // Initialise the editor with an example script
+    fetch(`./cpp-examples/pointers-and-references.txt`)
+        .then(response => response.text())
+        .then(data => {
+            editor.setValue(data);
+        })
+        .catch(error => {
+            console.log(error);
+        });
 
     exampleCodeSelect.addEventListener("change", () => {
         const exampleCode = exampleCodeSelect.value;

@@ -91,9 +91,6 @@ function initResponsePlot() {
   };
   
   var data = [trace1, trace2];
-  
-  // Define blank data for the plot
-  // let data = [{ y: [] }];
 
   // Define the layout for the plot
   let layout = {
@@ -102,7 +99,7 @@ function initResponsePlot() {
         title: 'Time (s)'
     },
     yaxis: {
-        range: [0, 32.5],
+        range: [0, 40],
         title: 'Response'
     }
   };
@@ -179,21 +176,16 @@ function plotResponse() {
     name: 'Setpoint'
   };
   
-  // var trace2 = {
-  //   x: timeArray,
-  //   y: controlOutputArray,
-  //   type: 'scatter',
-  //   name: 'Control Output'
-  // };
-  
   var data = [trace1, trace2];
   
   var layout = {
     title: 'PIDF Control Simulation',
     xaxis: {
+      range: [0, 1000],
       title: 'Time (s)'
     },
     yaxis: {
+      range: [0, 40],
       title: 'Value'
     }
   };
