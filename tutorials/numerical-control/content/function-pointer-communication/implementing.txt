@@ -1,0 +1,30 @@
+<p>The main loop plays a crucial role in processing incoming messages. It is responsible for constantly checking if there is incoming data available and if so, processing it accordingly. The main loop starts by establishing a connection with the host device and defining a <code>static char</code> array named <code>data</code> with a size of 32 and a <code>static pointer</code> to a <code>MessageHeader</code> named <code>header</code>, before entering an infinite while loop.</p>
+
+<p>The following steps describe how the while loop handles the incoming data:</p>
+
+<ol type="1">
+<li><p>Firstly, we use a read function to read the first 3 bytes of the incoming data and assign it to a variable array. The <code>header</code> pointer is then cast to point to the newly defined variable array, allowing us to access the <code>MessageHeader struct</code>. This header contains important information such as the size of the incoming data packet, a function identifier (<code>fid</code>), and an error code.</p></li>
+
+<li><p>Secondly, if the packet length minus the <code>MessageHeader</code> length is greater than 0, we use the read function again to read the remaining bytes of the incoming data and store it in the variable array, starting from the position after the <code>MessageHeader</code>.</p></li>
+
+<li><p>Finally, we use the <code>fid</code> contained withing the <code>MessageHeader</code> portion of the variable array, to look up the corresponding function in the <code>comMessages</code> array. If the function exists, we call it using the stored function pointer in the <code>replyFunc</code> field of the <code>ComMessage</code> structure.</p></li>
+</ol>
+
+<p>This process continues in an infinite loop, allowing the slave device to continuously process incoming messages and call the corresponding responding functions.</p>
+
+<p>The <code>comMessages</code> array is defined as a list of <code>ComMessage structs</code>, which we defined earlier, each containing a <code>fid</code> and a <code>replyFunc</code>. The <code>replyFunc</code> is a function pointer that points to the corresponding function that should be invoked when the incoming message has a matching <code>fid</code>. Functions can easily be added or removed from the <code>comMessages</code> array without having to modify the main loop.</p>
+
+<p>A simple <code>ComMessages</code> array, which includes two functions to toggle and led on and off, could be defined as follows:</p>
+
+<p><textarea class="content-cpp">const ComMessage comMessages[] = {
+    {FID_LED_ON, (messageHandlerFunc)&ledOn},
+    {FID_LED_OFF, (messageHandlerFunc)&ledOff},
+};</textarea></p>
+
+<p>Where <code>FID_LED_ON</code> and <code>FID_LED_OFF</code> are defined in an enum:</p>
+
+<p><textarea class="content-cpp">enum FID_LIST {
+    FID_LED_ON = 0,
+    FID_LED_OFF = 1,
+};</textarea></p>
+

@@ -1,0 +1,13 @@
+<p>Implementing a robust solution for message handling is critical for ensuring reliable communication between the host device and the microcontroller. A robust solution should be able to handle unexpected situations such as incomplete or corrupted messages, and should provide a mechanism for indicating any errors that occur during the communication process.</p>
+
+<p>In the tutorial, the message handling solution is based on the use of three type definitions <code>messageHandlerFunc</code>, <code>MessageHeader</code>, and <code>ComMessage</code>. These definitions provide a clear and concise structure for representing messages and their associated functions.</p>
+
+<p>The "messageHandlerFunc" type definition defines a function pointer type that can be used to call the responding functions. This allows the main loop to dynamically call the appropriate function based on the "fid" (function identifier) field in the message header.</p>
+
+<p>The "MessageHeader" type definition provides a structure for representing the header of each message. The header includes fields for the packet length, the "fid" and an error code. This information is used by the main loop to determine the appropriate responding function and to check for any errors that may have occurred during the communication process.</p>
+
+<p>The "ComMessage" type definition provides a structure for representing the mapping between the "fid" and the responding function. The "comMessages" array contains a list of "ComMessage" structures, each of which maps a "fid" to a responding function. This allows the main loop to quickly look up the appropriate function for a given "fid".</p>
+
+<p>In addition, the main loop checks for the validity of the responding function before calling it. If the function is not found or is set to NULL, the main loop skips it and continues to the next iteration of the loop. This provides a mechanism for ignoring invalid or unsupported messages, further improving the robustness of the solution.</p>
+
+<p>In conclusion, implementing a robust solution for message handling is critical for ensuring reliable communication between the host device and the microcontroller. The solution in the tutorial uses type definitions and an array of responding functions to provide a clear and concise structure for representing messages and their associated functions, and provides mechanisms for handling unexpected situations and indicating errors.</p>

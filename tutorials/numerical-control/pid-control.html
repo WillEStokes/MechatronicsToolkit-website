@@ -36,7 +36,7 @@
       <h2>Introduction</h2>
       <div id="content-intro"></div>
         <script>
-            fetch('./content/pid-control-intro.txt')
+            fetch('./content/pid-control/intro.txt')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById("content-intro").innerHTML = data;
@@ -49,7 +49,7 @@
       <h2>Theory</h2>
       <div id="content-theory"></div>
         <script>
-            fetch('./content/pid-control-theory.txt')
+            fetch('./content/pid-control/theory.txt')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById("content-theory").innerHTML = data;
@@ -143,7 +143,7 @@
       <h2>Conclusion</h2>
       <div id="content-conclusion"></div>
         <script>
-            fetch('./content/pid-control-conclusion.txt')
+            fetch('./content/pid-control/conclusion.txt')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById("content-conclusion").innerHTML = data;

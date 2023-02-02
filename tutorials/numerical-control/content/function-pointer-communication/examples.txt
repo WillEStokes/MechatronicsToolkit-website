@@ -1,0 +1,169 @@
+<p><b>Example 1:</b> Controlling an LED on the slave device
+This example will show you how to send messages from the host device to the slave device to turn an LED on and off. The slave device will have two functions defined, ledOn and ledOff, which will be called when the corresponding message is received from the host.</p>
+
+<p><textarea class="content-cpp">#include <Wire.h>
+
+typedef struct {
+    uint8_t functionCode;
+    uint8_t errorCode;
+    uint8_t packetLength;
+} MessageHeader;
+
+typedef struct {
+    MessageHeader header;
+    uint8_t ledState;
+} __attribute__((__packed__)) LedControl;
+
+const int LED_PIN = 13;
+
+void setLed(const LedControl* data) {
+    digitalWrite(LED_PIN, data->ledState);
+}
+
+LedControl ledControlMessage;
+
+void setup() {
+  Wire.begin(8);
+  Wire.onReceive(processIncomingMessage);
+  pinMode(LED_PIN, OUTPUT);
+  digitalWrite(LED_PIN, LOW);
+}
+
+void loop() {
+}
+
+void processIncomingMessage(int packetSize) {
+  int readBytes = 0;
+  while (Wire.available() && readBytes < sizeof(MessageHeader)) {
+    ((uint8_t*)&ledControlMessage.header)[readBytes++] = Wire.read();
+  }
+  if (ledControlMessage.header.packetLength > sizeof(MessageHeader) &&
+      ledControlMessage.header.packetLength <= sizeof(ledControlMessage) &&
+      ledControlMessage.header.packetLength == packetSize) {
+    while (Wire.available() && readBytes < ledControlMessage.header.packetLength) {
+      ((uint8_t*)&ledControlMessage)[readBytes++] = Wire.read();
+    }
+    setLed(&ledControlMessage);
+  }
+}</textarea></p>
+
+<p><textarea class="content-cpp">#include <Wire.h>
+
+typedef struct {
+    uint8_t functionCode;
+    uint8_t errorCode;
+    uint8_t packetLength;
+} MessageHeader;
+
+typedef struct {
+    MessageHeader header;
+    uint8_t ledState;
+} __attribute__((__packed__)) LedControl;
+
+void controlLed(uint8_t ledState) {
+  LedControl ledControlMessage;
+  ledControlMessage.header.functionCode = 1;
+  ledControlMessage.header.errorCode = 0;
+  ledControlMessage.header.packetLength = sizeof(ledControlMessage);
+  ledControlMessage.ledState = ledState;
+  Wire.beginTransmission(8);
+  Wire.write((uint8_t*)&ledControlMessage, sizeof(ledControlMessage));
+  Wire.endTransmission();
+}
+
+void setup() {
+  Wire.begin();
+}
+
+void loop() {
+  controlLed(HIGH);
+  delay(1000);
+  controlLed(LOW);
+  delay(1000);
+}</textarea></p>
+
+<p><b>Example 2:</b> Setting a Value on the slave device
+This example will show you how to send a floating-point value from the host device to the slave device, which will then assign the value to a variable. The slave device will have a setOutput function defined, which will be called when the message with the value is received.</p>
+
+<p><textarea class="content-cpp">#include <Wire.h>
+
+#define SLAVE_ADDRESS 8
+#define MAX_MESSAGE_LENGTH 7
+
+typedef struct {
+  uint8_t functionCode;
+  uint8_t errorCode;
+  uint8_t packetLength;
+} MessageHeader;
+
+typedef struct {
+  MessageHeader header;
+  float value;
+} __attribute__((__packed__)) SetValue;
+
+float value;
+
+void setOutput(const SetValue* data) {
+  value = data->value;
+}
+
+void receiveData(int byteCount) {
+  if (byteCount < 3) return;
+
+  MessageHeader header;
+  Wire.readBytes((uint8_t*)&header, 3);
+  uint8_t incomingMessage[header.packetLength];
+  Wire.readBytes(incomingMessage, header.packetLength);
+
+  switch (header.functionCode) {
+    case 1:
+      setOutput((SetValue*)incomingMessage);
+      break;
+    default:
+      break;
+  }
+}
+
+void setup() {
+  Wire.begin(SLAVE_ADDRESS);
+  Wire.onReceive(receiveData);
+}
+
+void loop() {
+  // No action needed in the main loop
+}</textarea></p>
+
+<p><textarea class="content-cpp">#include <Wire.h>
+
+const int SLAVE_ADDRESS = 8;
+
+void setup() {
+  Serial.begin(9600);
+  Wire.begin();
+}
+
+void loop() {
+  float value = 10.5;
+  SetValue message = {
+    .header = {
+      .functionCode = 1,
+      .errorCode = 0,
+      .packetLength = sizeof(SetValue)
+    },
+    .value = value
+  };
+
+  Wire.beginTransmission(SLAVE_ADDRESS);
+  Wire.write((uint8_t*)&message, sizeof(message));
+  Wire.endTransmission();
+
+  delay(1000);
+}</textarea></p>
+
+<p>In this example, the host is using the I2C library Wire.h to communicate with the slave device. The Wire.begin() function initializes the I2C communication and Wire.beginTransmission(SLAVE_ADDRESS) starts a transmission to the slave device at address 8.</p>
+
+<p>The Wire.write((uint8_t*)&message, sizeof(message)) function sends the message struct to the slave device. The host is casting the message struct to a uint8_t array to send over I2C.</p>
+
+<p>After sending the data, the Wire.endTransmission() function ends the transmission and the delay(1000) function provides a delay of 1 second before the next iteration of the loop.</p>
+
+<p>It is important to note that the examples provided are just that, examples. You can adapt and modify the code to fit your specific use case. For example, you could add more functions to the comMessages array or change the header.packetLength to fit your data needs. The key concept is to understand how the header, function pointers, and comMessages array work together to process incoming messages and call the appropriate functions.</p>

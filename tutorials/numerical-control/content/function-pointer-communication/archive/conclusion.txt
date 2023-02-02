@@ -1,0 +1,13 @@
+<p>The communication method using I2C and the type definitions <code>messageHandlerFunc</code>, <code>MessageHeader</code>, and <code>ComMessage</code> offer several advantages:</p>
+
+<ul>
+<li><b>Error Checking:</b> The use of the MessageHeader structure helps to ensure that each incoming data packet has the correct format, including a specified packet length, a unique function ID (fid), and an error code. This helps to minimize the risk of misinterpretation or incorrect processing of received data.</li>
+
+<li><b>Scalability:</b>  The approach of using a table of ComMessage structures and associated function handlers makes it easy to extend the system to accommodate additional functions, as the host device and microcontroller can be programmed to send and receive new fid codes.</li>
+
+<li><b>Robustness:</b>  The main loop checks for the validity of the responding function before calling it, and provides a mechanism for ignoring invalid or unsupported messages. This helps to ensure that the communication between the host device and the microcontroller remains reliable even in the presence of unexpected situations or errors.</li>
+
+<li><b>Easy Data Transmission:</b>  The use of a unique function ID (fid) and a table of ComMessage structures allows the receiving device to efficiently cast incoming data, ensuring proper handling and interpretation of transmitted data.</li>
+</ul>
+
+<p>In conclusion, the method presented in this tutorial provides a robust and efficient solution for interfacing microcontrollers with host devices using the I2C protocol. By taking advantage of the clear and concise structure provided by the type definitions and responding functions, and the low-bandwidth, low-overhead nature of the I2C protocol, you can ensure reliable and efficient communication between your devices.</p>

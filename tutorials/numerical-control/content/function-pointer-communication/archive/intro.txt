@@ -1,0 +1,5 @@
+<p>In this tutorial, we will be introducing a robust method to interface a host device with a microcontroller using the I2C protocol. This method is based on using three type definitions, "messageHandlerFunc", "MessageHeader" and "ComMessage". These type definitions are used to define the structure and handling of messages sent between the host device and microcontroller.</p>
+
+<p>The communication method uses a list of responding functions, "comMessages", which are associated with specific function IDs (FID). When a message is received by the microcontroller, the main loop processes the message and calls the appropriate responding function based on the FID contained in the message. The processing of the message is done through the use of pointers to functions and the dereference operator, resulting in a flexible and dynamic way to handle messages.</p>
+
+<p>In summary, this tutorial provides a comprehensive overview of how to interface a host device with a microcontroller using the I2C protocol and provides a robust solution for handling messages between the two devices.</p>

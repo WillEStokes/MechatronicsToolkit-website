@@ -1,0 +1,28 @@
+//In this example, Rectangle is a class with private data members length and width, and public member
+//functions getArea and getPerimeter that calculate the area and perimeter of a rectangle, respectively.
+//In the main function, an object of the class Rectangle is created with a length of 10.0 and a width of
+//5.0, and the area and perimeter of the rectangle are calculated and printed using the getArea and
+//getPerimeter member functions.
+
+#include <iostream>
+
+class Rectangle {
+    private:
+        double length;
+        double width;
+    public:
+        Rectangle(double l, double w) : length(l), width(w) {}
+        double getArea() {
+            return length * width;
+        }
+        double getPerimeter() {
+            return 2 * (length + width);
+        }
+};
+
+int main() {
+    Rectangle r(10.0, 5.0);
+    std::cout << "The area of the rectangle is: " << r.getArea() << std::endl;
+    std::cout << "The perimeter of the rectangle is: " << r.getPerimeter() << std::endl;
+    return 0;
+}

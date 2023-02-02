@@ -1,0 +1,18 @@
+<p>When sending packets of data between devices, header data provides additional information about the data that is being sent. This information can be used to determine the purpose of the data, the size of the data, and the structure of the data. The header data acts as a metadata for the data that is being sent and is used to guide the receiving device on how to process and interpret the data that is being received. The use of header data ensures that the data is properly structured and that it can be effectively processed by the receiving device</p>
+
+<p>In this tutorial we'll define header data with type <code>MessageHeader</code>, which is a key component of the communication method we will be implementing in this tutorial. It acts as a prefix to data buffers, and contains information about the data being transmitted. The <code>MessageHeader</code> is defined as a struct with three fields: <code>packetLength</code>, <code>fid</code>, and <code>error</code>.</p>
+
+<p><textarea class="content-cpp">typedef struct {
+    uint8_t packetLength;
+    uint8_t fid;
+    uint8_t error;
+} __attribute__((__packed__)) MessageHeader;</textarea></p>
+
+<ul>
+<li><b>'packetLength'</b> is an 8-bit unsigned integer that specifies the length of the incoming data packet.
+<li><b>'fid'</b> (function identifier) is an 8-bit unsigned integer that specifies which function should be invoked on the slave device.</li>
+<li><b>'error'</b> is an 8-bit unsigned integer that is used to indicate any errors that may have occurred during transmission.</li>
+The MessageHeader struct is packed using the <li><b>'attribute((packed))'</b> attribute, which means that its fields will be stored in memory exactly as they are defined, without any padding or alignment.</li>
+</ul>
+
+<p>By using the <code>MessageHeader</code>, we can ensure that every incoming data packet starts with a header, which contains important information about the data and the intended function. This header can then be processed by the main loop on the slave device, allowing for the correct function to be invoked and the data to be passed to it.</p>

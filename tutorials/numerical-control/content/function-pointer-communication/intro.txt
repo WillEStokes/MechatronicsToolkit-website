@@ -1,0 +1,5 @@
+<p>Welcome to this guide on setting up a robust communication between devices. In this tutorial, we will be making use of C and C++ concepts such as typedefs and function pointers to establish communication between a host device and a microcontroller. We will be implementing a communication method that makes use of a special message header, which prefixes data buffers and allows for functions to be invoked and data to be passed between the two devices.</p>
+
+<p>The communication method uses a list of responding functions, which are associated with specific function IDs. When a message is received by the microcontroller, the message is process and invokes the call of the appropriate responding function based on the ID contained in the message. This method is scalable and presents a flexible and dynamic way to handle incoming messages.</p>
+
+<p>By the end of this tutorial, you will have an understanding of how to set up robust communication between devices. Let's begin!</p>

@@ -1,0 +1,36 @@
+<p>Function pointers are a type of data type in C and C++ that allow you to store the memory address of a function. This enables you to call the function through the pointer, rather than calling the function directly, allowing you to dynamically invoke functions based on certain conditions or events.</p>
+
+<p>For example, consider a function named <code>foo</code> that takes in two integers and returns their sum:</p>
+
+<p><textarea class="content-cpp">int foo(int x, int y) {
+    return x + y;
+}</textarea></p>
+
+<p>We can declare a function pointer <code>pfoo</code> that points to the <code>foo</code> function like this:</p>
+
+<p><textarea class="content-cpp">int (*pfoo)(int, int);</textarea></p>
+
+<p>The declaration of <code>pfoo</code> states that it's a pointer to a function that takes two <code>int</code> arguments and returns an <code>int</code> . We can assign the address of <code>foo</code> to <code>pfoo</code> like this:</p>
+
+<p><textarea class="content-cpp">pfoo = &foo;</textarea></p>
+
+<p>And finally, we can call <code>foo</code> using <code>pfoo</code> like this:
+
+<p><textarea class="content-cpp">int result = (*pfoo)(10, 20);</textarea></p>
+
+<p>Now consider a situation where you have multiple LED control functions, such as <code>ledOn()</code> and <code>ledOff()</code>, and you want to call them based on incoming data. Instead of writing an if-else statement to determine which function to call, you can store the function pointers in an array and use the function ID from the incoming data to index the array and call the appropriate function.</p>
+
+<p>In C and C++, you can define a function pointer as follows:
+
+<p><textarea class="content-cpp">void (*messageHandlerFunc)(const void*);</textarea></p>
+
+<p>In this example, <code>messageHandlerFunc</code> is a function pointer type that takes a single argument of type <code>const void*</code> and returns <code>void</code>. You can then use this function pointer type to define a <code>struct</code> that will store function IDs and corresponding function pointers, as follows:</p>
+
+<p><textarea class="content-cpp">typedef struct {
+    uint8_t fid;
+    messageHandlerFunc replyFunc;
+} ComMessage;</textarea></p>
+
+<p>In this example, the <code>ComMessage struct</code> stores an 8-bit function ID and a <code>messageHandlerFunc</code> function pointer. By storing the function pointers in a <code>struct</code>, you can easily manage and invoke the responding functions based on the function IDs in incoming data.</p>
+
+<p>In the following sections, we will use the <code>messageHandlerFunc</code> and <code>ComMessage</code> typedefs to implement our robust communication method between devices.</p>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Object Oriented Programming</title>
+    <link rel="stylesheet" href="/themes/vscode-dark.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.57.0/codemirror.min.css">
+    <link rel="stylesheet" type="text/css" href="/styles.css"> <!-- link our styles last so that they override codemirror -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.57.0/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.42.2/mode/clike/clike.min.js"></script>
+    <!-- <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+  </head>
+  <body>
+    <div id="nav"></div>
+    <script>
+        fetch('/navigation.html')
+        .then(response => response.text())
+        .then(html => {
+          let navContainer = document.getElementById("nav");
+          navContainer.innerHTML = html;
+          const currentPage = window.location.pathname;
+          const links = document.querySelectorAll('a');
+          links.forEach(link => {
+            if (link.getAttribute('href') === currentPage) {
+              link.classList.add('active');
+            }
+          });
+        })
+        .catch(error => {
+          console.error(error);
+        });
+      </script>
+    <h1>C++ Pointers and References</h1>
+    <div id="sidebar">
+        <ul>
+            <li><a href="#content-intro">Introduction</a></li>
+            <li><a href="#content-classes-and-objects">Classes and Objects</a></li>
+            <li><a href="#content-data-members">Data Members and Member Functions</a></li>
+            <li><a href="#content-constructors-and-deconstructors">Constructors and Deconstructors</a></li>
+            <li><a href="#content-inheritance">Inheritance</a></li>
+            <li><a href="#content-polymorphism">Polymorphism</a></li>
+            <li><a href="#content-access-modifiers">Access Modifiers</a></li>
+            <li><a href="#content-best-practices">Best Practices for OOP in C++</a></li>
+            <li><a href="#content-conclusion">Conclusion</a></li>
+        </ul>
+    </div>
+    <h2>Introduction</h2>
+    <div id="content-intro"></div>
+    <script>
+        fetch('./content/oop/intro.txt')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("content-intro").innerHTML = data;
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    </script>
+    <h2>Classes and Objects</h2>
+    <div id="content-classes-and-objects"></div>
+    <script>
+        fetch('./content/oop/classes-and-objects.txt')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("content-classes-and-objects").innerHTML = data;
+            })
+            .catch(error => {
+                console.log(error);
+            }); 
+    </script>
+    <h2>Data Members and Member Functions</h2>
+    <div id="content-data-members"></div>
+        <script>
+            fetch('./content/oop/data-members.txt')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("content-data-members").innerHTML = data;
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        </script>
+    <h2>Constructors and Deconstructors</h2>
+    <div id="content-constructors-and-deconstructors"></div>
+        <script>
+            fetch('./content/oop/constructors-and-deconstructors.txt')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("content-constructors-and-deconstructors").innerHTML = data;
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        </script>
+    <h2>Inheritance</h2>
+    <div id="content-inheritance"></div>
+        <script>
+            fetch('./content/oop/inheritance.txt')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("content-inheritance").innerHTML = data;
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        </script>
+    <h2>Polymorphism</h2>
+    <div id="content-polymorphism"></div>
+        <script>
+            fetch('./content/oop/polymorphism.txt')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("content-polymorphism").innerHTML = data;
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        </script>
+    <h2>Access Modifiers</h2>
+    <div id="content-access-modifiers"></div>
+        <script>
+            fetch('./content/oop/access-modifiers.txt')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("content-access-modifiers").innerHTML = data;
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        </script>
+    <h2>Best Practices for OOP in C++</h2>
+    <div id="content-best-practices"></div>
+        <script>
+            fetch('./content/oop/best-practices.txt')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("content-best-practices").innerHTML = data;
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        </script>
+    <h2>Conclusion</h2>
+    <div id="content-conclusion"></div>
+        <script>
+            fetch('./content/oop/conclusion.txt')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("content-conclusion").innerHTML = data;
+                })
+                .then(() => {
+                    // only call codemirror once after fetch to format the entire document code
+                    const codeElements = document.getElementsByClassName("content-cpp");
+                    for (let i = 0; i < codeElements.length; i++) {
+                        CodeMirror.fromTextArea(codeElements[i], {
+                        mode: "text/x-c++src",
+                        lineNumbers: true,
+                        theme: 'vscode-dark',
+                        readOnly: true,
+                        outerHeight: 100,
+                        });
+                    }
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        </script>
+  </body>
+</html>
+<div class="footer">
+  <a class='back-to-tutorials' href="/topics/numerical-control.html" style="border: 1px solid blue; border-radius: 25px; padding: 10px 20px; text-decoration: none; color: blue;">Back to Tutorials</a>
+</div>

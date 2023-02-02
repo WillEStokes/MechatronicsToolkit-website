@@ -1,0 +1,55 @@
+//In this example, Shape is a base class with a protected data member area and a pure virtual
+//function getArea that must be implemented by derived classes. Rectangle and Circle are derived
+//classes that inherit from Shape and implement the getArea function to calculate the area of
+//a rectangle and a circle, respectively. The function displayArea takes a reference to a Shape
+//object and uses the getArea function to display the area of the shape. In the main function,
+//objects of the classes Rectangle and Circle are created, and the displayArea function is called
+//with these objects as arguments. The displayArea function works with objects of both derived
+//classes, demonstrating polymorphism in action.
+
+#include <iostream>
+
+class Shape {
+    protected:
+        double area;
+    public:
+        Shape() {}
+        virtual double getArea() = 0;
+};
+
+class Rectangle : public Shape {
+    private:
+        double length;
+        double width;
+    public:
+        Rectangle(double l, double w) : length(l), width(w) {
+            area = length * width;
+        }
+        double getArea() {
+            return area;
+        }
+};
+
+class Circle : public Shape {
+    private:
+        double radius;
+    public:
+        Circle(double r) : radius(r) {
+            area = 3.14159 * radius * radius;
+        }
+        double getArea() {
+            return area;
+        }
+};
+
+void displayArea(Shape& shape) {
+    std::cout << "The area is: " << shape.getArea() << std::endl;
+}
+
+int main() {
+    Rectangle r(10.0, 5.0);
+    Circle c(5.0);
+    displayArea(r);
+    displayArea(c);
+    return 0;
+}

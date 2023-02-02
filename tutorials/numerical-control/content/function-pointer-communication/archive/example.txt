@@ -1,0 +1,66 @@
+<p><textarea class="content-cpp">#include <Wire.h>
+
+#define SLAVE_ADDRESS 0x08
+
+enum FID_LIST {
+    FID_LED_ON = 0,
+    FID_LED_OFF = 1,
+};
+
+typedef void (*messageHandlerFunc)(const void*);
+
+typedef struct {
+    uint8_t packetLength;
+    uint8_t fid;
+    uint8_t error;
+} __attribute__((__packed__)) MessageHeader;
+
+typedef struct {
+    uint8_t fid;
+    messageHandlerFunc replyFunc;
+} __attribute__((__packed__)) ComMessage;
+
+const ComMessage comMessages[] = {
+    {FID_LED_ON, (messageHandlerFunc)&ledOn},
+    {FID_LED_OFF, (messageHandlerFunc)&ledOff},
+};
+
+void ledOn(const void* data) {
+    digitalWrite(13, HIGH);
+}
+
+void ledOff(const void* data) {
+    digitalWrite(13, LOW);
+}
+
+void setup() {
+    Wire.begin();
+    pinMode(13, OUTPUT);
+}
+
+void loop() {
+    static char data[255];
+    static MessageHeader* header;
+
+    if (Wire.requestFrom(SLAVE_ADDRESS, sizeof(MessageHeader))) {
+        for (int i = 0; i < sizeof(MessageHeader); i++) {
+            data[i] = Wire.read();
+        }
+
+        header = (MessageHeader*)data;
+
+        if (header->packetLength - sizeof(MessageHeader) > 0) {
+            if (Wire.requestFrom(SLAVE_ADDRESS, header->packetLength - sizeof(MessageHeader))) {
+                for (int i = sizeof(MessageHeader); i < header->packetLength; i++) {
+                    data[i] = Wire.read();
+                }
+            }
+        }
+
+        const ComMessage* comMessage = &comMessages[header->fid];
+
+        if (comMessage != NULL && comMessage->replyFunc != NULL) {
+            (comMessage->replyFunc)((void*)data);
+        }
+    }
+}</textarea></p>

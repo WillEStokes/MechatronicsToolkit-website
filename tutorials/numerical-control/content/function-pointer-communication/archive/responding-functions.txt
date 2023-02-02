@@ -1,0 +1,7 @@
+<p>In this section, we will look at how the responding functions are set up in the communication method. The responding functions are defined as an array of "ComMessage" structs, "comMessages". Each element of the array contains a function ID (fid) and the corresponding responding function, defined as a "messageHandlerFunc".</p>
+
+<p>The function IDs (fid) are unique identifiers for each responding function and are used to match the received message with the appropriate responding function. For example, if the message contains the function ID "FID_LED_ON", the responding function "ledOn" will be called.</p>
+
+<p>The responding functions are defined as standard functions and are not limited in terms of their functionality. They can perform a variety of tasks, such as controlling the state of an LED or reading sensor data. The only requirement is that they match the "messageHandlerFunc" function pointer type definition.</p>
+
+<p>Setting up the responding functions in this way provides a simple and straightforward way to handle messages received by the microcontroller. By associating each function ID with a responding function, the microcontroller is able to dynamically call the correct function based on the message received. This flexible approach makes it easy to add or remove responding functions as needed, without having to make changes to the main loop.</p>

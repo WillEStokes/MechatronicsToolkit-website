@@ -157,6 +157,11 @@ body {
     height: auto;
 }
 
+code {
+    font-size: 16px;
+    font-weight: bold;
+}
+
 /* ------- terminal ------- */
 
 .console-container {

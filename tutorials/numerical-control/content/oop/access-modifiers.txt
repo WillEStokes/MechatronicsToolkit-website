@@ -1,0 +1,46 @@
+<p>Access modifiers are keywords in C++ that define the level of access control to the members of a class. The three access modifiers in C++ are private, protected, and public.</p>
+
+<p>Private members are only accessible within the class in which they are declared. They cannot be accessed directly by objects or instances of the class, or by derived classes. This level of access control ensures the encapsulation of data and behavior within the class, making the class more secure and maintainable.</p>
+
+<p>Protected members are accessible within the class in which they are declared, and in derived classes. They cannot be accessed directly by objects or instances of the class. This level of access control provides intermediate access control for the members of a class, making it easier to write generic code that operates on objects of different classes in a similar way.</p>
+
+<p>Public members are accessible from anywhere within the program. They can be accessed directly by objects or instances of the class, and by derived classes. This level of access control provides the highest level of access to the members of a class, making it easier to write generic code that operates on objects of different classes in a similar way.</p>
+
+<p>Here's an example of access modifiers in C++:</p>
+
+<p><textarea class="content-cpp">class Shape {
+ private:
+  int length;
+  int width;
+
+ protected:
+  int area;
+
+ public:
+  Shape(int l, int w);
+  int getLength();
+  int getWidth();
+  int getArea();
+};
+
+Shape::Shape(int l, int w) {
+  length = l;
+  width = w;
+  area = l * w;
+}
+
+int Shape::getLength() {
+  return length;
+}
+
+int Shape::getWidth() {
+  return width;
+}
+
+int Shape::getArea() {
+  return area;
+}</textarea></p>
+
+<p>In this example, the <code>length</code> and <code>width</code> members are declared private, so they can only be accessed within the <code>Shape</code> class. The <code>area</code> member is declared protected, so it can be accessed within the <code>Shape</code> class and in derived classes. The <code>getLength</code>, <code>getWidth</code>, and <code>getArea</code> member functions are declared public, so they can be accessed from anywhere within the program.</p>
+
+<p>Access modifiers in C++ allow you to control the level of access to the members of a class, providing a higher level of security and maintainability. Understanding and properly using access modifiers is an important aspect of Object-Oriented Programming in C++.</p>

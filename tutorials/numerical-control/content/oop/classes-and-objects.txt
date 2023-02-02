@@ -1,0 +1,30 @@
+<p>Classes and objects are the building blocks of object-oriented programming in C++. A class is a blueprint or template for creating objects, and an object is an instance of a class.</p>
+
+<p>In C++, a class is defined using the <code>class</code> keyword followed by the class <code>name</code>, and its data members and member functions are enclosed within curly braces <code>{}</code>. The data members represent the properties of an object, and the member functions represent the actions that an object can perform.</p>
+
+<p>To create an object of a class, you declare a variable of the class type and use the class constructor to initialize its values. You can access the data members of an object using the dot operator <code>.</code>, and call its member functions using the function call operator <code>()</code>.</p>
+
+<p>Here's an example of a simple class in C++:</p>
+
+<p><textarea class="content-cpp">class Rectangle {
+ public:
+  int length;
+  int width;
+  int area();
+};
+
+int Rectangle::area() {
+  return length * width;
+}</textarea></p>
+
+<p>In this example, we have defined a class named <code>Rectangle</code> with two data members <code>length</code> and <code>width</code>, and a member function <code>area</code> that calculates and returns the area of the rectangle. To use this class and create an object, we would write something like this:</p>
+
+<p><textarea class="content-cpp">int main() {
+  Rectangle rect;
+  rect.length = 10;
+  rect.width = 5;
+  cout << "Area of the rectangle: " << rect.area() << endl;
+  return 0;
+}</textarea></p>
+
+<p>This simple example demonstrates the basics of classes and objects in C++. In the next sections, we will explore the other fundamental concepts of object-oriented programming in C++ and how they work with classes and objects.</p>

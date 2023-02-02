@@ -1,0 +1,27 @@
+//In this example, Car is a class with private member variables make and model, and a public constructor
+//that takes make and model as arguments and initializes the private member variables with these values.
+//The constructor also outputs a message indicating that a car object was created. The class also has a
+//destructor that outputs a message indicating that a car object was destroyed. In the main function, an
+//object of the class Car is created with the make "Toyota" and the model "Camry", and when it goes out
+//of scope at the end of main, the destructor is called and the message is displayed.
+
+#include <iostream>
+
+class Car {
+    private:
+        std::string make;
+        std::string model;
+    public:
+        Car(std::string make, std::string model) : make(make), model(model) {
+            std::cout << "A car object was created with make: " << make << " and model: " << model << std::endl;
+        }
+        ~Car() {
+            std::cout << "A car object with make: " << make << " and model: " << model << " was destroyed." << std::endl;
+        }
+};
+
+int main() {
+    Car c("Toyota", "Camry");
+    return 0;
+}
+

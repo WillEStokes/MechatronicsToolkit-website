@@ -19,9 +19,9 @@
             "description": "Learn the basics of C++ pointers and references."
         },
         {
-            "title": "Communication Architecture",
+            "title": "Function Pointer Communication",
             "image": "../images/communication.png",
-            "link": "../tutorials/numerical-control/communication-architecture.html",
+            "link": "../tutorials/numerical-control/function-pointer-communication.html",
             "description": "Learn the fundamentals of I2C and serial protocols, using robust communication architecture."
         }
     ]

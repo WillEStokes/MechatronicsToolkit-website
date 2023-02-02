@@ -1,0 +1,31 @@
+<p>The main loop is the heart of the program and is responsible for continuously checking for incoming messages and processing them as they arrive. In our tutorial, the main loop uses the I2C protocol to interface with a microcontroller from a host device.</p>
+
+<p>The first step in the main loop is to set the I2C address of the slave device using:
+
+<p><textarea class="content-cpp">i2c.address(SLAVE_ADDRESS)</textarea></p>
+
+This tells the I2C library which device to communicate with on the I2C bus.</p>
+
+<p>Next, the loop enters an infinite loop using the "while(true)" statement. Within the loop, a static character array "data" is declared, as well as a static pointer to a MessageHeader structure "header".</p>
+
+<p>The main loop then uses:
+
+<p><textarea class="content-cpp">i2c.read(data, _msgHeaderLength)</textarea></p>
+
+To read the incoming data. The function returns 0 if it was able to successfully read the data, and the "if" statement is executed.</p>
+
+<p>Within the "if" statement, the header pointer is set to point to the start of the incoming data, which is assumed to contain the message header. The header is then used to determine the length of the rest of the message. If the length of the rest of the message is greater than 0 then:
+
+<p><textarea class="content-cpp">i2c.read(data + _msgHeaderLength, header->packetLength - _msgHeaderLength)</textarea></p>
+
+Function is used to read the rest of the message.</p>
+
+<p>Once the complete message has been received, the main loop looks up the appropriate responding function for the received message using the "fid" (function identifier) field in the message header. The function is stored in the "comMessages" array, which is declared in the beginning of the code.</p>
+
+<p>If the responding function is found, the main loop calls it using:</p>
+
+<p><textarea class="content-cpp">this->comMessage->replyFunc)((void)data)</textarea></p>
+
+The "this" keyword is used to indicate that the function should be called on the current object, which is an instance of the EZOSensors class. The "(void*)data" argument is passed to the function, allowing it to access the complete message data.</p>
+
+<p>In conclusion, the main loop is responsible for continuously checking for incoming messages and processing them as they arrive, using the I2C protocol to communicate with a microcontroller. The main loop uses the message header to determine the appropriate responding function, and calls the function with the complete message data.</p>

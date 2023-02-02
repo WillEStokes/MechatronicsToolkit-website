@@ -1,0 +1,37 @@
+<p>Inheritance is one of the fundamental concepts of OOP in C++, allowing you to define a new class based on an existing class. The new class is called the derived class, and the existing class is called the base class.</p>
+
+<p>Inheritance allows you to create a hierarchy of classes, where a derived class inherits all the data members and member functions of the base class. You can then add new data members and member functions to the derived class, and/or override the base class member functions to provide different functionality.</p>
+
+<p>Here's an example of inheritance in C++:</p>
+
+<p><textarea class="content-cpp">class Shape {
+ public:
+  int area();
+};
+
+class Rectangle : public Shape {
+ public:
+  int length;
+  int width;
+  Rectangle(int l, int w);
+  int area();
+};
+
+Rectangle::Rectangle(int l, int w) {
+  length = l;
+  width = w;
+}
+
+int Shape::area() {
+  return 0;
+}
+
+int Rectangle::area() {
+  return length * width;
+}</textarea></p>
+
+<p>In this example, the <code>Shape</code> class is the base class, and the <code>Rectangle</code> class is the derived class. The <code>Rectangle</code> class inherits the area member function from the <code>Shape</code> class, and then overrides it to provide a specific implementation for rectangles.</p>
+
+<p>Inheritance allows you to reuse and extend existing code, making it easier to create new classes and build complex applications. It also promotes code reuse, since you can use a base class as a blueprint for creating new classes, and it facilitates code maintenance, since changes made to the base class are automatically reflected in the derived class.</p>
+
+<p>In the next sections, we will explore other OOP concepts such as polymorphism and encapsulation that complement and enhance the functionality of inheritance in C++.</p>

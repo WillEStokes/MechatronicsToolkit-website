@@ -1,0 +1,32 @@
+<p>Data members and member functions are the building blocks of a class in C++. Data members represent the properties or attributes of an object, and member functions represent the actions or behaviors that an object can perform.</p>
+
+<p>Data members are defined within the class and can be either private or public. Private data members are accessible only within the class, while public data members can be accessed from outside the class using the dot operator .. It's good practice to make data members private and use member functions to access and manipulate them.</p>
+
+<p>Member functions are defined within the class and can also be either private or public. They perform specific tasks and can access and manipulate the data members of an object.</p>
+
+<p>Here's an example of a class with both data members and member functions:</p>
+
+<p><textarea class="content-cpp">class Rectangle {
+ public:
+  int length;
+  int width;
+  int area();
+  void setLength(int l);
+  void setWidth(int w);
+};
+
+int Rectangle::area() {
+  return length * width;
+}
+
+void Rectangle::setLength(int l) {
+  length = l;
+}
+
+void Rectangle::setWidth(int w) {
+  width = w;
+}</textarea></p>
+
+<p>In this example, the <code>Rectangle</code> class has two data members <code>length</code> and <code>width</code>, and three member functions <code>area</code>, <code>setLength</code>, and <code>setWidth</code>. The <code>area</code> function calculates and returns the area of the rectangle, while the <code>setLength</code> and <code>setWidth</code> functions allow the user to set the values of the <code>length</code> and <code>width</code> data members, respectively.</p>
+
+<p>With data members and member functions, you can define the properties and behaviors of an object, making it easier to model real-world objects and their interactions in code. In the next sections, we will see how inheritance, polymorphism, and other OOP concepts can be used to build complex and scalable applications in C++.</p>

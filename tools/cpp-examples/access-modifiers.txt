@@ -1,0 +1,39 @@
+//In this example, the Student class has two private data members, rollNumber and name, and four
+//public member functions, getRollNumber, setRollNumber, getName, and setName. The private data
+//members can only be accessed through the public member functions, which act as getters and
+//setters for the data members. In the main function, a Student object is created and its data
+//members are accessed and modified using the public member functions. This demonstrates the use
+//of access modifiers to control access to class data members.
+
+#include <iostream>
+
+class Student {
+    private:
+        int rollNumber;
+        std::string name;
+    public:
+        Student(int r, std::string n) : rollNumber(r), name(n) {}
+        int getRollNumber() {
+            return rollNumber;
+        }
+        void setRollNumber(int r) {
+            rollNumber = r;
+        }
+        std::string getName() {
+            return name;
+        }
+        void setName(std::string n) {
+            name = n;
+        }
+};
+
+int main() {
+    Student s(1, "John Doe");
+    std::cout << "Roll Number: " << s.getRollNumber() << std::endl;
+    std::cout << "Name: " << s.getName() << std::endl;
+    s.setRollNumber(2);
+    s.setName("Jane Doe");
+    std::cout << "Roll Number: " << s.getRollNumber() << std::endl;
+    std::cout << "Name: " << s.getName() << std::endl;
+    return 0;
+}

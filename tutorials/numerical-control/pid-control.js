@@ -1,7 +1,7 @@
 const code = document.getElementById("content-python");
 const codeusage = document.getElementById("content-python-usage");
 
-fetch('./content/pid-control-python-function.txt')
+fetch('./content/pid-control/python-function.txt')
 .then(response => response.text())
 .then(data => {
   document.getElementById("content-python").innerHTML = data;
@@ -16,7 +16,7 @@ fetch('./content/pid-control-python-function.txt')
     console.log(error);
 });
 
-fetch('./content/pid-control-python-function-usage.txt')
+fetch('./content/pid-control/python-function-usage.txt')
 .then(response => response.text())
 .then(data => {
   document.getElementById("content-python-usage").innerHTML = data;
