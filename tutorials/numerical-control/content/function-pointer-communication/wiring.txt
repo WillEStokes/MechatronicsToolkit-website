@@ -1,4 +1,4 @@
-<p>In this section, we will go through the process of wiring the two boards together, so that we can practice the communication method outlined in the previous sections of the tutorial. The wiring process is simple and straightforward, but it is important to follow the steps carefully to ensure the boards are connected correctly.</p>
+<p>In this section, we will go through the process of wiring two boards together, so that they can transmit and receive data using the I2C protocol, allowing us to practice our communication method. The wiring process is simple and straightforward, but it is important to follow the steps carefully to ensure the boards are connected correctly.</p>
 
 <p>The first step is to connect the two boards together, you will need to connect the following pins between the master and slave boards:</p>
 

@@ -32,6 +32,14 @@
       });
     </script>
     <h1>PID Control</h1>
+    <div id="sidebar">
+      <ul>
+          <li><a href="#introduction">Introduction</a></li>
+          <li><a href="#theory">Theory</a></li>
+          <li><a href="#implementation">Implementation</a></li>
+          <li><a href="#conclusion">Conclusion</a></li>
+      </ul>
+    </div>
     <section id="introduction"></section>
       <h2>Introduction</h2>
       <div id="content-intro"></div>
@@ -89,7 +97,7 @@
         <button type="button" onclick="plotResponse()">Plot Response</button>
         <br><br>
       </form>
-        <div id="response-plot"></div>
+      <div id="response-plot"></div>
     <section id="code"></section>
       <h3>Example Python code</h3>
       <!-- <pre> -->
@@ -140,6 +148,7 @@
           <label>\(I\):</label>
           <input type="text" id="i-output" readonly>
       </form>
+      <section id="conclusion"></section>
       <h2>Conclusion</h2>
       <div id="content-conclusion"></div>
         <script>
