@@ -67,6 +67,11 @@ body {
     font-size: 18px;
 }
 
+#nav #home {
+    font-size: 18px;
+    padding: 0;
+}
+
 #nav a {
     color: #fff;
     text-decoration: none;
@@ -78,7 +83,7 @@ body {
 #nav #tutorial {
     font-size: 14px;
     margin: 0 20px;
-  }
+}
 
 #nav a:hover {
     background-color: #444;
@@ -87,7 +92,21 @@ body {
 #nav a.active {
     color: #6186ff;
     font-weight: bold;
+}
+
+.nav-item {
+    cursor: pointer;
+    user-select: none; /* Standard */
+}
+  
+.nav-item:hover {
+    cursor: pointer;
+    background-color: #444;
 }  
+
+.nav-item.close .sub-nav {
+    display: none;
+}
 
 /* ------- image container ------- */
 

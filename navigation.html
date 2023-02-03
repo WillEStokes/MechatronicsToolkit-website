@@ -7,33 +7,35 @@
   </head>
   <body>
     <ul>
-      <li><a href="/index.html">Home</a></li>
-      <li>Tools
-        <ul>
-          <li><a href="/tools/cpp-console.html">C++ Console</a></li>
-          <li><a href="/tools/python-console.html">Python Console</a></li>
+      <a id="home" href="/index.html">Home</a>
+      <li id="tools" class="nav-item">Tools
+        <ul class="sub-nav">
+          <li class="sub-nav-item"><a href="/tools/cpp-console.html">C++ Console</a></li>
+          <li class="sub-nav-item"><a href="/tools/python-console.html">Python Console</a></li>
         </ul>
       </li>
-      <li>Topics
-        <ul>
-          <li><a href="/topics/machine-learning.html">Machine Learning</a></li>
-          <ul>
-            <li><a id="tutorial" href="/tutorials/machine-learning/ML-basics.html">ML Basics</a></li>
-          </ul>
-          <li><a href="/topics/numerical-analysis.html">Numerical Analysis</a></li>
-          <ul>
-            <li><a id="tutorial" href="/tutorials/numerical-analysis/bayesian-optimisation.html">Bayesian Optimisation</a></li>
-          </ul>
-          <li><a href="/topics/numerical-control.html">Numerical Control</a></li>
-          <ul>
-            <li><a id="tutorial" href="/tutorials/numerical-control/function-pointer-communication.html">Communication</a></li>
-            <li><a id="tutorial" href="/tutorials/numerical-control/pid-control.html">PID Control</a></li>
-          </ul>
-          <li><a href="/topics/cpp.html">C++</a></li>
-          <ul>
-            <li><a id="tutorial" href="/tutorials/cpp/pointers-and-references.html">Pointers and References</a></li>
-            <li><a id="tutorial" href="/tutorials/cpp/object-oriented-programming.html">OOP</a></li>
-          </ul>
+      <li id="topics" class="nav-item">Topics
+        <ul class="sub-nav">
+          <li class="sub-nav-item" id="machine-learning">
+            <span class="expand-icon"></span>
+            <a href="/topics/machine-learning.html">Machine Learning</a></li>
+            <ul class="sub-sub-nav">
+              <li><a id="tutorial" href="/tutorials/machine-learning/ML-basics.html">ML Basics</a></li>
+            </ul>
+          <li class="sub-nav-item" id="numerical-analysis"><a href="/topics/numerical-analysis.html">Numerical Analysis</a></li>
+            <ul>
+              <li><a id="tutorial" href="/tutorials/numerical-analysis/bayesian-optimisation.html">Bayesian Optimisation</a></li>
+            </ul>
+          <li class="sub-nav-item" id="numerical-control"><a href="/topics/numerical-control.html">Numerical Control</a></li>
+            <ul>
+              <li><a id="tutorial" href="/tutorials/numerical-control/function-pointer-communication.html">Communication</a></li>
+              <li><a id="tutorial" href="/tutorials/numerical-control/pid-control.html">PID Control</a></li>
+            </ul>
+          <li class="sub-nav-item" id="cpp"><a href="/topics/cpp.html">C++</a></li>
+            <ul>
+              <li><a id="tutorial" href="/tutorials/cpp/pointers-and-references.html">Pointers and References</a></li>
+              <li><a id="tutorial" href="/tutorials/cpp/object-oriented-programming.html">OOP</a></li>
+            </ul>
         </ul>
       </li>
     </ul>

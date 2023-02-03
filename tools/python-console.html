@@ -11,24 +11,7 @@
     </head>
     <body>
         <div id="nav"></div>
-        <script>
-            fetch('/navigation.html')
-            .then(response => response.text())
-            .then(html => {
-              let navContainer = document.getElementById("nav");
-              navContainer.innerHTML = html;
-              const currentPage = window.location.pathname;
-              const links = document.querySelectorAll('a');
-              links.forEach(link => {
-                if (link.getAttribute('href') === currentPage) {
-                  link.classList.add('active');
-                }
-              });
-            })
-            .catch(error => {
-              console.error(error);
-            });
-          </script>
+        <script src="/navigation.js"></script>
         <div class="console-container">
             <div class="code-input-container">
                 <textarea id="code-input"></textarea>

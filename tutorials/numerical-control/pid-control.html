@@ -13,24 +13,7 @@
   </head>
   <body onload="initResponsePlot()">
     <div id="nav"></div>
-    <script>
-      fetch('/navigation.html')
-      .then(response => response.text())
-      .then(html => {
-        let navContainer = document.getElementById("nav");
-        navContainer.innerHTML = html;
-        const currentPage = window.location.pathname;
-        const links = document.querySelectorAll('a');
-        links.forEach(link => {
-          if (link.getAttribute('href') === currentPage) {
-            link.classList.add('active');
-          }
-        });
-      })
-      .catch(error => {
-        console.error(error);
-      });
-    </script>
+    <script src="/navigation.js"></script>
     <h1>PID Control</h1>
     <div id="sidebar">
       <ul>
@@ -112,7 +95,7 @@
         <p>Lambda tuning is a method for determining the optimal values of the proportional, integral, and derivative gain parameters (\(K_p\), \(K_i\), \(K_d\)) in a PID controller.
           The method is based on measuring the system's step response and calculating the optimal values of \(K_p\), \(K_i\), and \(K_d\) based on the values of \(T_d\) and \(\tau\), which are calculated from the step response.
         <div class="image-centre">
-          <img src="/images/metrics-image.png" alt="Diagram showing Td and tau calculated from controller output step change">
+          <img src="/images/pid-metrics.png" alt="Figure showing Td and tau calculated from controller output step change">
         </div>
         <p>To calculate the proportional term, we use the equation:</p>
         <p>$$P = K_c \times e(t)$$</p>
