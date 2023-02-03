@@ -1,169 +1,169 @@
-<p><b>Example 1:</b> Controlling an LED on the slave device
-This example will show you how to send messages from the host device to the slave device to turn an LED on and off. The slave device will have two functions defined, ledOn and ledOff, which will be called when the corresponding message is received from the host.</p>
+<p>This section will provide a step-by-step demonstration of the code needed to implement communication between a slave and master device.</p>
 
-<p><textarea class="content-cpp">#include <Wire.h>
+<p><b>Slave Device</b></p>
+
+<p><b>Definitions and declarations:</b></p>
+
+<p>Firstly, we will start by defining the type definitions discussed in the previous section of this tutorial:</p>
+
+<p><textarea class="content-cpp">#define SLAVE_ADDRESS 0x48
+
+const int LED_PIN = 13; //define LED pin
+uint8_t _msgHeaderLength = 3;
+uint8_t _error = 0;
+
+// type definitions
+typedef void (*messageHandlerFunc)(const void*);
 
 typedef struct {
-    uint8_t functionCode;
-    uint8_t errorCode;
     uint8_t packetLength;
-} MessageHeader;
+    uint8_t fid;
+    uint8_t error;
+} __attribute__((__packed__)) MessageHeader;
+
+typedef struct {
+    uint8_t fid;
+    messageHandlerFunc replyFunc;
+} __attribute__((__packed__)) ComMessage;
 
 typedef struct {
     MessageHeader header;
     uint8_t ledState;
-} __attribute__((__packed__)) LedControl;
+} __attribute__((__packed__)) LedControl;</textarea></p>
 
-const int LED_PIN = 13;
+<p>Next, we define the <code>fid</code>s that can be invoked on the slave device using an <code>enum</code>. Each <code>fid</code> corresponds to a specific function that is responsible for executing the desired task. In this example, the <code>fid</code>s include <code>FID_LED_ON</code>, <code>FID_LED_OFF</code>, and <code>FID_LED_CONTROL</code>.</p>
 
-void setLed(const LedControl* data) {
-    digitalWrite(LED_PIN, data->ledState);
+<p>Then we declare the function prototypes. These functions correspond to the respective <code>fid</code> and perform the action required for the <code>fid</code> when it is invoked.
+
+<p>And finally, we create the <code>comMessages</code> array which links the <code>fid</code> to its corresponding function using the function pointers defined in the <code>messageHandlerFunc</code>  type definition. Each element in the <code>comMessages</code> array consists of a <code>fid</code> and its corresponding function reference. When an <code>fid</code> is invoked, the slave device uses the linked function reference to execute the corresponding function:</p>
+
+<p><textarea class="content-cpp">// enum
+enum FID_LIST {
+    FID_LED_ON = 0,
+    FID_LED_OFF = 1,
+    FID_LED_CONTROL = 2,
+};
+
+// functions
+void ledOn(const MessageHeader* data);
+void ledOn(const MessageHeader* data);
+void ledControl(const MessageHeader* data);
+
+// function id's and reply function references
+const ComMessage comMessages[] = {
+    {FID_LED_ON, (messageHandlerFunc)&ledOn},
+    {FID_LED_OFF, (messageHandlerFunc)&ledOn},
+    {FID_LED_CONTROL, (messageHandlerFunc)&ledControl},
+};</textarea></p>
+
+<p><b>Setup and loop functions:</b></p>
+
+<p>Now we can perform initialisation tasks, such as begining the communication and setting the LED pin to output in the setup function. We can also start the main loop, which runs continuously listening for incoming data.</p>
+
+<p>In the <code>setup</code> function, we start the communication on the slave device with the defined slave address, and set the receive event function to <code>receiveEvent</code>. We also set the LED pin as an output with and set its initial state to low.</p>
+
+<p>The <code>loop</code> function runs continuously and listens for incoming data by utilising the receive event function that was defined in the <code>setup</code> function. As the communication between the slave and host device is handled through the <code>receiveEvent</code> function, there is no need for any code in the <code>loop</code> function.</p>
+
+<p><textarea class="content-cpp">void setup() {
+    Wire.begin(SLAVE_ADDRESS);
+    Wire.onReceive(receiveEvent);
+    pinMode(LED_PIN, OUTPUT);
+    digitalWrite(LED_PIN, LOW);
 }
 
-LedControl ledControlMessage;
+// loop continuously
+void loop()
+{
+}</textarea></p>
 
-void setup() {
-  Wire.begin(8);
-  Wire.onReceive(processIncomingMessage);
-  pinMode(LED_PIN, OUTPUT);
-  digitalWrite(LED_PIN, LOW);
-}
+<p><b>Helper function:</b></p>
 
-void loop() {
-}
+<p>The function <code>receiveEvent</code> is triggered whenever incoming data is received. The code in this function processes the received data as described in the previous section:</p>
 
-void processIncomingMessage(int packetSize) {
-  int readBytes = 0;
-  while (Wire.available() && readBytes < sizeof(MessageHeader)) {
-    ((uint8_t*)&ledControlMessage.header)[readBytes++] = Wire.read();
-  }
-  if (ledControlMessage.header.packetLength > sizeof(MessageHeader) &&
-      ledControlMessage.header.packetLength <= sizeof(ledControlMessage) &&
-      ledControlMessage.header.packetLength == packetSize) {
-    while (Wire.available() && readBytes < ledControlMessage.header.packetLength) {
-      ((uint8_t*)&ledControlMessage)[readBytes++] = Wire.read();
+<p><textarea class="content-cpp">// receive and process commands from the master
+void receiveEvent(int numBytes) {
+    static char data[32];
+    static MessageHeader* header;
+    static byte dataLength = 0;
+
+    // read the incoming data into the buffer
+    Wire.readBytes(data, numBytes);
+
+    // set the header pointer to point to the header data of the incoming message
+    header = (MessageHeader*)data;
+    // calculate the length of the incoming data, excluding the header
+    dataLength = numBytes - _msgHeaderLength;
+
+    // retrieve the appropriate comMessage object based on the incoming fid
+    const ComMessage* comMessage = &comMessages[header->fid];
+
+    if (comMessage->replyFunc != NULL && dataLength == header->packetLength - _msgHeaderLength) {
+        // if the message is valid, call the corresponding reply function
+        (*comMessage->replyFunc)((void*)data);
     }
-    setLed(&ledControlMessage);
-  }
 }</textarea></p>
 
-<p><textarea class="content-cpp">#include <Wire.h>
+<p><b>User-defined functions:</b></p>
 
-typedef struct {
-    uint8_t functionCode;
-    uint8_t errorCode;
-    uint8_t packetLength;
-} MessageHeader;
+<p>The <code>ledOn</code>, <code>ledOff</code>, and <code>ledControl</code> functions are examples of functions that are invoked by the <code>fid</code>'s that we defined at the top of the script. These functions perform specific actions in response to the corresponding <code>fid</code>.</p>
 
-typedef struct {
-    MessageHeader header;
-    uint8_t ledState;
-} __attribute__((__packed__)) LedControl;
+<p>In these examples, the <code>ledOn</code> function sets the LED pin to HIGH, which turns the LED on. The <code>ledOff</code> function sets the LED pin to LOW, which turns the LED off. The <code>ledControl</code> function controls the LED pin based on the data received. It sets the LED pin to the state specified in the received data. This allows for more fine-grained control of the LED, as the master device can send data specifying the desired state of the LED.</p>
 
-void controlLed(uint8_t ledState) {
-  LedControl ledControlMessage;
-  ledControlMessage.header.functionCode = 1;
-  ledControlMessage.header.errorCode = 0;
-  ledControlMessage.header.packetLength = sizeof(ledControlMessage);
-  ledControlMessage.ledState = ledState;
-  Wire.beginTransmission(8);
-  Wire.write((uint8_t*)&ledControlMessage, sizeof(ledControlMessage));
-  Wire.endTransmission();
+<p><textarea class="content-cpp">// switch LED on (no data)
+void ledOn(const MessageHeader* data) {
+    digitalWrite(LED_PIN, HIGH);
 }
 
-void setup() {
-  Wire.begin();
+// switch LED off (no data)
+void ledOff(const MessageHeader* data) {
+    digitalWrite(LED_PIN, LOW);
 }
 
-void loop() {
-  controlLed(HIGH);
-  delay(1000);
-  controlLed(LOW);
-  delay(1000);
+// control the LED pin based on the received data
+void ledControl(const LedControl* data) {
+    digitalWrite(LED_PIN, data->ledState);
 }</textarea></p>
 
-<p><b>Example 2:</b> Setting a Value on the slave device
-This example will show you how to send a floating-point value from the host device to the slave device, which will then assign the value to a variable. The slave device will have a setOutput function defined, which will be called when the message with the value is received.</p>
+<p><b>Master Device</b></p>
 
-<p><textarea class="content-cpp">#include <Wire.h>
+<p>By setting the values in the <code>MessageHeader</code> typedef, which the master transmits to the slave, we can invoke these functions individually.</p>
 
-#define SLAVE_ADDRESS 8
-#define MAX_MESSAGE_LENGTH 7
+<p><b>Example 1:</b> In this example <code>invokeFid</code> function on the master, the <code>packetLength</code> is set to 3 and <code>fid</code> is set to 1. The master then sends this data to the slave device by first beginning a transmission to the slave's address, then writing the <code>MessageHeader</code> struct data to the slave, and finally ending the transmission.
 
-typedef struct {
-  uint8_t functionCode;
-  uint8_t errorCode;
-  uint8_t packetLength;
-} MessageHeader;
+The <code>fid</code> value of 1 maps to the <code>ledOn</code> function in the slave, so when the slave receives the <code>MessageHeader</code> struct from the master with an <code>fid</code> of 1, it will execute the <code>ledOn</code> function and turn the LED on:</p>
 
-typedef struct {
-  MessageHeader header;
-  float value;
-} __attribute__((__packed__)) SetValue;
+<p><textarea class="content-cpp">void invokeFid() {
+    static MessageHeader message;
+    message.packetLength = 3;
+    message.fid = 1;
+    message.error = 0;
+    
+    Wire.beginTransmission(SLAVE_ADDRESS);
+    Wire.write((char*) &message, 3);
+    Wire.endTransmission();
 
-float value;
-
-void setOutput(const SetValue* data) {
-  value = data->value;
-}
-
-void receiveData(int byteCount) {
-  if (byteCount < 3) return;
-
-  MessageHeader header;
-  Wire.readBytes((uint8_t*)&header, 3);
-  uint8_t incomingMessage[header.packetLength];
-  Wire.readBytes(incomingMessage, header.packetLength);
-
-  switch (header.functionCode) {
-    case 1:
-      setOutput((SetValue*)incomingMessage);
-      break;
-    default:
-      break;
-  }
-}
-
-void setup() {
-  Wire.begin(SLAVE_ADDRESS);
-  Wire.onReceive(receiveData);
-}
-
-void loop() {
-  // No action needed in the main loop
+    return;
 }</textarea></p>
 
-<p><textarea class="content-cpp">#include <Wire.h>
+<p><b>Example 2:</b> In this example, the master sets the <code>packetLength</code> in the <code>MessageHeader</code> to 4 and the <code>fid</code> to 3, which corresponds to the <code>ledControl</code> function. The master then sends two transmissions: the first one to tell the slave which function to invoke, and the second one to set the value that will be passed to the <code>ledControl</code> function, which sets the output value of the <code>LED_PIN</code>. This allows the master to control the LED on the slave device by sending appropriate values to the slave:</p>
 
-const int SLAVE_ADDRESS = 8;
+<p><textarea class="content-cpp">void invokeFidWithData() {
+    static MessageHeader message;
+    message.packetLength = 4;
+    message.fid = 3;
+    message.error = 0;
+    
+    // first tranmission tells the slave which function to invoke
+    Wire.beginTransmission(SLAVE_ADDRESS);
+    Wire.write((char*) &message, 3);
+    Wire.endTransmission();
 
-void setup() {
-  Serial.begin(9600);
-  Wire.begin();
-}
+    // second tranmission to set the value
+    Wire.beginTransmission(K64F_ADDRESS);
+    Wire.write((char*) 1, 1);
+    Wire.endTransmission();
 
-void loop() {
-  float value = 10.5;
-  SetValue message = {
-    .header = {
-      .functionCode = 1,
-      .errorCode = 0,
-      .packetLength = sizeof(SetValue)
-    },
-    .value = value
-  };
-
-  Wire.beginTransmission(SLAVE_ADDRESS);
-  Wire.write((uint8_t*)&message, sizeof(message));
-  Wire.endTransmission();
-
-  delay(1000);
+    return;
 }</textarea></p>
 
-<p>In this example, the host is using the I2C library Wire.h to communicate with the slave device. The Wire.begin() function initializes the I2C communication and Wire.beginTransmission(SLAVE_ADDRESS) starts a transmission to the slave device at address 8.</p>
 
-<p>The Wire.write((uint8_t*)&message, sizeof(message)) function sends the message struct to the slave device. The host is casting the message struct to a uint8_t array to send over I2C.</p>
-
-<p>After sending the data, the Wire.endTransmission() function ends the transmission and the delay(1000) function provides a delay of 1 second before the next iteration of the loop.</p>
-
-<p>It is important to note that the examples provided are just that, examples. You can adapt and modify the code to fit your specific use case. For example, you could add more functions to the comMessages array or change the header.packetLength to fit your data needs. The key concept is to understand how the header, function pointers, and comMessages array work together to process incoming messages and call the appropriate functions.</p>

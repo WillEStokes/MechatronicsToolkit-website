@@ -2,20 +2,20 @@
     "tutorials": [
         {
             "title": "Basics of Machine Learning",
-            "image": "../images/ML-basics.png",
-            "link": "../tutorials/machine-learning/ML-basics.html",
+            "image": "/images/ML-basics.png",
+            "link": "/tutorials/machine-learning/ML-basics.html",
             "description": "An overview of several common terms."
         },
         {
             "title": "Linear Regression",
-            "image": "../images/linear-regression.png",
-            "link": "../tutorials/linear-regression.html",
+            "image": "/images/linear-regression.png",
+            "link": "/tutorials/linear-regression.html",
             "description": ""
         },
         {
             "title": "Gradient Descent",
-            "image": "../images/gradient-descent.png",
-            "link": "../tutorials/gradient-descent.html",
+            "image": "/images/gradient-descent.png",
+            "link": "/tutorials/gradient-descent.html",
             "description": ""
         }
     ]

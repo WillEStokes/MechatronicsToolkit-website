@@ -1,0 +1,51 @@
+.cm-s-custom.CodeMirror {
+  background: #f8f9fa;
+}
+.cm-s-custom .cm-header,
+.cm-s-custom .cm-def {
+  color: #1ba2f0;
+}
+.cm-s-custom .cm-comment {
+  color: #009e9d;
+}
+.cm-s-custom .cm-quote,
+.cm-s-custom .cm-link,
+.cm-s-custom .cm-strong,
+.cm-s-custom .cm-attribute {
+  color: #fd7741;
+}
+
+/* variable */
+.cm-s-custom .cm-variable { color: #07a; }
+
+/* type */
+.cm-s-custom span.cm-type { color: rgb(0, 67, 167); }
+
+/* definition */
+.cm-s-custom span.cm-def { color: rgb(120, 80, 146); }
+
+/* value */
+.cm-s-custom .cm-number { color:  #b45617; }
+
+/* operator */
+.cm-s-custom .cm-operator { color: #866325; }
+
+/* string */
+.cm-s-custom .cm-string { color:rgb(0, 61, 87); font-style:italic; }
+
+/* keyword */
+.cm-s-custom .cm-url,
+.cm-s-custom .cm-keyword,
+.cm-s-custom .cm-builtin {
+  color: #1323ff;
+}
+
+.cm-s-custom .cm-hr {
+  color: #909090;
+}
+.cm-s-custom .cm-tag {
+  color: #107000;
+}
+.cm-s-custom .cm-variable-2 {
+  color: #0050a0;
+}

@@ -1,0 +1,34 @@
+//This code uses typedef to define a new type FunctionPointer, which is a pointer to a function that
+//takes an int and returns an int. Then it uses type casting to convert a FunctionPointer to a void* 
+//and back again.
+
+#include <iostream>
+
+// Typedef for a pointer to a function that takes an int and returns an int
+typedef int (*FunctionPointer)(int);
+
+// Function that takes an int and returns an int
+int multiplyByTwo(int x) {
+    return x * 2;
+}
+
+int main() {
+    // Declare a variable of type FunctionPointer and assign the address of the multiplyByTwo function
+    FunctionPointer func = multiplyByTwo;
+
+    // Use type casting to convert the function pointer to a void pointer
+    void* vp = (void*)func;
+    std::cout << "Void pointer value: " << vp << std::endl;
+
+    // Use type casting to convert the void pointer back to a function pointer
+    FunctionPointer funcAgain = (FunctionPointer)vp;
+    std::cout << "Function pointer value: " << funcAgain << std::endl;
+
+    // Call the function through the function pointer
+    int result = funcAgain(10);
+
+    // Print the result
+    std::cout << "Result: " << result << std::endl;
+
+    return 0;
+}

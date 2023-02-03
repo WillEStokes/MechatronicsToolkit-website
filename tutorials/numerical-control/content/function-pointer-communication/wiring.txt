@@ -1,0 +1,24 @@
+<p>In this section, we will go through the process of wiring the two boards together, so that we can practice the communication method outlined in the previous sections of the tutorial. The wiring process is simple and straightforward, but it is important to follow the steps carefully to ensure the boards are connected correctly.</p>
+
+<p>The first step is to connect the two boards together, you will need to connect the following pins between the master and slave boards:</p>
+
+<ul>
+  <li>SDA (Serial Data Line) to SDA</li>
+  <li>SCL (Serial Clock Line) to SCL</li>
+  <li>GND (Ground) to GND</li>
+</ul>
+
+<p>Once the boards are connected together, we need to connect the slave board to an LED, so that we can observe the communication in action. Connect the LED as shown in the diagram below:</p>
+
+<ul>
+  <li>Connect the LED's cathode (short leg) to GND</li>
+  <li>Connect the LED's anode (long leg) to pin 13 on the slave board, using an inline resistor</li>
+</ul>
+
+<div class="image-centre">
+<img src="/images/communication-wiring.png" alt="Communication Wiring">
+</div>
+
+<p>That's it! You're now ready to test the communication between the two boards. Make sure both boards have the appropriate sketches loaded, as outlined in the previous sections, and then power both boards up. On the master device, you can call the example invoke functions in a continuous loop with a delay between calls, so that you can visibly see the LED change state. You should see the LED on the slave board turn on and off as the communication takes place between the two boards.</p>
+
+<p>If you encounter any issues, double check the connections and make sure you've followed the steps outlined in the tutorial carefully. If you're still having trouble, refer to the official documentation for your boards for more information.</p>

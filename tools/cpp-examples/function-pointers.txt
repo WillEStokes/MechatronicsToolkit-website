@@ -1,0 +1,35 @@
+//In this example, we have three simple functions: add, subtract, and multiply. We then have a
+//function performOperation that takes two int values a and b, and a function pointer pOperation.
+//The function pointer pOperation points to one of the three functions, add, subtract, or multiply.
+//The function performOperation dereferences the function pointer and calls the function, passing
+//a and b as arguments, and prints the result.
+
+#include <iostream>
+
+int add(int a, int b) {
+  return a + b;
+}
+
+int subtract(int a, int b) {
+  return a - b;
+}
+
+int multiply(int a, int b) {
+  return a * b;
+}
+
+void performOperation(int a, int b, int (*pOperation)(int, int)) {
+  int result = (*pOperation)(a, b);
+  std::cout << "Result: " << result << std::endl;
+}
+
+int main() {
+  int a = 10;
+  int b = 5;
+
+  performOperation(a, b, add);
+  performOperation(a, b, subtract);
+  performOperation(a, b, multiply);
+
+  return 0;
+}

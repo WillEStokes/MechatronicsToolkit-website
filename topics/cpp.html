@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>C++</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+  </head>
+  <body>
+    <div id="nav"></div>
+    <script>
+      fetch('/navigation.html')
+      .then(response => response.text())
+      .then(html => {
+        let navContainer = document.getElementById("nav");
+        navContainer.innerHTML = html;
+        const currentPage = window.location.pathname;
+        const links = document.querySelectorAll('a');
+        links.forEach(link => {
+          if (link.getAttribute('href') === currentPage) {
+            link.classList.add('active');
+          }
+        });
+      })
+      .catch(error => {
+        console.error(error);
+      });
+    </script>
+    <h1>C++</h1>
+    <div id="tutorials-container">
+    </div>
+    <div class="footer">
+      <a href="/index.html" style="border: 1px solid blue; border-radius: 25px; padding: 10px 20px; text-decoration: none; color: blue;">Back to Homepage</a>
+    </div>
+    <script>
+      fetch('cpp.json')
+        .then(response => response.json())
+        .then(data => {
+          let tutorialsContainer = document.getElementById("tutorials-container");
+          tutorialsContainer.classList.add("grid-container");
+          data.tutorials.forEach(tutorial => {
+            tutorialsContainer.innerHTML += `
+            <a href="${tutorial.link}">
+              <h2> ${tutorial.title} </h2>
+              <div class="image-container">
+                <img src="${tutorial.image}" alt="${tutorial.title}">
+                <div class="overlay">
+                  <p>${tutorial.description}</p>
+                </div>
+              </div>
+            </a>
+            `;
+          });
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    </script>    
+  </body>
+</html>

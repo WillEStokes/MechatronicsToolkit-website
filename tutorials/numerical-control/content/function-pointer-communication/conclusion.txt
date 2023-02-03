@@ -12,4 +12,4 @@
 <li><b>Easy Data Transmission:</b>  The use of a unique function ID (fid) and a table of ComMessage structures allows the receiving device to efficiently cast incoming data, ensuring proper handling and interpretation of transmitted data.</li>
 </ul>
 
-<p>In conclusion, the method presented in this tutorial provides a robust and efficient solution for interfacing microcontrollers with host devices using the I2C protocol. By taking advantage of the clear and concise structure provided by the type definitions and responding functions, and the low-bandwidth, low-overhead nature of the I2C protocol, you can ensure reliable and efficient communication between your devices.</p>
+<p>The method presented in this tutorial provides a robust and efficient solution for interfacing microcontrollers with host devices using the I2C protocol. By taking advantage of the clear and concise structure provided by the type definitions and responding functions, and the low-bandwidth, low-overhead nature of the I2C protocol, you can ensure reliable and efficient communication between your devices.</p>

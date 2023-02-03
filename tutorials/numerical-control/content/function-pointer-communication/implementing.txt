@@ -3,7 +3,7 @@
 <p>The following steps describe how the while loop handles the incoming data:</p>
 
 <ol type="1">
-<li><p>Firstly, we use a read function to read the first 3 bytes of the incoming data and assign it to a variable array. The <code>header</code> pointer is then cast to point to the newly defined variable array, allowing us to access the <code>MessageHeader struct</code>. This header contains important information such as the size of the incoming data packet, a function identifier (<code>fid</code>), and an error code.</p></li>
+<li><p>Firstly, we use a read function to read the first 3 bytes of the incoming data and assign it to a variable array. The <code>header</code> pointer is then cast to point to the newly defined variable array, allowing us to access the <code>MessageHeader</code> struct. This header contains important information such as the size of the incoming data packet, a function identifier (<code>fid</code>), and an error code.</p></li>
 
 <li><p>Secondly, if the packet length minus the <code>MessageHeader</code> length is greater than 0, we use the read function again to read the remaining bytes of the incoming data and store it in the variable array, starting from the position after the <code>MessageHeader</code>.</p></li>
 
@@ -12,7 +12,7 @@
 
 <p>This process continues in an infinite loop, allowing the slave device to continuously process incoming messages and call the corresponding responding functions.</p>
 
-<p>The <code>comMessages</code> array is defined as a list of <code>ComMessage structs</code>, which we defined earlier, each containing a <code>fid</code> and a <code>replyFunc</code>. The <code>replyFunc</code> is a function pointer that points to the corresponding function that should be invoked when the incoming message has a matching <code>fid</code>. Functions can easily be added or removed from the <code>comMessages</code> array without having to modify the main loop.</p>
+<p>The <code>comMessages</code> array is defined as a list of <code>ComMessage</code> structs, which we defined earlier, each containing a <code>fid</code> and a <code>replyFunc</code>. The <code>replyFunc</code> is a function pointer that points to the corresponding function that should be invoked when the incoming message has a matching <code>fid</code>. Functions can easily be added or removed from the <code>comMessages</code> array without having to modify the main loop.</p>
 
 <p>A simple <code>ComMessages</code> array, which includes two functions to toggle and led on and off, could be defined as follows:</p>
 

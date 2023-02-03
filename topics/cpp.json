@@ -1,0 +1,16 @@
+{
+    "tutorials": [
+        {
+            "title": "Object-Oriented Programming",
+            "image": "/images/object-oriented-programming.png",
+            "link": "/tutorials/cpp/object-oriented-programming.html",
+            "description": "Discover techniques for designing efficient communication networks in mechatronics systems."
+        },
+        {
+            "title": "C++ Pointers and References",
+            "image": "/images/cpp-pointers-and-references.png",
+            "link": "/tutorials/cpp/cpp-pointers-and-references.html",
+            "description": "Learn the basics of C++ pointers and references."
+        }
+    ]
+}

@@ -10,7 +10,7 @@
 
 <p><textarea class="content-cpp">int (*pfoo)(int, int);</textarea></p>
 
-<p>The declaration of <code>pfoo</code> states that it's a pointer to a function that takes two <code>int</code> arguments and returns an <code>int</code> . We can assign the address of <code>foo</code> to <code>pfoo</code> like this:</p>
+<p>The declaration of <code>pfoo</code> states that it's a pointer to a function that takes two <code>int</code> arguments and returns an <code>int</code>. We can assign the address of <code>foo</code> to <code>pfoo</code> like this:</p>
 
 <p><textarea class="content-cpp">pfoo = &foo;</textarea></p>
 
@@ -31,6 +31,6 @@
     messageHandlerFunc replyFunc;
 } ComMessage;</textarea></p>
 
-<p>In this example, the <code>ComMessage struct</code> stores an 8-bit function ID and a <code>messageHandlerFunc</code> function pointer. By storing the function pointers in a <code>struct</code>, you can easily manage and invoke the responding functions based on the function IDs in incoming data.</p>
+<p>In this example, the <code>ComMessage</code> struct stores an 8-bit function ID and a <code>messageHandlerFunc</code> function pointer. By storing the function pointers in a <code>struct</code>, you can easily manage and invoke the responding functions based on the function IDs in incoming data.</p>
 
 <p>In the following sections, we will use the <code>messageHandlerFunc</code> and <code>ComMessage</code> typedefs to implement our robust communication method between devices.</p>

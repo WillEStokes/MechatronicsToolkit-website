@@ -143,12 +143,18 @@ body {
 
 /* ------- image ------- */
 
-.tuning-image img{
+.image-fill img{
     width: 60%;
     height: auto;
     display: block;
     margin: 0 auto;
-    /* object-fit: cover; /* this makes the image fill the container while preserving its aspect ratio */
+    object-fit: cover; /* this makes the image fill the container while preserving its aspect ratio */
+}
+
+.image-centre img{
+    width: 50%;
+    height: auto;
+    transform: translateX(50%);
 }
 
 /* ------- code ------- */

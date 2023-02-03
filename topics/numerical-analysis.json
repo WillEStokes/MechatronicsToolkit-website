@@ -2,8 +2,8 @@
     "tutorials": [
         {
             "title": "Bayesian Optimisation",
-            "image": "../images/bayesian.png",
-            "link": "../tutorials/numerical-analysis/bayesian-optimisation.html",
+            "image": "/images/bayesian.png",
+            "link": "/tutorials/numerical-analysis/bayesian-optimisation.html",
             "description": "Learn how to use Bayesian Optimization to efficiently optimize black-box functions."
         }
     ]

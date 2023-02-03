@@ -30,6 +30,18 @@
         });
       </script>
     <h1>Function Pointer Communication Method</h1>
+    <div id="sidebar">
+        <ul>
+            <li><a href="#content-intro">Introduction</a></li>
+            <li><a href="#content-type-defs-and-casting">Typedefs and Data Type Casting</a></li>
+            <li><a href="#content-function-pointers">Function Pointers</a></li>
+            <li><a href="#content-message-header">Data Packet Headers</a></li>
+            <li><a href="#content-implementing">Implementing the Function Pointer Communication Method</a></li>
+            <li><a href="#content-examples">Example Code</a></li>
+            <li><a href="#content-wiring">Wiring</a></li>
+            <li><a href="#content-conclusion">Conclusion</a></li>
+        </ul>
+    </div>
     <h2>Introduction</h2>
     <div id="content-intro"></div>
     <script>
@@ -55,12 +67,12 @@
             }); 
     </script>
     <h2>Function Pointers</h2>
-    <div id="content-function-pointer"></div>
+    <div id="content-function-pointers"></div>
     <script>
-        fetch('./content/function-pointer-communication/function-pointer.txt')
+        fetch('./content/function-pointer-communication/function-pointers.txt')
             .then(response => response.text())
             .then(data => {
-                document.getElementById("content-function-pointer").innerHTML = data;
+                document.getElementById("content-function-pointers").innerHTML = data;
             })
             .catch(error => {
                 console.log(error);
@@ -97,6 +109,18 @@
             .then(response => response.text())
             .then(data => {
                 document.getElementById("content-examples").innerHTML = data;
+            })
+            .catch(error => {
+                console.log(error);
+            }); 
+    </script>
+    <h2>Wiring</h2>
+    <div id="content-wiring"></div>
+    <script>
+        fetch('./content/function-pointer-communication/wiring.txt')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("content-wiring").innerHTML = data;
             })
             .catch(error => {
                 console.log(error);

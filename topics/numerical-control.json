@@ -2,26 +2,14 @@
     "tutorials": [
         {
             "title": "PID Control",
-            "image": "../images/pid.png",
-            "link": "../tutorials/numerical-control/pid-control.html",
+            "image": "/images/pid.png",
+            "link": "/tutorials/numerical-control/pid-control.html",
             "description": "Learn how to implement and tune PID controllers for precise control systems."
         },
         {
-            "title": "Object-Oriented Programming",
-            "image": "../images/object-oriented-programming.png",
-            "link": "../tutorials/numerical-control/object-oriented-programming.html",
-            "description": "Discover techniques for designing efficient communication networks in mechatronics systems."
-        },
-        {
-            "title": "C++ Pointers and References",
-            "image": "../images/cpp-pointers-and-references.png",
-            "link": "../tutorials/numerical-control/cpp-pointers-and-references.html",
-            "description": "Learn the basics of C++ pointers and references."
-        },
-        {
             "title": "Function Pointer Communication",
-            "image": "../images/communication.png",
-            "link": "../tutorials/numerical-control/function-pointer-communication.html",
+            "image": "/images/communication.png",
+            "link": "/tutorials/numerical-control/function-pointer-communication.html",
             "description": "Learn the fundamentals of I2C and serial protocols, using robust communication architecture."
         }
     ]
