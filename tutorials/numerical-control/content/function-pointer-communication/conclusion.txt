@@ -1,4 +1,4 @@
-<p>The communication method using the type definitions <code>messageHandlerFunc</code>, <code>MessageHeader</code>, and <code>ComMessage</code> offer several advantages:</p>
+<p>The communication method using the type definitions <code>messageHandlerFunc</code>, <code>MessageHeader</code>, and <code>ComMessage</code> offers several advantages:</p>
 
 <ul>
 <li><b>Error Checking:</b> The use of the MessageHeader structure helps to ensure that each incoming data packet has the correct format, including a specified packet length, a unique function ID (fid), and an error code. This helps to minimize the risk of misinterpretation or incorrect processing of received data.</li>
