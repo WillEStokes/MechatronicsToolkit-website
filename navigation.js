@@ -14,7 +14,7 @@ fetch('/navigation.html')
     const navItems = document.querySelectorAll('.nav-item');
     navItems.forEach(item => {
     item.addEventListener('click', function(e) {
-        if (!e.target.matches('a')) {
+        if (!e.target.matches('a') && !e.target.matches('.sub-nav-item')) {
         this.classList.toggle('close');
         localStorage.setItem(`nav-item-${item.id}`, this.classList.contains('close') ? 'close' : '');
         }
@@ -25,7 +25,23 @@ fetch('/navigation.html')
         item.classList.add('close');
     }
     });
-    })
+
+    const subNavItems = document.querySelectorAll('.sub-nav-item');
+    subNavItems.forEach(item => {
+    item.addEventListener('click', function(e) {
+        if (!e.target.matches('a')) {
+        this.classList.toggle('close');
+        localStorage.setItem(`sub-nav-item-${item.id}`, this.classList.contains('close') ? 'close' : '');
+        }
+    });
+
+    const subNavItemState = localStorage.getItem(`sub-nav-item-${item.id}`);
+    if (subNavItemState === 'close') {
+        item.classList.add('close');
+    }
+    });
+})
+    
 .catch(error => {
     console.error(error);
 });

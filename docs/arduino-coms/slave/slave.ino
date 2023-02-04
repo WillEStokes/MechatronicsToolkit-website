@@ -1,6 +1,7 @@
+#include "Wire.h"
 #define SLAVE_ADDRESS 0x48
 
-const int LED_PIN = 13; //define LED pin
+const int LED_PIN = LED_BUILTIN; //define LED pin
 uint8_t _msgHeaderLength = 3;
 uint8_t _error = 0;
 
@@ -32,44 +33,64 @@ enum FID_LIST {
 
 // functions
 void ledOn(const MessageHeader* data);
-void ledOn(const MessageHeader* data);
-void ledControl(const MessageHeader* data);
+void ledOff(const MessageHeader* data);
+void ledControl(const LedControl* data);
 
 // function id's and reply function references
 const ComMessage comMessages[] = {
     {FID_LED_ON, (messageHandlerFunc)&ledOn},
-    {FID_LED_OFF, (messageHandlerFunc)&ledOn},
+    {FID_LED_OFF, (messageHandlerFunc)&ledOff},
     {FID_LED_CONTROL, (messageHandlerFunc)&ledControl},
 };
 
 void setup() {
-    Wire.begin(SLAVE_ADDRESS);
-    Wire.onReceive(receiveEvent);
+    Serial.begin(9600);
+//    Serial.begin(SLAVE_ADDRESS);
+//    Serial.onReceive(receiveEvent);
+
+    pinMode(LED_PIN, OUTPUT);
     digitalWrite(LED_PIN, LOW);
 }
 
 // loop continuously
-void loop()
-{
-}
-
-// receive and process commands from the master
-void receiveEvent(int numBytes) {
+void loop() {
     static char data[32];
     static MessageHeader* header;
     static byte dataLength = 0;
-
-    Wire.readBytes(data, numBytes);
-
-    header = (MessageHeader*)data;
-    dataLength = numBytes - _msgHeaderLength;
-
-    const ComMessage* comMessage = &comMessages[header->fid];
-
-    if (comMessage->replyFunc != NULL && dataLength == header->packetLength - _msgHeaderLength) {
-        (*comMessage->replyFunc)((void*)data);
+    
+    if (Serial.available() > 0) {
+        if (Serial.readBytes(data, _msgHeaderLength) == _msgHeaderLength) {
+            header = (MessageHeader*)data;
+    
+            dataLength = Serial.readBytes(data + _msgHeaderLength, header->packetLength - _msgHeaderLength);
+            
+            const ComMessage* comMessage = &comMessages[header->fid];
+            
+            if (comMessage != NULL && comMessage->replyFunc != NULL && dataLength == header->packetLength - _msgHeaderLength) {
+                (*comMessage->replyFunc)((void*)data);
+            }
+        }
     }
 }
+
+// receive and process commands from the master
+//void receiveEvent(int numBytes) {
+//    static char data[32];
+//    static MessageHeader* header;
+//    static byte dataLength = 0;
+//
+//    Serial.readBytes(data, numBytes);
+//
+//    header = (MessageHeader*)data;
+//    dataLength = numBytes - _msgHeaderLength;
+//
+//    const ComMessage* comMessage = &comMessages[header->fid];
+//    digitalWrite(LED_PIN, !digitalRead(LED_PIN));
+//
+//    if (comMessage->replyFunc != NULL && dataLength == header->packetLength - _msgHeaderLength) {
+//        (*comMessage->replyFunc)((void*)data);
+//    }
+//}
 
 // switch LED on (no data)
 void ledOn(const MessageHeader* data) {

@@ -6,7 +6,8 @@
 
 <p>Firstly, we will start by defining the type definitions discussed in the previous section of this tutorial:</p>
 
-<p><textarea class="content-cpp">#define SLAVE_ADDRESS 0x48
+<p><textarea class="content-cpp">#include "Wire.h"
+#define SLAVE_ADDRESS 0x48
 
 const int LED_PIN = 13; //define LED pin
 uint8_t _msgHeaderLength = 3;
@@ -46,13 +47,13 @@ enum FID_LIST {
 
 // functions
 void ledOn(const MessageHeader* data);
-void ledOn(const MessageHeader* data);
-void ledControl(const MessageHeader* data);
+void ledOff(const MessageHeader* data);
+void ledControl(const LedControl* data);
 
 // function id's and reply function references
 const ComMessage comMessages[] = {
     {FID_LED_ON, (messageHandlerFunc)&ledOn},
-    {FID_LED_OFF, (messageHandlerFunc)&ledOn},
+    {FID_LED_OFF, (messageHandlerFunc)&ledOff},
     {FID_LED_CONTROL, (messageHandlerFunc)&ledControl},
 };</textarea></p>
 

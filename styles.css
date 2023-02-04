@@ -63,11 +63,10 @@ body {
 #nav ul {
     list-style: none;
     margin: 0;
-    padding: 0;
+    padding: 0px;
 }
 
 #nav li {
-    margin: 5px 0;
     font-size: 18px;
 }
 
@@ -76,17 +75,22 @@ body {
     padding: 0;
 }
 
-#nav a {
-    color: #fff;
-    text-decoration: none;
+#nav #topic {
     font-size: 16px;
-    display: block;
-    padding: 10px;
+    padding: 0px;
 }
 
 #nav #tutorial {
     font-size: 14px;
     margin: 0 20px;
+}
+
+#nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    display: block;
+    padding: 5px;
 }
 
 #nav a:hover {
@@ -102,15 +106,35 @@ body {
     cursor: pointer;
     user-select: none; /* Standard */
 }
+
+.sub-nav-item {
+    padding: 5px;
+    cursor: pointer;
+    user-select: none; /* Standard */
+}
   
 .nav-item:hover {
     cursor: pointer;
-    background-color: #444;
-}  
+}
+
+.sub-nav-item:hover .sub-nav-item {
+    cursor: pointer;
+    background-color: #7c7c7c44;
+}
+
+.sub-nav-item:hover .sub-sub-nav {
+    cursor: pointer;
+    background-color: #383838;
+}
 
 .nav-item.close .sub-nav {
     display: none;
 }
+
+.sub-nav-item.close .sub-sub-nav {
+    display: none;
+}
+
 
 /* ------- image container ------- */
 
