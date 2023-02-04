@@ -67,7 +67,7 @@ body {
 }
 
 #nav li {
-    font-size: 18px;
+    font-size: 16px;
 }
 
 #nav #home {
@@ -75,8 +75,13 @@ body {
     padding: 0;
 }
 
-#nav #topic {
-    font-size: 16px;
+#nav #topics {
+    font-size: 18px;
+    padding: 0px;
+}
+
+#nav #tools {
+    font-size: 18px;
     padding: 0px;
 }
 
@@ -108,6 +113,7 @@ body {
 }
 
 .sub-nav-item {
+    margin: 0 5px;
     padding: 5px;
     cursor: pointer;
     user-select: none; /* Standard */
