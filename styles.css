@@ -123,12 +123,11 @@ body {
     cursor: pointer;
 }
 
-.sub-nav-item:hover .sub-nav-item {
+.sub-nav-item:hover {
     cursor: pointer;
-    background-color: #7c7c7c44;
 }
 
-.sub-nav-item:hover .sub-sub-nav {
+.sub-sub-nav:hover .sub-sub-nav {
     cursor: pointer;
     background-color: #383838;
 }
