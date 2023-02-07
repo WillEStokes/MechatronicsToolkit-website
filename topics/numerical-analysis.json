@@ -1,15 +1,9 @@
 {
     "tutorials": [
         {
-            "title": "Bayesian Optimisation",
-            "image": "/images/bayesian.png",
-            "link": "/tutorials/numerical-analysis/bayesian-optimisation.html",
-            "description": "Learn how to use Bayesian Optimization to efficiently optimize black-box functions."
-        },
-        {
-            "title": "Peak Analysis",
-            "image": "/images/peak-analysis.png",
-            "link": "/tutorials/numerical-analysis/peak-analysis.html",
+            "title": "Peak Features",
+            "image": "/images/peak-features.png",
+            "link": "/tutorials/numerical-analysis/peak-features.html",
             "description": "Learn how to perform peak analysis, with broad-reaching applications."
         }
     ]

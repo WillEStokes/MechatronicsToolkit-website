@@ -13,10 +13,22 @@
             "description": "Learn the fundamentals of I2C and serial protocols, using robust communication architecture."
         },
         {
-            "title": "Valve Control",
+            "title": "Rotary Valve",
             "image": "/images/valve.png",
-            "link": "/tutorials/numerical-control/valve-control.html",
+            "link": "/tutorials/numerical-control/rotary-valve.html",
             "description": "Learn how to numerically operate fluid valves, for tight control in fluidic applications."
+        },
+        {
+            "title": "Bayesian Optimisation",
+            "image": "/images/bayesian.png",
+            "link": "/tutorials/numerical-control/bayesian-optimisation.html",
+            "description": "Learn how to use Bayesian Optimization to efficiently optimize black-box functions."
+        },
+        {
+            "title": "Signal Filtering",
+            "image": "/images/signal-filtering.png",
+            "link": "/tutorials/numerical-control/signal-filtering.html",
+            "description": "Learn how to implement Euler's formula to design signal filters."
         }
     ]
 }

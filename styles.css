@@ -42,6 +42,20 @@ body {
 
 /* ------- navigation ------- */
 
+.nav-expand, .sub-nav-expand {
+    border-radius: 5px;
+    display: inline-block;
+    border: 1px solid white;
+    padding: 0 4px;
+    margin-left: 5px;
+    cursor: pointer;
+    line-height:14px;
+}
+
+.nav-expand:hover, .sub-nav-expand:hover {
+    background-color: #444;
+}
+
 #nav {
     position: fixed;
     top: 0;
@@ -112,7 +126,7 @@ body {
     user-select: none; /* Standard */
 }
 
-.sub-nav-item {
+.sub-nav-item, .sub-nav-tutorial {
     margin: 0 5px;
     padding: 5px;
     cursor: pointer;
@@ -123,7 +137,7 @@ body {
     cursor: pointer;
 }
 
-.sub-nav-item:hover {
+.sub-nav-item:hover, .sub-nav-tutorial:hover {
     cursor: pointer;
 }
 

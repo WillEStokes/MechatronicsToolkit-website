@@ -9,7 +9,7 @@
         {
             "title": "C++ Pointers and References",
             "image": "/images/cpp-pointers-and-references.png",
-            "link": "/tutorials/cpp/cpp-pointers-and-references.html",
+            "link": "/tutorials/cpp/pointers-and-references.html",
             "description": "Learn the basics of C++ pointers and references."
         }
     ]

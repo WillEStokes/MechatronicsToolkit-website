@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Numerical Control</title>
+    <title>Theory</title>
     <link rel="stylesheet" type="text/css" href="/styles.css">
     <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
   </head>
   <body>
     <div id="nav"></div>
     <script src="/navigation.js"></script>
-    <h1>Numerical Control</h1>
+    <h1>Theory</h1>
     <div id="tutorials-container">
     </div>
     <div class="footer">
       <a href="/index.html" style="border: 1px solid blue; border-radius: 25px; padding: 10px 20px; text-decoration: none; color: blue;">Back to Homepage</a>
     </div>
     <script>
-      fetch('numerical-control.json')
+      fetch('theory.json')
         .then(response => response.json())
         .then(data => {
           let tutorialsContainer = document.getElementById("tutorials-container");
