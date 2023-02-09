@@ -1,0 +1,27 @@
+<p>
+The equation for a sine wave has an infinite number of terms because the sine function is periodic, meaning that it repeats its pattern over a certain interval. You need a term for each gradient change or, equivalently, each derivative of the function, in order to capture the behavior of the function over a certain interval. The gradient changes or derivatives of the function at a single point correspond to the frequency components of the periodic function, with each component contributing to the overall shape of the function over its interval of repetition. 
+</p>
+<p>
+In mathematics, a Taylor series is a representation of a function as an infinite sum of terms calculated from the function's derivatives at a single point can be used to approximate the function over a small interval around that point. In the case of the sine and cosine functions, the Taylor series expansion provides a way to approximate the values of these functions for small values of x with a high degree of accuracy.
+</p>
+<p>
+The Taylor series expansion of sine is given by:
+$$ sin(x) = \sum_{n=0}^{\infty} (-1)^n \frac{x^{2n+1}}{(2n+1)!} $$
+
+where \(!\) denotes the factorial function. This series converges to the value of sine for all \(x\). Here's the first few terms of the series:
+
+$$ sin(x) \approx x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} + \dots $$
+
+</p>
+<p>
+Similarly, the Taylor series expansion of cosine is given by:
+$$ cos(x) = \sum_{n=0}^{\infty} (-1)^n \frac{x^{2n}}{(2n)!} $$
+
+This series also converges to the value of cosine for all \(x\). Here's the first few terms of the series:
+
+$$ cos(x) \approx 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} + \dots $$
+
+</p>
+<p>
+By using these Taylor series expansions, we can approximate the values of sine and cosine for small values of \(x\) with a high degree of accuracy. This will be useful in our demonstration of the derivation of Euler's formula.
+</p>

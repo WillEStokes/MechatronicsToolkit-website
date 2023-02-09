@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Euler's Formula</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div id="nav"></div>
+    <script src="/navigation.js"></script>
+    <h1>Euler's Formula</h1>
+    <div id="sidebar">
+      <ul>
+          <li><a href="#introduction">Introduction</a></li>
+          <li><a href="#conclusion">Conclusion</a></li>
+      </ul>
+    </div>
+    <section id="introduction"></section>
+      <h2>Introduction</h2>
+      <div id="content-intro"></div>
+        <script>
+            fetch('./content/eulers-formula/intro.txt')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("content-intro").innerHTML = data;
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        </script>
+      <h2>Understanding the Imaginary Unit "i"</h2>
+      <div id="content-imaginary-unit"></div>
+        <script>
+            fetch('./content/eulers-formula/imaginary-unit.txt')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("content-imaginary-unit").innerHTML = data;
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        </script>
+      <h2>Taylor Series Expansion of Sine and Cosine</h2>
+      <div id="content-taylor-series"></div>
+        <script>
+            fetch('./content/eulers-formula/taylor-series.txt')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("content-taylor-series").innerHTML = data;
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        </script>
+      <h2>Deriving Euler's formula using Sine and Cosine</h2>
+      <div id="content-eulers-formula"></div>
+        <script>
+            fetch('./content/eulers-formula/eulers-formula.txt')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("content-eulers-formula").innerHTML = data;
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        </script>
+    </body>
+</html>
+<div class="footer">
+    <a class='back-to-tutorials' href="/topics/theory.html" style="border: 1px solid blue; border-radius: 25px; padding: 10px 20px; text-decoration: none; color: blue;">Back to Tutorials</a>
+</div>

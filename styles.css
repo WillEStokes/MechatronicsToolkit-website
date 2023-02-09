@@ -230,7 +230,27 @@ body {
     height: auto;
     display: block;
     margin: 0 auto;
-    /* transform: translateX(50%); */
+}
+
+.image-figure-narrow img{
+    max-width: 300px;
+    display: block;
+    margin: 0 auto;
+    /* border: 1px solid rgb(36, 36, 36); */
+}
+
+.image-figure-medium img{
+    max-width: 400px;
+    display: block;
+    margin: 0 auto;
+    /* border: 1px solid rgb(36, 36, 36); */
+}
+
+.image-figure-wide img{
+    max-width: 500px;
+    display: block;
+    margin: 0 auto;
+    /* border: 1px solid rgb(36, 36, 36); */
 }
 
 /* ------- code ------- */

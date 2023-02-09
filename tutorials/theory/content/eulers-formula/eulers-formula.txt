@@ -1,0 +1,66 @@
+<p>
+In this section, we will demonstrate how to derive Euler's formula by combining the Taylor series expansions of sine and cosine. Euler's formula states that:
+</p>
+
+<p>
+$$ e^{ix} = \cos x + i \sin x $$
+</p>
+
+<p>
+We will start by expanding the exponential function, e, in its own Taylor series representation, then equate this with the sum of the Taylor series expansions of cosine and sine.
+</p>
+
+<p>
+The Taylor series representation of the exponential function is:
+</p>
+
+<p>
+$$e^x = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \frac{x^4}{4!} + \dotsb$$
+</p>
+
+<p>
+Setting x = ix in this expression, we get:
+</p>
+
+<p>
+$$e^{ix} = 1 + ix + \frac{(ix)^2}{2!} + \frac{(ix)^3}{3!} + \frac{(ix)^4}{4!} + \dotsb$$
+</p>
+
+<p>
+Now we can use the fact that i^2 = -1 to expand each power of \(i\). For example, (ix)^2 = -x^2, (ix)^3 = -ix^3, and so on. By doing this for each power of \(i\), we can see that the only terms that survive are those for which the exponent is even:
+</p>
+
+<p>
+$$e^{ix} = 1 + ix - \frac{x^2}{2!} + \frac{ix^3}{3!} - \frac{x^4}{4!} + \dotsb$$
+</p>
+
+<p>
+We know that the Taylor series expansions of the sine and cosine functions are given by:
+</p>
+
+<p>
+$$\sin x = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \dotsb$$
+
+$$\cos x = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \dotsb$$
+</p>
+
+<p>
+We can see that the real part of \(e^{ix}\) is given by the cosine series, and the imaginary part is given by the sine series multiplied by \(i\). That is:
+
+<p>
+$$\text{Re}(e^{ix}) = \cos x$$
+
+$$\text{Im}(e^{ix}) = i \sin x$$
+</p>
+
+<p>
+Hence, we can write:
+</p>
+
+<p>
+$$e^{ix} = \cos x + i \sin x$$
+</p>
+
+<p>
+And with this, we have derived Euler's formula by combining the Taylor series expansions of sine and cosine!
+</p>
