@@ -1,0 +1,45 @@
+<p>In this section, we will use Euler's formula to determine the output voltage of an RC circuit for a given input voltage and frequency.</p>
+
+<p>Euler's formula states that for a sinusoidal voltage input, the output voltage of a circuit can be represented as:</p>
+
+<p>
+  $$V_o = V_m\cos(\omega t - \phi)$$
+</p>
+
+<p>Where \(V_o\) is the output voltage, \(V_m\) is the maximum voltage, \(ω\) is the angular frequency in radians per second, \(t\) is time in seconds, and \(ϕ\) is the phase shift in radians.</p>
+
+<p>For an RC circuit, the output voltage can be calculated as follows:</p>
+
+<p>
+  $$V_o = V_m\frac{1}{\sqrt{1 + (\frac{f}{f_c})^2}}\cos(\omega t - \arctan(\frac{f}{f_c}))$$
+</p>
+
+<p>Where \(f\) is the frequency of the input voltage in hertz, and \(f_c\) is the cutoff frequency in hertz, which we calculated in the previous section.</p>
+</p>
+
+<p>Using this equation, we can determine the output voltage for a given input frequency and cutoff frequency. This information can be plotted on a graph to give us the frequency response of the RC circuit, which is also known as the gain plot.</p>
+</p>
+
+<p>Here is a worked example for determining the output voltage of an RC circuit for a given input frequency and cutoff frequency,let's assume the following:
+</p>
+
+<ul>
+    <li>Input voltage \(V_m\) = 10 volts</li>
+    <li>Frequency \(f\) = 1000 Hz</li>
+    <li>Cutoff frequency \(f_c\) = 100 Hz</li>
+    <li>Time \(t\) = 0.01 seconds</li>
+</ul>
+
+<p>Using the equation for output voltage, we can calculate the value of the output voltage:
+</p>
+
+<p>
+$$V_o = V_m\frac{1}{\sqrt{1 + (\frac{f}{f_c})^2}}\cos(\omega t - \arctan(\frac{f}{f_c}))$$
+
+$$V_o = 10\frac{1}{\sqrt{1 + (\frac{1000}{100})^2}}\cos(\omega t - \arctan(\frac{1000}{100}))$$
+
+$$V_o = -0.6056$$
+</p>
+
+<p>So, the output voltage is -0.6056 volts.
+</p>

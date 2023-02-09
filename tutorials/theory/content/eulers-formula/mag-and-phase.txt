@@ -1,0 +1,40 @@
+<p>
+Complex numbers can also be represented using magnitude and phase, known as polar form representation. Using Euler's formula, a complex number can be represented as \(z = r(\cos{\theta} + i\sin{\theta})\), where \(r\) is the magnitude, and \(\theta\) is the phase. If we take the derivative of \(z\) with respect to time, \(t\), we get:
+</p>
+<p>
+$$\frac{dz}{dt} = \frac{dr}{dt}(\cos(\theta) + i \sin(\theta)) + r\frac{d\theta}{dt}(-\sin(\theta) + i \cos(\theta))$$
+</p>
+<p>
+Using Euler's formula, we can write this as:
+</p>
+<p>
+$$\frac{dz}{dt} = \frac{dr}{dt}e^{i\theta} + ir\frac{d\theta}{dt}e^{i\theta}$$
+</p>
+<p>
+We can see from this expression that the real part is equal to \(\frac{dr}{dt}\) and the imaginary part is equal to \(r\frac{d\theta}{dt}\). Thus, by differentiating \(z\), we can extract both the magnitude and the phase derivatives.
+</p>
+<p>
+The magnitude, \(r\), is defined as the distance of the complex number from the origin on the complex plane, and can be calculated as:
+</p>
+<p>
+$$r = \sqrt{x^2 + y^2}$$
+</p>
+<p>
+Where \(x\) and \(y\) are the real and imaginary components of the complex number.
+</p>
+<p>
+The phase, \(\theta\), is defined as the angle between the positive real axis and the line connecting the origin to the complex number. It can be calculated as:
+</p>
+<p>
+$$\theta = \arctan{\left(\frac{y}{x}\right)}$$
+</p>
+<p>
+By using the magnitude and phase, it is possible to simplify complex operations and analysis.
+</p>
+<div id="mag-phase-plot"></div>
+<p>
+Differentiation can be useful for finding the instantaneous rate of change of a function, which can be important in many areas of science and engineering. In the context of complex numbers, differentiation can be used to find the rate of change of the magnitude and phase of a complex function, which can be useful in signal processing and communication systems.
+</p>
+<p>
+The polar form of a complex number, on the other hand, provides a compact representation of a complex number as a magnitude and phase, which can be useful for visualizing and interpreting complex functions. This form can also be useful for computing complex operations, such as multiplication and division, which can be difficult to perform using the Cartesian form of a complex number.
+</p>

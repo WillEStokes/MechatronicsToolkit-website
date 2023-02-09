@@ -1,0 +1,19 @@
+<p>In an RC circuit, the behavior of the capacitor and resistor can be analyzed in terms of the transfer function, which describes the relationship between the input and output signals. The transfer function for an RC circuit is given by:</p>
+
+<p>
+$$H(j\omega) = \frac{V_{out}}{V_{in}} = \frac{1}{1 + j\omega RC}$$
+</p>
+
+<p>Where <mathjax>\omega</mathjax> is the angular frequency in radians per second, <mathjax>R</mathjax> is the resistance in ohms, and <mathjax>C</mathjax> is the capacitance in farads.</p>
+
+<p><b>Impact of the Capacitor</b></p>
+<p>The behavior of the capacitor in an RC circuit can be understood by analyzing its impedance, which is given by:</p>
+
+<p>
+$$Z_C = \frac{1}{j\omega C}$$
+</p>
+
+<p>The impedance of the capacitor is inversely proportional to the angular frequency. As the frequency of the input signal increases, the impedance of the capacitor decreases, allowing more current to flow through it. This results in a reduction of the voltage drop across the resistor, effectively filtering out the high frequency components of the input signal.</p>
+
+<p><b>Impact of the Resistor</b></p>
+<p>The behavior of the resistor in an RC circuit can be understood by analyzing its resistance, which remains constant and does not depend on the frequency of the input signal. The resistor acts to resist the flow of electrical current, causing a voltage drop across it. This voltage drop results in a time-delay in the circuit, effectively filtering out high frequency components of the input signal before they reach the output.</p>

@@ -7,9 +7,12 @@ $$ e^{ix} = \cos x + i \sin x $$
 </p>
 
 <p>
-We will start by expanding the exponential function, e, in its own Taylor series representation, then equate this with the sum of the Taylor series expansions of cosine and sine.
+We will start by expanding the exponential function, \(e\), in its own Taylor series representation, then equate this with the sum of the Taylor series expansions of cosine and sine. The exponential function \(e^x\) is the only function whose derivative is equal to itself, this fact is incredibly useful because it provides a simple and direct model for exponential growth or decay. When a quantity grows or decays at a constant rate, its rate of change is proportional to its current value, and the exponential function is a perfect mathematical model for this kind of growth.
 </p>
-
+<p>
+For example, consider the equation \(y = e^x\). Its derivative, \(y' = \frac{dy}{dx}\), is equal to \(e^x\), which is the same as the original function. This means that the function \(y = e^x\) will grow exponentially over time, with \(y\) always equal to its own derivative.
+</p>
+<div id="exp-plot"></div>
 <p>
 The Taylor series representation of the exponential function is:
 </p>
@@ -19,7 +22,7 @@ $$e^x = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \frac{x^4}{4!} + \dotsb$$
 </p>
 
 <p>
-Setting x = ix in this expression, we get:
+Setting \(x = ix\) in this expression, we get:
 </p>
 
 <p>
@@ -27,7 +30,7 @@ $$e^{ix} = 1 + ix + \frac{(ix)^2}{2!} + \frac{(ix)^3}{3!} + \frac{(ix)^4}{4!} + 
 </p>
 
 <p>
-Now we can use the fact that i^2 = -1 to expand each power of \(i\). For example, (ix)^2 = -x^2, (ix)^3 = -ix^3, and so on. By doing this for each power of \(i\), we can see that the only terms that survive are those for which the exponent is even:
+Now we can use the fact that \(i^2 = -1\) to expand each power of \(i\). For example, \((ix)^2 = -x^2, (ix)^3 = -ix^3\), and so on. By doing this for each power of \(i\), we can see that the only terms that survive are those for which the exponent is even:
 </p>
 
 <p>

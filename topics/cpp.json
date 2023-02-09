@@ -11,6 +11,12 @@
             "image": "/images/cpp-pointers-and-references.png",
             "link": "/tutorials/cpp/pointers-and-references.html",
             "description": "Learn the basics of C++ pointers and references."
+        },
+        {
+            "title": "Function Pointer Communication",
+            "image": "/images/communication.png",
+            "link": "/tutorials/cpp/function-pointer-communication.html",
+            "description": "Learn the fundamentals of I2C and serial protocols, using robust communication architecture."
         }
     ]
 }

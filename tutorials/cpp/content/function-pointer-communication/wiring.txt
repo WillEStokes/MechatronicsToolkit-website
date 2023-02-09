@@ -15,7 +15,7 @@
   <li>Connect the LED's anode (long leg) to pin 13 on the slave board, using an inline resistor</li>
 </ul>
 
-<div class="image-centre">
+<div class="image-centre-shrink">
 <img src="/images/communication-wiring.png" alt="Communication Wiring">
 </div>
 

@@ -1,0 +1,9 @@
+<p>
+The use of the imaginary unit \(i\) to represent a wave as a function of \(e\) is a powerful tool in mathematics. This representation simplifies the Taylor series expansion of the wave into a form that can be easily differentiated to obtain information about the wave. Additionally, the complex form of the wave makes it possible to calculate the phase and amplitude using trigonometry.
+</p>
+<p>
+Euler's formula is a prime example of the elegance of mathematics, as it links exponential and trigonometric functions and provides us with a way to describe complex numbers as a magnitude and phase. Differentiation of Euler's formula allows us to easily obtain the phase and magnitude of a wave, while the polar form of complex numbers provides an alternative method to calculate these properties.
+</p>
+<p>
+Both methods have their own scenarios in which they are preferable, making the understanding of Euler's formula and its applications a fundamental aspect of electrical engineering, physics and mathematics.
+</p>

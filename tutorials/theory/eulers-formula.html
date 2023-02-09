@@ -7,13 +7,17 @@
     <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
   </head>
-  <body>
+  <body onload="iPlot(), wavePlot(), cosPlot(), sinPlot(), expPlot(), magPhasePlot()">
     <div id="nav"></div>
     <script src="/navigation.js"></script>
     <h1>Euler's Formula</h1>
     <div id="sidebar">
       <ul>
           <li><a href="#introduction">Introduction</a></li>
+          <li><a href="#imaginary-unit">Understanding the Imaginary Unit "i"</a></li>
+          <li><a href="#taylor-series">Taylor Series Expansion of Sine and Cosine</a></li>
+          <li><a href="#eulers-formula">Deriving Euler's formula using Sine and Cosine</a></li>
+          <li><a href="#mag-and-phase">Calculating Magnitude and Phase</a></li>
           <li><a href="#conclusion">Conclusion</a></li>
       </ul>
     </div>
@@ -30,6 +34,7 @@
                     console.log(error);
                 });
         </script>
+    <section id="imaginary-unit"></section>
       <h2>Understanding the Imaginary Unit "i"</h2>
       <div id="content-imaginary-unit"></div>
         <script>
@@ -42,6 +47,7 @@
                     console.log(error);
                 });
         </script>
+    <section id="taylor-series"></section>
       <h2>Taylor Series Expansion of Sine and Cosine</h2>
       <div id="content-taylor-series"></div>
         <script>
@@ -54,6 +60,7 @@
                     console.log(error);
                 });
         </script>
+    <section id="eulers-formula"></section>
       <h2>Deriving Euler's formula using Sine and Cosine</h2>
       <div id="content-eulers-formula"></div>
         <script>
@@ -66,6 +73,33 @@
                     console.log(error);
                 });
         </script>
+    <section id="mag-and-phase"></section>
+      <h2>Calculating Magnitude and Phase</h2>
+      <div id="content-mag-and-phase"></div>
+        <script>
+            fetch('./content/eulers-formula/mag-and-phase.txt')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("content-mag-and-phase").innerHTML = data;
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        </script>
+    <section id="conclusion"></section>
+      <h2>Conclusion</h2>
+      <div id="content-conclusion"></div>
+        <script>
+            fetch('./content/eulers-formula/conclusion.txt')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("content-conclusion").innerHTML = data;
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        </script>
+        <script src="./eulers-formula.js"></script>
     </body>
 </html>
 <div class="footer">

@@ -1,5 +1,5 @@
 <p>
-The imaginary unit \(i\) is defined as the square root of -1 and is denoted by the symbol \(i\). It is used as a convenient way to represent a wave, as well as to perform operations in complex numbers.
+The imaginary unit "i" is defined as the square root of -1 and is denoted by the symbol \(i\). It is used as a convenient way to represent a wave, as well as to perform operations in complex numbers.
 </p>
 <p>
 One of the main properties of the imaginary unit \(i\) is that \(i\) multiplied by itself is equal to -1. That is, \(i * i = -1\). This property allows us to manipulate and simplify complex numbers and exponential functions.
@@ -16,28 +16,20 @@ It's important to note that the imaginary unit \(i\) is not a real number, and t
 <p>
 In order to understand the concept of imaginary numbers, it's helpful to visualize the behavior of the imaginary unit \(i\). Let's take a look at a 2D plot showing the function of the imaginary unit \(i\). This plot has a real axis and an imaginary axis. The point (0, 1) represents the imaginary unit \(i\), and the other points on the plot represent complex numbers that can be represented as a combination of real numbers and the imaginary unit \(i\).
 </p>
-<div class="image-figure-narrow">
-    <img src="./images/eulers-formula/i.png">
-</div>
+<div id="i-plot"></div>
 <p>
 As you can see, the imaginary unit \(i\) acts as a multiplier for the imaginary part of a complex number. By combining the real part of a complex number with the imaginary unit \(i\), we can represent the entire complex number in the complex plane as a spiral.
 </p>
 <p>
 There's a function that repeatedly rotates as you go down the x-axis, and that is \(e^{ix}\). Let's take a look at a 3D plot of a sinusoidal wave which shows the real part of the wave and the imaginary part of the wave.
 </p>
-<div class="image-figure-medium">
-    <img src="./images/eulers-formula/wave.png">
-</div>
+<div id="wave-plot"></div>
 <p>
 The wave oscillates in the real and imaginary directions. The cosine and sine traces of the wave can be seen more clearly in the following 2D plots. The real part of the wave, is a cosine wave:
 </p>
-<div class="image-figure-wide">
-    <img src="./images/eulers-formula/cos.png">
-</div>
+<div id="cos-plot"></div>
 <p>And the imaginary part of the wave, is a sine wave:</p>
-<div class="image-figure-wide">
-    <img src="./images/eulers-formula/sin.png">
-</div>
+<div id="sin-plot"></div>
 <p>
 The cosine trace of the wave shows how the real part of the wave changes over time, while the sine trace shows how the imaginary part of the wave changes over time. By combining these two traces, we can represent the entire wave in the complex plane.
 </p>

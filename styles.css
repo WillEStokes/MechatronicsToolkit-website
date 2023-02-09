@@ -225,32 +225,24 @@ body {
     object-fit: cover; /* this makes the image fill the container while preserving its aspect ratio */
 }
 
-.image-centre img{
+.image-centre-shrink img{
     width: 75%;
     height: auto;
     display: block;
     margin: 0 auto;
 }
 
-.image-figure-narrow img{
-    max-width: 300px;
+.image-centre img{
+    height: auto;
     display: block;
     margin: 0 auto;
-    /* border: 1px solid rgb(36, 36, 36); */
 }
 
-.image-figure-medium img{
-    max-width: 400px;
-    display: block;
-    margin: 0 auto;
-    /* border: 1px solid rgb(36, 36, 36); */
-}
+/* ------- plot ------- */
 
-.image-figure-wide img{
-    max-width: 500px;
+.js-plotly-plot .plot-container .user-select-none { /* override defualt plotly styles */
     display: block;
     margin: 0 auto;
-    /* border: 1px solid rgb(36, 36, 36); */
 }
 
 /* ------- code ------- */

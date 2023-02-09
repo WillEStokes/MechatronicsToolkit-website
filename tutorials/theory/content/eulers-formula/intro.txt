@@ -2,16 +2,5 @@
 Euler's formula is one of the most fundamental and widely used equations in mathematics and physics. It connects exponential functions with trigonometric functions, and has numerous applications in fields such as electrical engineering, quantum mechanics, and computer graphics. In this tutorial, we'll explore the derivation of Euler's formula and learn about the imaginary unit "i".
 </p>
 <p>
-We'll cover the following topics in this tutorial:
-</p>
-<ol>
-  <li>Introduction to Euler's formula</li>
-  <li>Understanding the Imaginary Unit "i"</li>
-  <li>Taylor Series Expansion of Sine and Cosine</li>
-  <li>Deriving Euler's formula using Sine and Cosine</li>
-  <li>Interactive Demonstration of Euler's formula using Plotly</li>
-  <li>Conclusion and Further Reading</li>
-</ol>
-<p>
 By the end of this tutorial, you will have a deeper understanding of Euler's formula, the imaginary unit "i", and how to combine trigonometric functions and exponential functions to derive this important equation. So let's get started!
 </p>

@@ -1,0 +1,19 @@
+<p><b>What is a Low Pass Filter?</b></p>
+<p>A low pass filter is a type of electronic filter that allows low frequency signals to pass through while blocking or attenuating high frequency signals. In other words, a low pass filter allows low frequency components of a signal to reach the output while blocking or reducing the amplitude of the high frequency components.</p>
+
+<p><b>How Does a Low Pass Filter Work?</b></p>
+<p>A low pass filter works by slowing down the rate of change of the input signal at higher frequencies. This is achieved by introducing a time-delay into the circuit, which effectively filters out high frequency components of the signal. The amount of time-delay depends on the resistance and capacitance values in the circuit.</p>
+
+<p><b>Applications of Low Pass Filters</b></p>
+<p>Low pass filters are commonly used in electronics to remove unwanted noise or interference from signals. They can be implemented using various circuit configurations, including RC circuits, which we will be using in this tutorial. Some of the common applications of low pass filters include:</p>
+<ul>
+  <li><b>Audio applications:</b> to remove high frequency hiss or crackle from the audio signal</li>
+  <li><b>Communication systems:</b> to remove high frequency noise from the signal before it is transmitted</li>
+  <li><b>Image processing:</b> to remove high frequency components that may represent noise or unwanted details in an image</li>
+  <li><b>Control systems:</b> to smooth signals or to reduce high frequency error in feedback control loops</li>
+</ul>
+
+<p><b>Types of Low Pass Filters</b></p>
+<p>There are several different types of low pass filters, including: First-Order, Second-Order, Higher-Order, Butterworth and Chebyshev.</p>
+
+<p>Each type of low pass filter has its own unique characteristics and trade-offs, and is suited for different applications. In this tutorial, we will focus on first-order low pass filters implemented using RC circuits.</p>

@@ -112,7 +112,6 @@ function plotResponse() {
   var P = parseFloat(document.getElementById("P-input").value);
   var I = parseFloat(document.getElementById("I-input").value);
   var F = parseFloat(document.getElementById("F-input").value);
-  console.log(P)
 
   let pid = new PID(P,I,F);
 

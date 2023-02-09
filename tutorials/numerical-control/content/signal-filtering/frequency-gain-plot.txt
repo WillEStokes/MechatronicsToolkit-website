@@ -1,0 +1,29 @@
+<p>In this section, we will generate a frequency- Gain plot of the Low Pass Filter using the user input values for \(R\), \(C\), and \(V\). This will give us a visual representation of the gain of the circuit as a function of frequency.</p>
+<p>To generate the plot, you will need to input the values of \(R\), \(C\), and \(V\). These values can be entered in the provided form elements. Once you have entered the values, click on the "Generate Plot" button to generate the frequency- Gain plot.</p>
+<p>The frequency- Gain plot will be generated using a JavaScript file that takes the user input values and calculates the gain for different frequencies. The gain for each frequency will be plotted on the y-axis, with frequency on the x-axis.</p>
+<p>The resulting plot will be displayed in a 'Gain-plot' element, which will show you the gain of the Low Pass Filter for different frequencies. The cutoff frequency, which is the frequency at which the gain of the circuit is reduced to 70.7% of its maximum value, will also be indicated on the plot.</p>
+<p>This frequency- Gain plot will give you a clear understanding of how the values of R and C influence the gain of the circuit, and how the Low Pass Filter operates. With this information, you will be able to make informed decisions about the values of R and C when designing a Low Pass Filter circuit.</p>
+
+<form>
+    <div>
+        <label for="R">Resistance (\(k\Omega\)) value:</label>
+        <input type="text" id="R" name="R" placeholder="5">
+        <button type="button" onclick="incrementValue('R', 1)">+</button>
+        <button type="button" onclick="decrementValue('R', 1)">-</button>
+    </div>
+    <div>
+        <label for="C">Capacitance (\(nF\)) value:</label>
+        <input type="text" id="C" name="C" placeholder="10">
+        <button type="button" onclick="incrementValue('C', 1)">+</button>
+        <button type="button" onclick="decrementValue('C', 1)">-</button>
+    </div>
+    <div>
+        <label for="V">Input voltage (\(V\)) value:</label>
+        <input type="text" id="V" name="V" placeholder="10">
+        <button type="button" onclick="incrementValue('V', 1)">+</button>
+        <button type="button" onclick="decrementValue('V', 1)">-</button>
+    </div>
+    <button type="button" onclick="plotGain()">Generate Plot</button>
+</form>
+
+<div id="gain-plot"></div>
