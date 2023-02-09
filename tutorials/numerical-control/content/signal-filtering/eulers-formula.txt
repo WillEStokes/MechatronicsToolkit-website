@@ -1,17 +1,57 @@
 <p>In this section, we will use Euler's formula to determine the output voltage of an RC circuit for a given input voltage and frequency.</p>
 
-<p>Euler's formula states that for a sinusoidal voltage input, the output voltage of a circuit can be represented as:</p>
+<p>Euler's formula, normally written as \(e^{ix} = cos(x) + i sin(x)\) where \(x\) is an angle in radians and \(e^{ix}\) is a complex number represented in polar form. The equation for the output voltage of a low pass filter can be expressed as a product of the magnitude of the input voltage, \(V_m\), and a complex exponential term:</p>
 
 <p>
-  $$V_o = V_m\cos(\omega t - \phi)$$
+$$ V_o = V_m * e^{j(\omega t - \phi)} $$
+</p>
+
+<p>Using Euler's formula, the complex exponential can be written as:</p>
+
+<p>
+$$ e^{j(\omega t - \phi)} = cos(\omega t - \phi) + j sin(\omega t - \phi) $$
+</p>
+
+<p>Therefore, the equation for the output voltage can be expressed as:</p>
+
+<p>
+$$ V_o = V_m * [cos(\omega t - \phi) + j sin(\omega t - \phi)] $$
+</p>
+
+<p>Taking the real part of this expression, the output voltage is given by:</p>
+
+<p>
+$$ V_o = V_m * cos(\omega t - \phi) $$
 </p>
 
 <p>Where \(V_o\) is the output voltage, \(V_m\) is the maximum voltage, \(ω\) is the angular frequency in radians per second, \(t\) is time in seconds, and \(ϕ\) is the phase shift in radians.</p>
 
+<p>The expression for impedance in our circuit, which combines a resistor and a capacitor, is:</p>
+
+<p>$$Z = R + \frac{1}{j\omega C}$$</p>
+
+<p>Where \(j\) is the imaginary unit, \(R\) is the resistance, \(\omega\) is the angular frequency, and \(C\) is the capacitance.</p>
+
+<p>And</p>
+
+<p>$$\phi = \arctan(\frac{-1}{\omega RC})$$</p>
+
+<p>The input voltage can be expressed as</p>
+
+<p>$$V_i = V_m * \cos(\omega t)$$</p>
+
+<p>Where \(V_m\) is the maximum amplitude of the voltage signal. The output voltage can then be determined using Ohm's law,</p>
+
+<p>$$V_o = IZ$$</p>
+
+<p>Where \(I\) is the current. Substituting the expressions for the impedance, input voltage, and current, we get</p>
+
+<p>$$V_o = \frac{V_m}{\sqrt{R^2 + \frac{1}{\omega^2C^2}}}\cos(\omega t - \arctan(\frac{-1}{\omega RC}))$$</p>
+
 <p>For an RC circuit, the output voltage can be calculated as follows:</p>
 
 <p>
-  $$V_o = V_m\frac{1}{\sqrt{1 + (\frac{f}{f_c})^2}}\cos(\omega t - \arctan(\frac{f}{f_c}))$$
+$$V_o = V_m\frac{1}{\sqrt{1 + (\frac{f}{f_c})^2}}\cos(\omega t - \arctan(\frac{f}{f_c}))$$
 </p>
 
 <p>Where \(f\) is the frequency of the input voltage in hertz, and \(f_c\) is the cutoff frequency in hertz, which we calculated in the previous section.</p>
@@ -20,7 +60,9 @@
 <p>Using this equation, we can determine the output voltage for a given input frequency and cutoff frequency. This information can be plotted on a graph to give us the frequency response of the RC circuit, which is also known as the gain plot.</p>
 </p>
 
-<p>Here is a worked example for determining the output voltage of an RC circuit for a given input frequency and cutoff frequency,let's assume the following:
+<p><b>Example:</b></p>
+
+<p>Here is a worked example for determining the output voltage of an RC circuit for a given input frequency and cutoff frequency, let's assume the following:
 </p>
 
 <ul>
@@ -38,8 +80,8 @@ $$V_o = V_m\frac{1}{\sqrt{1 + (\frac{f}{f_c})^2}}\cos(\omega t - \arctan(\frac{f
 
 $$V_o = 10\frac{1}{\sqrt{1 + (\frac{1000}{100})^2}}\cos(\omega t - \arctan(\frac{1000}{100}))$$
 
-$$V_o = -0.6056$$
+$$V_o = -0.61$$
 </p>
 
-<p>So, the output voltage is -0.6056 volts.
+<p>So, the output voltage is -0.61 volts.
 </p>

@@ -1,19 +1,30 @@
-<p>In an RC circuit, the behavior of the capacitor and resistor can be analyzed in terms of the transfer function, which describes the relationship between the input and output signals. The transfer function for an RC circuit is given by:</p>
+<p><b>Influence of the Capacitor</b></p>
 
-<p>
-$$H(j\omega) = \frac{V_{out}}{V_{in}} = \frac{1}{1 + j\omega RC}$$
-</p>
+<p>The behavior of the capacitor in an RC circuit can be understood by analysing its impedance, \(Z\), which can be derived by considering the relationship between voltage and current in a capacitor circuit. The voltage across a capacitor is proportional to the charge stored on its plates, while the current through a capacitor is proportional to the rate of change of the charge stored on its plates.</p>
 
-<p>Where <mathjax>\omega</mathjax> is the angular frequency in radians per second, <mathjax>R</mathjax> is the resistance in ohms, and <mathjax>C</mathjax> is the capacitance in farads.</p>
+<p>In electrical circuits, Ohm's law states that the voltage across a component is proportional to the current flowing through it, with the proportionality constant being the impedance of the component. For a capacitor, the voltage across the capacitor and the charge on it are related by the equation:</p>
 
-<p><b>Impact of the Capacitor</b></p>
-<p>The behavior of the capacitor in an RC circuit can be understood by analyzing its impedance, which is given by:</p>
+<p>$$V = \frac{Q}{C}$$</p>
 
-<p>
-$$Z_C = \frac{1}{j\omega C}$$
-</p>
+<p>Where \(V\) is the voltage across the capacitor, \(Q\) is the charge on it, and \(C\) is its capacitance. This equation can be rearranged to give us:</p>
+
+<p>$$Q = CV$$</p>
+
+<p>And then, from Ohm's law, we have:</p>
+
+<p>$$I = \frac{dQ}{dt}$$</p>
+
+<p>So substituting for \(Q\), we get:</p>
+
+<p>$$I = C\frac{dV}{dt}$$</p>
+
+<p>Thus, the impedance of a capacitor can be expressed as:</p>
+
+<p>$$Z = \frac{V}{I} = \frac{1}{C\frac{dV}{dt}} = \frac{1}{j\omega C}$$</p>
+
+<p>Where \(j\) is the imaginary unit, and \(ω\) is the angular frequency, which is equal to \(2 * pi * frequency\).</p>
 
 <p>The impedance of the capacitor is inversely proportional to the angular frequency. As the frequency of the input signal increases, the impedance of the capacitor decreases, allowing more current to flow through it. This results in a reduction of the voltage drop across the resistor, effectively filtering out the high frequency components of the input signal.</p>
 
-<p><b>Impact of the Resistor</b></p>
+<p><b>Influence of the Resistor</b></p>
 <p>The behavior of the resistor in an RC circuit can be understood by analyzing its resistance, which remains constant and does not depend on the frequency of the input signal. The resistor acts to resist the flow of electrical current, causing a voltage drop across it. This voltage drop results in a time-delay in the circuit, effectively filtering out high frequency components of the input signal before they reach the output.</p>
