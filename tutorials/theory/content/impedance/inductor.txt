@@ -7,7 +7,7 @@ $$
 where \(j\) is the imaginary unit, \(\omega\) is the angular frequency of the AC signal, and \(L\) is the inductance of the inductor in henries.
 </p>
 <p>
-The impedance of an inductor is a pure reactance, meaning that it does not cause any energy dissipation in the form of heat, but it still opposes the flow of AC current. The magnitude of the impedance of an inductor increases with increasing frequency, so at high frequencies, an inductor effectively acts as an open circuit.
+The <b>impedance of an inductor is a pure reactance</b>, meaning that it does not cause any energy dissipation in the form of heat, but it still opposes the flow of AC current. The magnitude of the impedance of an inductor increases with increasing frequency, so at high frequencies, an inductor effectively acts as an open circuit.
 </p>
 <p>
 Let's consider an example circuit that contains a resistor and an inductor in series, as shown below:
@@ -18,28 +18,28 @@ Let's consider an example circuit that contains a resistor and an inductor in se
 To represent a sinusoidal current using Euler's formula, we can write the current as:
 </p>
 $$
-I = Ae^{j \omega t}
+I_L = Ae^{j \omega t}
 $$
 <p>
-where \(A\) is the amplitude of the current, \(\omega\) is the angular frequency of the AC signal, and \(t\) is time. Taking the derivative of this expression with respect to time gives:
+where \(A\) is the amplitude of the current, \(\omega\) is the angular frequency of the AC signal, and \(t\) is time. Note that we ignore the term for phase shift in Euler's formula, since we are only interested in the magnitude of the current. Taking the derivative of this expression with respect to time gives:
 </p>
 $$
-\frac{dI}{dt} = j \omega Ae^{j \omega t} = j \omega I
+\frac{dI_L}{dt} = j \omega Ae^{j \omega t} = j \omega I_L
 $$
 <p>
 Hence, the current in an inductor can be represented as a sinusoidal function with angular frequency \(\omega\) and a phase shift of 90 degrees with respect to the voltage.
 </p>
 <p>
-The voltage across the inductor, \(V_L\), can be related to the current through the inductor, \(I\), using the equation:
+The voltage across the inductor, \(V_L\), can be related to the current through the inductor, \(I_L\), using the equation:
 </p>
 $$
-V_L = L \frac{dI}{dt}
+V_L = L \frac{dI_L}{dt}
 $$
 <p>
 By combining this equation with Ohm's law, we can find an expression for the impedance of the inductor in terms of the voltage and current:
 </p>
 $$
-Z_L = \frac{V_L}{I} = j \omega L
+Z_L = \frac{V_L}{I_L} = j \omega L
 $$
 <p>
 This expression shows that the impedance of an inductor is proportional to the frequency of the AC signal, and it has a phase shift of 90 degrees with respect to the current.

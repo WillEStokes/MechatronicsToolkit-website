@@ -1,17 +1,71 @@
 <p>We demonstrated the derivation of the expression for the <a href="\tutorials\theory\impedance.html#capacitor">impedance of a capacitor</a> in our tutorial on impedance:</p>
 
-<p>$$Z = X_C = \frac{1}{j\omega C}$$</p>
+<p>$$Z_C = X_C = \frac{1}{j\omega C}$$</p>
 
-<p>The impedance in a capacitor is pure reactance, \(X_C\). Impedance is a complex quantity and is a measure of the total opposition to the flow of current in an electrical circuit, taking into account the square root of the sum of the squares of resistance and reactance. The magnitude of impedance represents the magnitude of opposition to the flow of AC current, while the phase angle represents the phase shift between the voltage and current in the circuit. The expression for impedance in our circuit, which combines a resistor and a capacitor, is expressed as:</p>
+<p>The impedance in a capacitor is pure reactance, \(X_C\). Impedance is a complex quantity and is a measure of the total opposition to the flow of current in an electrical circuit. The magnitude of impedance represents the magnitude of opposition to the flow of AC current, while the phase angle represents the phase shift between the voltage and current in the circuit. Using the same trigonometric method we used to calculate <a href = "/tutorials/theory/eulers-formula.html#mag-and-phase"> magnitude and phase<a>, the total impedance in our circuit can be expressed as:</p>
 
 <p>$$Z = \sqrt{R^2 + X_C^2}$$</p>
 
-<p>We can write the expression for the output voltage as:</p>
+<p>Likewise we can find the phase shift:</p>
+
+<p>$$\phi = \arctan(\frac{X_C}{R})$$</p>
+
+<p>In both these expressions, impedance from the resistor, \(R\), is the component of impedance in the real plane and the reactance of our inductor, \(X_C\), is the impedance in the imaginary plane. Note that for an RC circuit, phase shift is inversely proportional to frequency, therefore as the frequency of the signal increases the phase shift decreases.</p>
+
+<p>Considering the following circuit containing two resistors in series in a potential divide, we can calculate the output voltage, \(V_o\), in relation to the voltage magnitude, \(V_m\), at the input.</p>
+
+<div class="image-centre"><img src="./content/signal-filtering/pdivide-resistors.png"></div>
+
+<p>In this circuit, using Ohm's law the voltage potential difference across \(R_2\), can be expressed as:</p>
+
+<p>
+$$V_o = V_m * \frac{R_2}{R_T}$$
+</p>
+
+<p>Where:</p>
+
+<p>
+$$R_T = R_1 + R_2$$
+</p>
+
+<p>Using the same approach, we can express the output voltage in our circuit as a relationship between the impedance of the capacitor, and the total impedance of the circuit:</p>
 
 <p>$$V_o = V_m * \frac{X_C}{Z}$$</p>
 
 <p>This equation shows that the output voltage is proportional to the input voltage, but it is reduced in magnitude by the factor \(\frac{X_C}{Z}\), which represents the ratio of the capacitive reactance to the total impedance.</p>
 
-<p>And as we demonstrated in our section on calculating <a href = "/tutorials/theory/eulers-formula.html#wmag-and-phase"> magnitude and phase<a>, the phase shift in a circuit can be expressed as:</p>
+<p>The gain of any filter is generally expressed in Decibels and is a function of the output value divided by its corresponding input value:</p>
 
-<p>$$\phi = \arctan(\frac{-1}{2\pi RC})$$</p>
+<p>$$Gain = 20 * log \frac{V_o}{V_m}$$</p>
+
+<p>For an RC circuit, gain is also inversely proportional to frequency, therefore as the frequency of the signal increases, the gain decreases.</p>
+
+<p><b>Worked example:</b></p>
+
+<p>Let's calculate the phase shift, output voltage and gain of an RC circuit with the following components:</p>
+
+<ul>
+    <li>A resistor with a resistance of \(4.7 \, k\Omega\)</li>
+    <li>A capacitor with a capacitance of \(47 \, nF\)</li>
+    <li>An AC voltage source with magnitude \(10 \, V\) and frequency \(10 \, kHz\)</li>
+</ul>
+
+<p>First, we calculate the capacitive reactance:</p>
+
+<p>$$X_C = \frac{1}{j\omega C} = \frac{1}{j2\pi fC} = \frac{1}{j2\pi (10000)(47\times10^{-9})} = 338.6 \, \Omega$$</p>
+
+<p>Next, we calculate the impedance:</p>
+
+<p>$$Z = \sqrt{R^2 + X_C^2} = \sqrt{(4700)^2 + (338.6)^2} = 4712 \, \Omega$$</p>
+
+<p>Now we can calculate the phase shift:</p>
+
+<p>$$\phi = \arctan(\frac{X_C}{R}) = \arctan(\frac{338.6}{4700}) = 0.072 \, rad$$</p>
+
+<p>Finally, we can calculate the output voltage and gain:</p>
+
+<p>$$V_o = V_m * \frac{X_C}{Z} = 10 * \frac{338.6}{4712} = 0.719 \, V$$</p>
+
+<p>$$Gain = 20 * log \frac{V_o}{V_m} = 20 * log \frac{0.719}{10} = -22.9 \, dB$$</p>
+
+<p>So the output voltage has a magnitude of 0.072 V, a phase shift of 0.072 radians and a gain of -22.9 dB.</p>

@@ -1,11 +1,15 @@
 <p>
+In this tutorial we have seen that impedance can be represented as a sinusoidal wave with a real and imaginary component. The magnitude of impedance represents the amount of opposition to the flow of current in the circuit, and its phase shift represents the relative timing of the current and voltage waveforms. These properties are similar to the magnitude and phase of the voltage waveform, so impedance can be treated similarly in circuit analysis.
+</p>
+
+<p>
+We have seen that, for an RC circuit:
+    <ul>
+        <li>As the frequency of the signal increases, the phase shift decreases</li>
+        <li>As the frequency of the signal increases, the gain decreases</li>
+    </ul>
+</p>
+
+<p>
 The importance of understanding the influence of resistors and capacitors, using principles from Euler, in modelling electrical circuits lies in the fact that electrical engineers use these models to predict and control the behavior of a wide variety of systems. By understanding how resistors and capacitors interact in an electrical circuit, engineers can determine the response of the circuit to different frequencies, amplitudes, and phases of electrical signals. This understanding is critical in designing and analysing electronic systems, such as filters, amplifiers, and power supplies.
-</p>
-
-<p>
-Euler's formula, which expresses complex numbers in polar form, provides a powerful tool for analysing these systems. Using Euler's formula, engineers can determine the magnitude and phase of the voltage and current at different points in the circuit, which is essential for understanding the behavior of the circuit in response to different input signals. Additionally, by using the polar form of complex numbers, engineers can represent signals as vectors in a complex plane, which allows for a visual representation of the signal and its behavior over time.
-</p>
-
-<p>
-In the case of our RC circuit, the influence of the resistor and capacitor on an AC signal can be determined using Euler's formula. By determining the magnitude and phase of the voltage and current at different points in the circuit, engineers can predict the response of the circuit to different input frequencies and amplitudes. This information is essential in the design and analysis of filters, which are used to separate signals of different frequencies.
 </p>

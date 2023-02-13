@@ -3,13 +3,13 @@
 <form>
     <div>
         <label for="R">Resistance (\(k\Omega\)) value:</label>
-        <input type="text" id="R" name="R" placeholder="5">
-        <button type="button" onclick="incrementValue('R', 1)">+</button>
-        <button type="button" onclick="decrementValue('R', 1)">-</button>
+        <input type="text" id="R" name="R" placeholder="4.7">
+        <button type="button" onclick="incrementValue('R', 0.1)">+</button>
+        <button type="button" onclick="decrementValue('R', 0.1)">-</button>
     </div>
     <div>
         <label for="C">Capacitance (\(nF\)) value:</label>
-        <input type="text" id="C" name="C" placeholder="10">
+        <input type="text" id="C" name="C" placeholder="47">
         <button type="button" onclick="incrementValue('C', 1)">+</button>
         <button type="button" onclick="decrementValue('C', 1)">-</button>
     </div>
@@ -24,3 +24,6 @@
 </form>
 <br>
 <div id="gain-plot"></div>
+<br>
+<label>Cutoff frequency \((hz)\):</label>
+<input type="text" id="fc-output" readonly>

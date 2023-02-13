@@ -123,4 +123,6 @@ function plotGain() {
     };
 
     Plotly.newPlot("gain-plot", data, layout);
+
+    document.getElementById("fc-output").value = cutoffFrequency.toPrecision(3);
 }

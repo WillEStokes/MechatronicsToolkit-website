@@ -1,9 +1,3 @@
 <p>An RC circuit is a simple and effective way to implement a low pass filter. It consists of a resistor (R) and a capacitor (C) connected in series, as shown in the following schematic:</p>
 
 <div class="image-centre"><img src="./content/signal-filtering/schematic.png"></div>
-
-<p><b>Capacitor in an RC Circuit</b></p>
-<p>The capacitor in an RC circuit acts as a storage device for electrical energy. When a voltage is applied to the circuit, the capacitor charges and stores the energy. The rate at which the capacitor charges and discharges depends on the resistance in the circuit, which determines the time-constant of the circuit.</p>
-
-<p><b>Resistor in an RC Circuit</b></p>
-<p>The resistor in an RC circuit resists the flow of electrical current, which in turn slows down the rate of change of the voltage across the capacitor. This time-delay in the circuit creates a low pass filter effect, as high frequency components of the input signal are effectively filtered out before reaching the output.</p>

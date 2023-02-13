@@ -1,16 +1,13 @@
 <p><b>Influence of the Capacitor</b></p>
 
-<p>The behavior of the capacitor in an RC circuit can be understood by analysing its impedance, \(Z\), which can be derived by considering the relationship between voltage and current in a capacitor circuit. The voltage across a capacitor is proportional to the charge stored on its plates, while the current through a capacitor is proportional to the rate of change of the charge stored on its plates.</p>
+<p>The capacitor in an RC circuit acts as a storage device for electrical energy. When a voltage is applied to the circuit, the capacitor charges and stores the energy. The rate at which the capacitor charges and discharges depends on the resistance in the circuit.</p>
 
-<p>In electrical circuits, Ohm's law states that the voltage across a component is proportional to the current flowing through it, with the proportionality constant being the impedance of the component. For a capacitor, the voltage across the capacitor and the charge on it are related by the equation:</p>
+<p>The behaviour can be understood by analysing its impedance, \(Z\), which can be derived by considering the relationship between voltage and current in a capacitor circuit. The voltage across a capacitor is proportional to the charge stored on its plates, while the current through a capacitor is proportional to the rate of change of the charge stored on its plates.</p>
 
-<p>As we demonstrated in our tutorial on impedance, the <a href="\tutorials\theory\impedance.html#capacitor">impedance of a capacitor</a> can be expressed as:</p>
-
-<p>$$Z = \frac{V}{I} = \frac{1}{C\frac{dV}{dt}} = \frac{1}{j\omega C}$$</p>
-
-<p>Where \(j\) is the imaginary unit, and \(ω\) is the angular frequency, which is equal to \(2 * pi * frequency\).</p>
-
-<p>The impedance of the capacitor is inversely proportional to the angular frequency. As the frequency of the input signal increases, the impedance of the capacitor decreases, allowing more current to flow through it. This results in a reduction of the voltage drop across the resistor, effectively filtering out the high frequency components of the input signal.</p>
+<p>In electrical circuits, Ohm's law states that the voltage across a component is proportional to the current flowing through it, with the proportionality constant being the impedance of the component. The impedance of the capacitor is inversely proportional to the angular frequency. As the frequency of the input signal increases, the impedance of the capacitor decreases, allowing more current to flow through it. This results in a reduction of the voltage drop across the resistor, effectively filtering out the high frequency components of the input signal.</p>
 
 <p><b>Influence of the Resistor</b></p>
-<p>The behavior of the resistor in an RC circuit can be understood by analyzing its resistance, which remains constant and does not depend on the frequency of the input signal. The resistor acts to resist the flow of electrical current, causing a voltage drop across it. This voltage drop results in a time-delay in the circuit, effectively filtering out high frequency components of the input signal before they reach the output.</p>
+
+<p>The resistor in an RC circuit resists the flow of electrical current, which in turn slows down the rate of change of the voltage across the capacitor. This time-delay in the circuit creates a low pass filter effect, as high frequency components of the input signal are effectively filtered out before reaching the output.</p>
+
+<p>The behavior of the resistor can be understood by analyzing its resistance, which remains constant and does not depend on the frequency of the input signal. The resistor acts to resist the flow of electrical current, causing a voltage drop across it. This voltage drop results in a time-delay in the circuit, effectively filtering out high frequency components of the input signal before they reach the output.</p>
