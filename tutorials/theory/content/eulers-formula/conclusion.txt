@@ -5,5 +5,5 @@ The use of the imaginary unit \(i\) to represent a wave as a function of \(e\) i
 Euler's formula is a prime example of the elegance of mathematics, as it links exponential and trigonometric functions and provides us with a way to describe complex numbers as a magnitude and phase. Differentiation of Euler's formula allows us to easily obtain the phase and magnitude of a wave, while the polar form of complex numbers provides an alternative method to calculate these properties.
 </p>
 <p>
-Both methods have their own scenarios in which they are preferable, making the understanding of Euler's formula and its applications a fundamental aspect of electrical engineering, physics and mathematics.
+Having a true understanding of Euler's formula, and its applications, can be game-changing. Yet it is often an overlooked aspect of electrical engineering.
 </p>

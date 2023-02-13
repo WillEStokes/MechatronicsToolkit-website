@@ -4,7 +4,13 @@
             "title": "Euler's Formula",
             "image": "/images/eulers-formula.png",
             "link": "/tutorials/theory/eulers-formula.html",
-            "description": "Learn the derivation of one of the most important engineering formula's."
+            "description": "Learn the derivation of one of the most important formula's in engineering electronics."
+        },
+        {
+            "title": "Impedance in Inductors and Capacitors",
+            "image": "/images/impedance.png",
+            "link": "/tutorials/theory/impedance.html",
+            "description": "Understand how to model impedance in inductors and capacitors."
         }
     ]
 }

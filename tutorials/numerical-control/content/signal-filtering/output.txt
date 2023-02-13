@@ -1,0 +1,17 @@
+<p>We demonstrated the derivation of the expression for the <a href="\tutorials\theory\impedance.html#capacitor">impedance of a capacitor</a> in our tutorial on impedance:</p>
+
+<p>$$Z = X_C = \frac{1}{j\omega C}$$</p>
+
+<p>The impedance in a capacitor is pure reactance, \(X_C\). Impedance is a complex quantity and is a measure of the total opposition to the flow of current in an electrical circuit, taking into account the square root of the sum of the squares of resistance and reactance. The magnitude of impedance represents the magnitude of opposition to the flow of AC current, while the phase angle represents the phase shift between the voltage and current in the circuit. The expression for impedance in our circuit, which combines a resistor and a capacitor, is expressed as:</p>
+
+<p>$$Z = \sqrt{R^2 + X_C^2}$$</p>
+
+<p>We can write the expression for the output voltage as:</p>
+
+<p>$$V_o = V_m * \frac{X_C}{Z}$$</p>
+
+<p>This equation shows that the output voltage is proportional to the input voltage, but it is reduced in magnitude by the factor \(\frac{X_C}{Z}\), which represents the ratio of the capacitive reactance to the total impedance.</p>
+
+<p>And as we demonstrated in our section on calculating <a href = "/tutorials/theory/eulers-formula.html#wmag-and-phase"> magnitude and phase<a>, the phase shift in a circuit can be expressed as:</p>
+
+<p>$$\phi = \arctan(\frac{-1}{2\pi RC})$$</p>

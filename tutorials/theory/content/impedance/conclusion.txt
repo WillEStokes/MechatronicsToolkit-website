@@ -1,0 +1,9 @@
+<p>
+In this tutorial, we have derived the impedance of an inductor and a capacitor in AC circuits. We have shown that impedance is a complex quantity that consists of both a real and an imaginary component, and that it describes the opposition to the flow of AC current.
+</p>
+<p>
+We have seen that the impedance of an inductor is proportional to the frequency of the AC signal, and it has a phase shift of 90 degrees with respect to the current. On the other hand, the impedance of a capacitor is inversely proportional to the frequency of the AC signal, and it has a phase shift of -90 degrees with respect to the current.
+</p>
+<p>
+Understanding the impedance of inductors and capacitors is important for the design of AC circuits and for the analysis of AC circuit behavior. By combining these components in different ways, engineers can create complex AC circuits that have specific frequency-dependent impedance characteristics.
+</p>

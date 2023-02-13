@@ -7,7 +7,7 @@
     <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
   </head>
-  <body onload="iPlot(), wavePlot(), cosPlot(), sinPlot(), expPlot(), magPhasePlot()">
+  <body onload="iPlot(), wavePlot(), cosPlot(), sinPlot(), expPlot(), magPhasePlot(), waveFuncPlot()">
     <div id="nav"></div>
     <script src="/navigation.js"></script>
     <h1>Euler's Formula</h1>
@@ -18,6 +18,8 @@
           <li><a href="#taylor-series">Taylor Series Expansion of Sine and Cosine</a></li>
           <li><a href="#eulers-formula">Deriving Euler's formula using Sine and Cosine</a></li>
           <li><a href="#mag-and-phase">Calculating Magnitude and Phase</a></li>
+          <li><a href="#wave-function">Defining the Wave Function</a></li>
+          <li><a href="#wave-function-complex">The Complex Exponential Wave Function</a></li>
           <li><a href="#conclusion">Conclusion</a></li>
       </ul>
     </div>
@@ -86,6 +88,32 @@
                     console.log(error);
                 });
         </script>
+    <section id="wave-function"></section>
+    <h2>Defining the Wave Function</h2>
+    <div id="content-wave-function"></div>
+      <script>
+          fetch('./content/eulers-formula/wave-function.txt')
+              .then(response => response.text())
+              .then(data => {
+                  document.getElementById("content-wave-function").innerHTML = data;
+              })
+              .catch(error => {
+                  console.log(error);
+              });
+      </script>
+    <section id="wave-function-complex"></section>
+    <h2>The Complex Exponential Wave Function</h2>
+    <div id="content-wave-function-complex"></div>
+      <script>
+          fetch('./content/eulers-formula/wave-function-complex.txt')
+              .then(response => response.text())
+              .then(data => {
+                  document.getElementById("content-wave-function-complex").innerHTML = data;
+              })
+              .catch(error => {
+                  console.log(error);
+              });
+      </script>
     <section id="conclusion"></section>
       <h2>Conclusion</h2>
       <div id="content-conclusion"></div>

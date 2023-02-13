@@ -18,7 +18,7 @@
           <li><a href="#rc-circuit">Schematic of an RC Circuit</a></li>
           <li><a href="#capacitors-and-resistors">Influence of Capacitors and Resistors</a></li>
           <li><a href="#cutoff-frequency">Calculating the Cutoff Frequency</a></li>
-          <li><a href="#eulers-formula">Applying Euler's Formula</a></li>
+          <li><a href="#output">Output Voltage and Phase Shift</a></li>
           <li><a href="#frequency-gain-plot">Frequency-Gain Plot</a></li>
           <li><a href="#conclusion">Conclusion</a></li>
       </ul>
@@ -88,14 +88,14 @@
                 console.log(error);
             });
     </script>
-    <section id="eulers-formula"></section>
-    <h2>Applying Euler's Formula</h2>
-    <div id="content-eulers-formula"></div>
+    <section id="output"></section>
+    <h2>Output Voltage and Phase Shift</h2>
+    <div id="content-output"></div>
     <script>
-        fetch('./content/signal-filtering/eulers-formula.txt')
+        fetch('./content/signal-filtering/output.txt')
             .then(response => response.text())
             .then(data => {
-                document.getElementById("content-eulers-formula").innerHTML = data;
+                document.getElementById("content-output").innerHTML = data;
             })
             .catch(error => {
                 console.log(error);

@@ -1,0 +1,7 @@
+<p>In AC circuits, reactance differs from resistance in that it depends on the frequency of the supply. Unlike resistance, which has a fixed value, reactance can vary with changes in frequency. This is because the effect of the frequency on capacitors and inductors is opposite, with capacitive reactance decreasing as frequency increases and inductive reactance increasing.</p>
+
+<p>In a RC circuit, for example, the applied voltage signal is constantly changing, causing the capacitor to continuously charge and discharge. This results in a current flow through the capacitor that is restricted by its internal impedance, also known as capacitive reactance. The reactance is symbolised as \(X_C\) and is measured in ohms.</p>
+
+<p>As frequency increases, the rate at which the capacitor charges and discharges also increases, resulting in a greater current flow and a decrease in the reactance value. Conversely, as frequency decreases, reactance increases. This relationship between frequency and reactance results in the concept of complex impedance.</p>
+
+<p>It is important to note that reactance has a frequency-dependent nature, unlike resistance, which is fixed and follows Ohm's Law. This means that changes in frequency can have a significant impact on the reactance value of a capacitor in a circuit. The symbol for capacitive reactance is \(X_C\) and it is measured in ohms, the same as resistance \(R\).</p>

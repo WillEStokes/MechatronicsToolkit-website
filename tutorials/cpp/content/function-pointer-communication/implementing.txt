@@ -14,7 +14,7 @@
 
 <p>The <code>comMessages</code> array is defined as a list of <code>ComMessage</code> structs, which we defined earlier, each containing a <code>fid</code> and a <code>replyFunc</code>. The <code>replyFunc</code> is a function pointer that points to the corresponding function that should be invoked when the incoming message has a matching <code>fid</code>. Functions can easily be added or removed from the <code>comMessages</code> array without having to modify the main loop.</p>
 
-<p>A simple <code>ComMessages</code> array, which includes two functions to toggle and led on and off, could be defined as follows:</p>
+<p>A simple <code>ComMessages</code> array, which includes two functions to toggle an led on and off, could be defined as follows:</p>
 
 <p><textarea class="content-cpp">const ComMessage comMessages[] = {
     {FID_LED_ON, (messageHandlerFunc)&ledOn},

@@ -1,6 +1,6 @@
 <p>Data members and member functions are the building blocks of a class in C++. Data members represent the properties or attributes of an object, and member functions represent the actions or behaviors that an object can perform.</p>
 
-<p>Data members are defined within the class and can be either private or public. Private data members are accessible only within the class, while public data members can be accessed from outside the class using the dot operator .. It's good practice to make data members private and use member functions to access and manipulate them.</p>
+<p>Data members are defined within the class and can be either private or public. Private data members are accessible only within the class, while public data members can be accessed from outside the class using the dot operator <code>.</code>. It's good practice to make data members private and use member functions to access and manipulate them.</p>
 
 <p>Member functions are defined within the class and can also be either private or public. They perform specific tasks and can access and manipulate the data members of an object.</p>
 

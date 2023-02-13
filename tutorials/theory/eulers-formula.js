@@ -498,3 +498,209 @@ function magPhasePlot() {
 
     Plotly.newPlot('mag-phase-plot', data, layout);
 }
+
+function waveFuncPlot() {
+    const x = Array.from({length: 200}, (_, i) => (4 * Math.PI * i) / 200);
+    const y1 = x.map(angle => Math.cos(angle));
+    const y2 = x.map(angle => Math.cos(angle + Math.PI/2));
+
+    var cosTrace = {
+        x,
+        y: y1,
+        mode: 'lines',
+        line: {
+            width: 2,
+            color: 'black'
+        },
+        name: 'Input'
+    };
+    var sinTrace = {
+        x,
+        y: y2,
+        mode: 'lines',
+        line: {
+            width: 2,
+            color: 'black',
+            dash: 'dash'
+        },
+        name: 'Output'
+    };
+
+    const data = [cosTrace, sinTrace];
+
+    const layout = {
+    xaxis: {
+        range: [0, 4 * Math.PI],
+        title: {
+        text: 't',
+        font: {
+            size: 26,
+            family: 'Times New Roman'
+        }
+        },
+        linecolor: 'grey',
+        gridcolor: 'lightGrey',
+        mirror: true,
+        ticks: 'outside',
+        showline: true,
+        zerolinecolor: 'lightGrey',
+        tickvals: [0, Math.PI, 2 * Math.PI, 3 * Math.PI, 4 * Math.PI],
+        ticktext: ['0', 'π', '2π', '3π', '4π'],
+    },
+    yaxis: {
+        range: [-2, 2],
+        title: {
+        text: 'V',
+        font: {
+            size: 26,
+            family: 'Times New Roman'
+        }
+        },
+        linecolor: 'grey',
+        gridcolor: 'lightGrey',
+        mirror: true,
+        ticks: 'outside',
+        showline: true,
+        zerolinecolor: 'lightGrey'
+    },
+    shapes: [{
+            type: 'line',
+            x0: 2 * Math.PI,
+            y0: 2,
+            x1: 2 * Math.PI,
+            y1: -2,
+            xref: 'x',
+            yref: 'y',
+            opacity: 0.4,
+            line: {
+                color: 'black',
+                width: 2,
+                dash: 'dot'
+            }
+        },
+        {
+            type: 'line',
+            x0: 3 * Math.PI / 2,
+            y0: 2,
+            x1: 3 * Math.PI / 2,
+            y1: -2,
+            xref: 'x',
+            yref: 'y', 
+            opacity: 0.4,
+            line: {
+                color: 'black',
+                width: 2,
+                dash: 'dot'
+            }
+        },
+        {
+            type: 'line',
+            x0: 4 * Math.PI,
+            y0: 1,
+            x1: 3 * Math.PI,
+            y1: 1,
+            xref: 'x',
+            yref: 'y',
+            opacity: 0.4,
+            line: {
+                color: 'black',
+                width: 2,
+                dash: 'dot'
+            }
+        },
+        {
+            type: 'line',
+            x0: 4 * Math.PI,
+            y0: 0,
+            x1: 3 * Math.PI,
+            y1: 0,
+            xref: 'x',
+            yref: 'y',
+            opacity: 0.4,
+            line: {
+                color: 'black',
+                width: 2,
+                dash: 'dot'
+            }
+        }
+    ],
+    annotations: [{
+            ax: 0,
+            ay: -1.5,
+            x: 2 * Math.PI,
+            y: -1.5,
+            xref: 'x',
+            yref: 'y',
+            axref: "x",
+            ayref: 'y', 
+            text: '<b>P</b>',
+            font: {
+                size: 18,
+                color: 'red'
+            },
+            showarrow: true,
+            arrowhead: 2,
+            arrowcolor: 'red',
+            arrowsize: 1,
+            arrowwidth: 2,
+            opacity: 0.8,
+        },
+        {
+            ax: 2 * Math.PI,
+            ay: 1.5,
+            x: 3 * Math.PI / 2,
+            y: 1.5,
+            xref: 'x',
+            yref: 'y',
+            axref: "x",
+            ayref: 'y', 
+            text: '<b>Φ</b>',
+            font: {
+                size: 18,
+                color: 'red'
+            },
+            showarrow: true,
+            arrowhead: 2,
+            arrowcolor: 'red',
+            arrowsize: 1,
+            arrowwidth: 2,
+            opacity: 0.8,
+        },
+        {
+            ax: 3.2 * Math.PI,
+            ay: 0,
+            x: 3.2 * Math.PI,
+            y: 1,
+            xref: 'x',
+            yref: 'y',
+            axref: "x",
+            ayref: 'y', 
+            text: '<b>A</b>',
+            font: {
+                size: 18,
+                color: 'red',
+            },
+            showarrow: true,
+            arrowhead: 2,
+            arrowcolor: 'red',
+            arrowsize: 1,
+            arrowwidth: 2,
+            opacity: 0.8,
+        },
+    ],
+    autosize: false,
+    width: 600,
+    height: 250,
+    paper_bgcolor: '#FFF8DC',
+    plot_bgcolor: 'rgba(0,0,0,0)',
+    margin: {
+        l: 50,
+        r: 20,
+        t: 20,
+        b: 50
+      },
+    showlegend: true,
+    };
+
+    Plotly.newPlot('wave-func-plot', data, layout);
+}

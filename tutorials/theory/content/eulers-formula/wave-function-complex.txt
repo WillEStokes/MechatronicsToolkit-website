@@ -1,0 +1,36 @@
+<p>Here is the derivation of the wave function from its original form to the complex exponential form.</p>
+
+<p>Starting with the original wave function which represents the real portion of a wave at the output of a circuit:</p>
+
+<p>
+$$V(t) = Acos(\omega t - \phi)$$
+</p>
+
+<p>We can say that, from Euler's formula, the complex form in the frequency domain, would be written as:</p>
+
+<p>
+$$V(f) = Acos(\omega t - \phi) + jAsin(\omega t - \phi) = Ae^{j(\omega t - \phi)}$$
+</p>
+
+<p>Which can be re-written as:</p>
+
+$$V(f) = Ae^{j\phi} \times Ae^{j\omega t}$$
+
+<p>And expanded out to:</p>
+
+$$V(f) = A(cos(\phi) + jsin(\phi)) \times (cos(\Omega t) + jsin(\Omega t))$$
+
+<p>If we define P and Q as:</p>
+
+<p>
+$$P = Acos(\phi)$$
+$$Q = Asin(\phi)$$
+</p>
+
+<p>We can write the wave function in its complex form, in terms of P and Q:</p>
+
+<p>
+$$V(f) = (P + jQ)e^{j\omega t}$$
+</p>
+
+<p>In this form, the wave function is represented as a complex exponential, which can be more useful in certain situations. The real part of this wave function represents the amplitude of the wave, while the imaginary part represents its phase.</p>

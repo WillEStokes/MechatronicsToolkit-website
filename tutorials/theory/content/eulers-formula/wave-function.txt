@@ -1,0 +1,30 @@
+<p>The following figure indicates the features of a sinusoidal wave, which are used to define the wave function:<p>
+
+<div id="wave-func-plot"></div>
+
+<p>In this figure, \(t\) is time, \(P\) is the wave period, \(\phi\) is the phase shift and \(A\) is the amplitude.</p>
+
+<p>A cosine wave has the equation:</p>
+
+<p>
+$$V(t) = cos(2\pi * \frac{t}{P})$$
+</p>
+
+<p>We know that \(\frac{1}{P}\) is the frequency, so this expression can be re-written as:</p>
+
+<p>
+$$V(t) = cos(2\pi f * t)$$
+</p>
+
+<p>\(2\pi f\) represents the angular frequency of the wave, often denoted using the Greek term \(\omega\), that is:</p>
+
+<p>
+$$\omega = 2\pi f$$
+$$\therefore V(t) = cos(\omega t)$$
+</p>
+
+<p>A phase shift is indicated by \(\phi\) and the function is multiplied by an amplitude to give us the full definition of a wave:</p>
+
+<p>
+$$V(t) = Acos(\omega t - \phi)$$
+</p>

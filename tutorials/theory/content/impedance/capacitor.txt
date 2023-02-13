@@ -1,0 +1,32 @@
+<p>
+A capacitor is a passive component that stores energy in an electric field when a voltage is applied across its plates. The impedance of a capacitor can be calculated using the equation:
+</p>
+$$
+Z_{C} = \frac{1}{j \omega C}
+$$
+where \(j\) is the imaginary unit, \(\omega\) is the angular frequency of the AC signal, and \(C\) is the capacitance of the capacitor in farads.
+</p>
+<p>
+The impedance of a capacitor is a pure reactance, meaning that it does not cause any energy dissipation in the form of heat, but it still opposes the flow of AC current. The magnitude of the impedance of a capacitor decreases with increasing frequency, so at high frequencies, a capacitor effectively acts as a short circuit.
+</p>
+<p>
+Let's consider an example circuit that contains a capacitor, as shown below:
+</p>
+<div class="image-centre"><img src="./content/impedance/capacitor-circuit.png"></div>
+</p>
+<p>
+Charge on the capacitor, \(Q\), is given by:
+$$
+Q = CV
+$$
+<p>
+The current across the capacitor, \(I_C\), can be related to the charge on the capacitor using the equation:
+</p>
+$$I_C = \frac{dQ}{dt}$$
+$$\therefore Q = \int I dt$$
+$$and, \, V = \frac{1}{C}\int I dt$$
+<p>
+If, as for the inductor, current can be represented by Euler's formula as \(I = Ae^{j \omega t}\), then we can write our expression for voltage as:
+</p>
+$$V = \frac{1}{C}\frac{I}{j\omega}$$
+$$\therefore Z_C = \frac{V}{I} = \frac{1}{j\omega C}$$

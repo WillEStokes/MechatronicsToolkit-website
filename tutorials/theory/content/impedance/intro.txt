@@ -1,0 +1,6 @@
+<p>
+Impedance is an important concept in electrical circuits that describes the opposition of a circuit to the flow of an alternating current (AC) signal. The impedance of a circuit is a complex quantity, consisting of both resistance and reactance, and it plays a crucial role in determining the behavior of AC signals in a circuit.
+</p>
+<p>
+In this tutorial, we will focus on the impedance of inductors and capacitors in electrical circuits. We will first explore the impedance of an inductor and then move on to the impedance of a capacitor. We will use mathematical equations and circuit diagrams to illustrate the calculation of impedance in these two components.
+</p>

@@ -4,21 +4,7 @@
 
 <p>In electrical circuits, Ohm's law states that the voltage across a component is proportional to the current flowing through it, with the proportionality constant being the impedance of the component. For a capacitor, the voltage across the capacitor and the charge on it are related by the equation:</p>
 
-<p>$$V = \frac{Q}{C}$$</p>
-
-<p>Where \(V\) is the voltage across the capacitor, \(Q\) is the charge on it, and \(C\) is its capacitance. This equation can be rearranged to give us:</p>
-
-<p>$$Q = CV$$</p>
-
-<p>And then, from Ohm's law, we have:</p>
-
-<p>$$I = \frac{dQ}{dt}$$</p>
-
-<p>So substituting for \(Q\), we get:</p>
-
-<p>$$I = C\frac{dV}{dt}$$</p>
-
-<p>Thus, the impedance of a capacitor can be expressed as:</p>
+<p>As we demonstrated in our tutorial on impedance, the <a href="\tutorials\theory\impedance.html#capacitor">impedance of a capacitor</a> can be expressed as:</p>
 
 <p>$$Z = \frac{V}{I} = \frac{1}{C\frac{dV}{dt}} = \frac{1}{j\omega C}$$</p>
 

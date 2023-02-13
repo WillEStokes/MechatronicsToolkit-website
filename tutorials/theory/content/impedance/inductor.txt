@@ -1,0 +1,46 @@
+<p>
+An inductor is a passive component that stores energy in a magnetic field when electric current flows through it. The impedance of an inductor can be calculated using the equation:
+</p>
+$$
+Z_{L} = j \omega L
+$$
+where \(j\) is the imaginary unit, \(\omega\) is the angular frequency of the AC signal, and \(L\) is the inductance of the inductor in henries.
+</p>
+<p>
+The impedance of an inductor is a pure reactance, meaning that it does not cause any energy dissipation in the form of heat, but it still opposes the flow of AC current. The magnitude of the impedance of an inductor increases with increasing frequency, so at high frequencies, an inductor effectively acts as an open circuit.
+</p>
+<p>
+Let's consider an example circuit that contains a resistor and an inductor in series, as shown below:
+</p>
+<div class="image-centre"><img src="./content/impedance/inductor-circuit.png"></div>
+</p>
+<p>
+To represent a sinusoidal current using Euler's formula, we can write the current as:
+</p>
+$$
+I = Ae^{j \omega t}
+$$
+<p>
+where \(A\) is the amplitude of the current, \(\omega\) is the angular frequency of the AC signal, and \(t\) is time. Taking the derivative of this expression with respect to time gives:
+</p>
+$$
+\frac{dI}{dt} = j \omega Ae^{j \omega t} = j \omega I
+$$
+<p>
+Hence, the current in an inductor can be represented as a sinusoidal function with angular frequency \(\omega\) and a phase shift of 90 degrees with respect to the voltage.
+</p>
+<p>
+The voltage across the inductor, \(V_L\), can be related to the current through the inductor, \(I\), using the equation:
+</p>
+$$
+V_L = L \frac{dI}{dt}
+$$
+<p>
+By combining this equation with Ohm's law, we can find an expression for the impedance of the inductor in terms of the voltage and current:
+</p>
+$$
+Z_L = \frac{V_L}{I} = j \omega L
+$$
+<p>
+This expression shows that the impedance of an inductor is proportional to the frequency of the AC signal, and it has a phase shift of 90 degrees with respect to the current.
+</p>
