@@ -13,18 +13,17 @@
     <h1>Signal Filtering</h1>
     <div id="sidebar">
       <ul>
-          <li><a href="#introduction">Introduction to RC Circuits</a></li>
-          <li><a href="#low-pass-filters">Low Pass Filters</a></li>
+          <li><a href="#introduction">Introduction to AC Circuits</a></li>
+          <li><a href="#ac-filters">AC Filters</a></li>
+          <li><a href="#influence-of-components">Influence of Capacitors, Inductors and Resistors</a></li>
           <li><a href="#rc-circuit">Schematic of an RC Circuit</a></li>
-          <li><a href="#capacitors-and-resistors">Influence of Capacitors and Resistors</a></li>
-          <li><a href="#cutoff-frequency">Calculating the Cutoff Frequency</a></li>
-          <li><a href="#output">Output Voltage and Phase Shift</a></li>
-          <li><a href="#frequency-gain-plot">Frequency-Gain Plot</a></li>
+          <li><a href="#rl-circuit">Schematic of an RL Circuit</a></li>
+          <li><a href="#rlc-circuit">Schematic of an RLC Circuit</a></li>
           <li><a href="#conclusion">Conclusion</a></li>
       </ul>
     </div>
     <section id="introduction"></section>
-    <h2>Introduction to RC Circuits</h2>
+    <h2>Introduction to AC Circuits</h2>
     <div id="content-intro"></div>
     <script>
         fetch('./content/signal-filtering/intro.txt')
@@ -36,21 +35,34 @@
                 console.log(error);
             });
     </script>
-    <section id="low-pass-filters"></section>
-    <h2>Low Pass Filters</h2>
-    <div id="content-low-pass-filters"></div>
+    <section id="ac-filters"></section>
+    <h2>AC Filters</h2>
+    <div id="content-ac-filters"></div>
     <script>
-        fetch('./content/signal-filtering/low-pass-filters.txt')
+        fetch('./content/signal-filtering/ac-filters.txt')
             .then(response => response.text())
             .then(data => {
-                document.getElementById("content-low-pass-filters").innerHTML = data;
+                document.getElementById("content-ac-filters").innerHTML = data;
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    </script>
+    <section id="influence-of-components"></section>
+    <h2>Influence of Capacitors, Inductors and Resistors</h2>
+    <div id="content-influence-of-components"></div>
+    <script>
+        fetch('./content/signal-filtering/influence-of-components.txt')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("content-influence-of-components").innerHTML = data;
             })
             .catch(error => {
                 console.log(error);
             });
     </script>
     <section id="rc-circuit"></section>
-    <h2>Schematic of an RC Circuit</h2>
+    <h2>RC Circuit</h2>
     <div id="content-rc-circuit"></div>
     <script>
         fetch('./content/signal-filtering/rc-circuit.txt')
@@ -62,53 +74,27 @@
                 console.log(error);
             });
     </script>
-    <section id="capacitors-and-resistors"></section>
-    <h2>Influence of Capacitors and Resistors</h2>
-    <div id="content-capacitors-and-resistors"></div>
+    <section id="rl-circuit"></section>
+    <h2>RL Circuit</h2>
+    <div id="content-rl-circuit"></div>
     <script>
-        fetch('./content/signal-filtering/capacitors-and-resistors.txt')
+        fetch('./content/signal-filtering/rl-circuit.txt')
             .then(response => response.text())
             .then(data => {
-                document.getElementById("content-capacitors-and-resistors").innerHTML = data;
+                document.getElementById("content-rl-circuit").innerHTML = data;
             })
             .catch(error => {
                 console.log(error);
             });
     </script>
-    <section id="cutoff-frequency"></section>
-    <h2>Calculating the Cutoff Frequency</h2>
-    <div id="content-cutoff-frequency"></div>
+    <section id="rlc-circuit"></section>
+    <h2>RLC Circuit</h2>
+    <div id="content-rlc-circuit"></div>
     <script>
-        fetch('./content/signal-filtering/cutoff-frequency.txt')
+        fetch('./content/signal-filtering/rlc-circuit.txt')
             .then(response => response.text())
             .then(data => {
-                document.getElementById("content-cutoff-frequency").innerHTML = data;
-            })
-            .catch(error => {
-                console.log(error);
-            });
-    </script>
-    <section id="output"></section>
-    <h2>Output Voltage and Phase Shift</h2>
-    <div id="content-output"></div>
-    <script>
-        fetch('./content/signal-filtering/output.txt')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById("content-output").innerHTML = data;
-            })
-            .catch(error => {
-                console.log(error);
-            });
-    </script>
-    <section id="frequency-gain-plot"></section>
-    <h2>Frequency-Gain Plot</h2>
-    <div id="content-frequency-gain-plot"></div>
-    <script>
-        fetch('./content/signal-filtering/frequency-gain-plot.txt')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById("content-frequency-gain-plot").innerHTML = data;
+                document.getElementById("content-rlc-circuit").innerHTML = data;
             })
             .catch(error => {
                 console.log(error);

@@ -1,0 +1,71 @@
+<p>An RL circuit is a simple and effective way to implement a high pass filter. It consists of a resistor (R) and an inductor (L) connected in series, as shown in the following schematic:</p>
+
+<div class="image-centre"><img src="./content/signal-filtering/inductor-pdivide.png"></div>
+
+<p><b>Cutoff Frequency</b></p>
+
+<p>The cutoff frequency of an RL circuit is defined as the frequency at which the output voltage is reduced to 70.7% of its maximum value. The cutoff frequency can be calculated using the following formula:</p>
+
+<p>
+  $$f_c = \frac{R}{2\pi L}$$
+</p>
+
+<p>Where \(f_c\) is the cutoff frequency in hertz, \(R\) is the resistance in ohms, and \(L\) is the inductance henries.</p>
+
+<p><b>Phase Shift, Output Voltage and Gain</b></p>
+
+<p>We demonstrated the derivation of the expression for the <a href="\tutorials\theory\impedance.html#inductor">impedance of an inductor</a> in our tutorial on impedance:</p>
+
+<p>$$Z_L = X_L = j\omega L$$</p>
+
+<p>The impedance in an inductor is pure reactance, \(X_L\).</p>
+
+<p>The total impedance in our circuit can be expressed as:</p>
+
+<p>$$Z = \sqrt{R^2 + X_L^2}$$</p>
+
+<p>Likewise we can find the phase shift:</p>
+
+<p>$$\phi = \arctan(\frac{X_L}{R})$$</p>
+
+<p>In both these expressions, impedance from the resistor, \(R\), is the component of impedance in the real plane and the reactance of our inductor, \(X_L\), is the impedance in the imaginary plane. Note that for an RL circuit, phase shift is inversely proportional to frequency, therefore as the frequency of the signal increases the phase shift decreases.</p>
+
+<p>Using the same approach as for our RC circuit, we can express the output voltage in our RL circuit as a relationship between the impedance of the inductor, and the total impedance of the circuit:</p>
+
+<p>$$V_o = V_m * \frac{X_L}{Z}$$</p>
+
+<p>This equation shows that the output voltage is proportional to the input voltage, but it is reduced in magnitude by the factor \(\frac{X_L}{Z}\), which represents the ratio of the inductive reactance to the total impedance.</p>
+
+<p>For an RL circuit, gain is proportional to frequency, therefore as the frequency of the signal increases, the gain also increases.</p>
+
+<p><b>Frequency-Gain Plot</b></p>
+
+<p>In this section, we will generate a frequency-gain plot of the High Pass Filter using the user input values for \(R\), \(L\), and \(V\). This will give us a visual representation of the gain of the circuit as a function of frequency.</p>
+
+<form>
+    <div>
+        <label for="R_RL">Resistance (\(k\Omega\)) value:</label>
+        <input type="text" id="R_RL" name="R_RL" placeholder="5">
+        <button type="button" onclick="incrementValue('R_RL', 0.1)">+</button>
+        <button type="button" onclick="decrementValue('R_RL', 0.1)">-</button>
+    </div>
+    <div>
+        <label for="L_RL">Inductance (\(mH\)) value:</label>
+        <input type="text" id="L_RL" name="L_RL" placeholder="50">
+        <button type="button" onclick="incrementValue('L_RL', 1)">+</button>
+        <button type="button" onclick="decrementValue('L_RL', 1)">-</button>
+    </div>
+    <div>
+        <label for="V_RL">Input voltage (\(V\)) value:</label>
+        <input type="text" id="V_RL" name="V_RL" placeholder="10">
+        <button type="button" onclick="incrementValue('V_RL', 1)">+</button>
+        <button type="button" onclick="decrementValue('V_RL', 1)">-</button>
+    </div>
+    <br>
+    <button type="button" onclick="plotGain_RL()">Generate Plot</button>
+</form>
+<br>
+<div id="gain-plot_rl"></div>
+<br>
+<label>Cutoff frequency \((hz)\):</label>
+<input type="text" id="fc-output_rl" readonly>

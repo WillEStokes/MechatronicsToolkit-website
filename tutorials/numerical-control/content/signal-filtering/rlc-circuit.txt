@@ -1,0 +1,75 @@
+<p>An RLC circuit is a simple and effective way to implement a band pass filter. It consists of a resistor (R), an inductor (L) and a capacitor (C) connected in series, as shown in the following schematic:</p>
+
+<div class="image-centre"><img src="./content/signal-filtering/rlc-pdivide.png"></div>
+
+<p><b>Resonant Frequency</b></p>
+
+<p>The resonant frequency of an RLC circuit is defined as the frequency at which the output voltage is reduced to 70.7% of its maximum value. The resonant frequency can be calculated using the following formula:</p>
+
+<p>
+  $$f_r = \frac{1}{2\pi \sqrt{LC}}$$
+</p>
+
+<p>Where \(f_r\) is the resonant frequency in hertz, \(C\) is the capacitance in farads, and \(L\) is the inductance henries.</p>
+
+<p><b>Phase Shift, Output Voltage and Gain</b></p>
+
+<p>We demonstrated the derivation of the expression for the <a href="\tutorials\theory\impedance.html#inductor">impedance of an inductor</a> and the <a href="\tutorials\theory\impedance.html#capacitor">impedance of a capacitor</a> in our tutorial on impedance. Combined, they give an impedance of:</p>
+
+<p>$$Z_{LC} = X_L - X_C = j\omega L - \frac{1}{j\omega C}$$</p>
+
+<p>The total impedance in our circuit can be expressed as:</p>
+
+<p>$$Z = \sqrt{R_T^2 + (X_L - X_C)^2}$$</p>
+
+<p>Likewise we can find the phase shift:</p>
+
+<p>$$\phi = \arctan^{-1} \left(\frac{X_L - X_C}{R_T}\right)$$</p>
+
+<p>In both these expressions, impedance from the resistor, \(R\), is the component of impedance in the real plane and the combined reactance of our inductor and capacitor, \(X_L - X_C\), is the impedance in the imaginary plane. Note that for an RLC circuit, phase shift is neither proportional or inversely proportional to frequency, but instead it occurs at a specific frequency band depending on the values of the inductor and capacitor.</p>
+
+<p>Using the same approach as for our RL and RC circuit, we can express the output voltage in our RLC circuit as a relationship between the impedance of the inductor, and the total impedance of the circuit:</p>
+
+<p>$$V_o = V_m \frac{X_L - X_C}{Z}$$</p>
+
+<p>This equation shows that the output voltage is proportional to the input voltage, but it is reduced in magnitude by the factor \(\frac{X_L - X_C}{Z}\), which represents the ratio of the reactance to the total impedance.</p>
+
+<p>For an RLC series circuit, gain is neither proportional or inversely proportional to frequency, but instead it occurs at a specific frequency band depending on the values of the inductor and capacitor.</p>
+
+<p><b>Frequency-Gain Plot</b></p>
+
+<p>In this section, we will generate a frequency-gain plot of the Band Pass Filter using the user input values for \(R\), \(L\), \(C\), and \(V\). This will give us a visual representation of the gain of the circuit as a function of frequency.</p>
+
+<form>
+    <div>
+        <label for="R_RLC">Resistance (\(k\Omega\)) value:</label>
+        <input type="text" id="R_RLC" name="R_RL" placeholder="5">
+        <button type="button" onclick="incrementValue('R_RLC', 0.1)">+</button>
+        <button type="button" onclick="decrementValue('R_RLC', 0.1)">-</button>
+    </div>
+    <div>
+        <label for="L_RLC">Inductance (\(H\)) value:</label>
+        <input type="text" id="L_RLC" name="L_RLC" placeholder="5">
+        <button type="button" onclick="incrementValue('L_RLC', 1)">+</button>
+        <button type="button" onclick="decrementValue('L_RLC', 1)">-</button>
+    </div>
+    <div>
+        <label for="C_RLC">Capacitance (\(nF\)) value:</label>
+        <input type="text" id="C_RLC" name="C_RLC" placeholder="100">
+        <button type="button" onclick="incrementValue('C_RLC', 1)">+</button>
+        <button type="button" onclick="decrementValue('C_RLC', 1)">-</button>
+    </div>
+    <div>
+        <label for="V_RLC">Input voltage (\(V\)) value:</label>
+        <input type="text" id="V_RLC" name="V_RLC" placeholder="10">
+        <button type="button" onclick="incrementValue('V_RLC', 1)">+</button>
+        <button type="button" onclick="decrementValue('V_RLC', 1)">-</button>
+    </div>
+    <br>
+    <button type="button" onclick="plotGain_RLC()">Generate Plot</button>
+</form>
+<br>
+<div id="gain-plot_rlc"></div>
+<br>
+<label>Resonant frequency \((hz)\):</label>
+<input type="text" id="fr-output_rlc" readonly>

@@ -1,0 +1,27 @@
+<p><b>What is an AC Filter?</b></p>
+<p>An AC filter is an electronic circuit that is designed to selectively pass or block certain frequencies of an AC signal, while attenuating others. AC filters are used in various electronic systems to eliminate unwanted frequencies and noise from the signal. They can be implemented using different circuit configurations, including RC, RL, and RLC circuits. The primary goal of an AC filter is to improve the quality and fidelity of the AC signal by reducing unwanted frequency components.</p>
+
+<p><b>How Does an AC Filter Work?</b></p>
+<p>An AC filter works by presenting a different impedance to different frequencies of an AC signal. In an AC filter circuit, there are typically one or more resistive, capacitive, and/or inductive elements that affect the signal's frequency response. Depending on the specific circuit configuration, these elements can pass or block certain frequencies of the AC signal, while attenuating others.</p>
+
+<p><b>Applications of AC Filters</b></p>
+<p>AC filters are used in various electronic systems and applications to improve the quality and fidelity of AC signals. Here are some common applications of AC filters:</p>
+
+<ul>
+  <li><i>Audio processing:</i> to remove unwanted noise and distortion from audio signals</li>
+  <li><i>Power supplies:</i> to eliminate ripple and noise from the output voltage</li>
+  <li><i>Radio communication:</i> to filter out unwanted frequencies and signals, allowing for clear transmission and reception</li>
+  <li><i>Signal conditioning:</i> to remove unwanted noise and interference from sensor signals, such as those from temperature or pressure sensors</li>
+  <li><i>Instrumentation:</i> to remove unwanted noise and distortion from sensor signals, improving the accuracy of the measurement</li>
+</ul>
+
+<p><b>Types of AC Filters</b></p>
+<p>There are several different types of AC filters, including: First-Order, Second-Order, Higher-Order, Butterworth and Chebyshev. Each type of low pass filter has its own unique characteristics and trade-offs, and is suited for different applications.</p>
+
+<p>In this tutorial, we will focus on first-order filters implemented using three different circuits:</p>
+
+<ol>
+  <li><i>RC Filters:</i> These filters use a combination of a resistor and a capacitor</li>
+  <li><i>RL Filters:</i> These filters use a combination of a resistor and an inductor</li>
+  <li><i>RLC Filters:</i> These filters use a combination of a resistor, a capacitor, and an inductor</li>
+</ol>

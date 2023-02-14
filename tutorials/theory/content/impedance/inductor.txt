@@ -12,7 +12,7 @@ The <b>impedance of an inductor is a pure reactance</b>, meaning that it does no
 <p>
 Let's consider an example circuit that contains a resistor and an inductor in series, as shown below:
 </p>
-<div class="image-centre"><img src="./content/impedance/inductor-circuit.png"></div>
+<div class="image-centre"><img src="./content/impedance/inductor-pdivide.png"></div>
 </p>
 <p>
 To represent a sinusoidal current using Euler's formula, we can write the current as:

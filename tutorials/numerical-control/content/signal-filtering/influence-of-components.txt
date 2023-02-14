@@ -1,0 +1,21 @@
+<p><b>Influence of a Capacitor</b></p>
+
+<p>A capacitor in an AC circuit is a passive electronic component that stores electric charge and can release it over time.</p>
+
+<p>At low frequencies, a capacitor appears as a short circuit, with low impedance that allows the flow of current through the circuit. This property is used in low-pass filter circuits, where a capacitor is used in combination with a resistor to allow low-frequency signals to pass through, while blocking high-frequency signals.</p>
+
+<p>At high frequencies, a capacitor appears as an open circuit, with high impedance that effectively blocks the flow of current through the circuit. This property is used in high-pass filter circuits, where a capacitor is used in combination with a resistor to allow high-frequency signals to pass through, while blocking low-frequency signals.</p>
+
+<p><b>Influence of an Inductor</b></p>
+
+<p>An inductor in an AC circuit is a passive electronic component that resists changes in the current flowing through it, creating a time-varying magnetic field.</p>
+
+<p>At low frequencies, an inductor appears as an open circuit, with high impedance that effectively blocks the flow of current through the circuit. This property is used in high-pass filter circuits, where an inductor is used in combination with a resistor to allow high-frequency signals to pass through, while blocking low-frequency signals.</p>
+
+<p>At high frequencies, an inductor appears as a short circuit, with low impedance that allows current to flow through the circuit with little opposition. This property is used in low-pass filter circuits, where an inductor is used in combination with a capacitor to allow low-frequency signals to pass through, while blocking high-frequency signals.</p>
+
+<p><b>Influence of a Resistor</b></p>
+
+<p>A resistor in an AC circuit is a passive electronic component that opposes the flow of current through the circuit.</p>
+
+<p>In a DC circuit, a resistor simply limits the flow of current, but in an AC circuit, the influence of a resistor depends on the frequency of the AC signal. At low frequencies, a resistor behaves similarly to how it would in a DC circuit, with little change in its resistance value. However, at high frequencies, a resistor can exhibit parasitic capacitance and inductance, which can affect its resistance value and introduce phase shifts in the AC signal passing through it.</p>

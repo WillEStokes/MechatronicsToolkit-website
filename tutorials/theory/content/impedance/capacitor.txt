@@ -12,7 +12,7 @@ The <b>impedance of a capacitor is a pure reactance</b>, meaning that it does no
 <p>
 Let's consider an example circuit that contains a capacitor, as shown below:
 </p>
-<div class="image-centre"><img src="./content/impedance/capacitor-circuit.png"></div>
+    <div class="image-centre"><img src="./content/impedance/capacitor-pdivide.png"></div>
 </p>
 <p>
 Charge on the capacitor, \(Q\), is given by:

@@ -1,15 +1,18 @@
 <p>
-In this tutorial we have seen that impedance can be represented as a sinusoidal wave with a real and imaginary component. The magnitude of impedance represents the amount of opposition to the flow of current in the circuit, and its phase shift represents the relative timing of the current and voltage waveforms. These properties are similar to the magnitude and phase of the voltage waveform, so impedance can be treated similarly in circuit analysis.
-</p>
-
-<p>
-We have seen that, for an RC circuit:
+In this tutorial, we have seen the following characteristics in AC filters:
     <ul>
-        <li>As the frequency of the signal increases, the phase shift decreases</li>
-        <li>As the frequency of the signal increases, the gain decreases</li>
+        <li>In RC filters, the reactance of a capacitor dominates at high frequencies, while the reactance of a resistor dominates at low frequencies</li>
+
+        <li>In RL filters, the reactance of an inductor dominates at low frequencies, while the reactance of a resistor dominates at high frequencies</li>
+
+        <li>In RLC filters, the impedance of the circuit is a combination of both inductance and capacitance, allowing for the design of band-pass and band-stop filters, which selectively allow a specific range of frequencies to pass through the circuit while attenuating all other frequencies</li>
     </ul>
 </p>
 
 <p>
-The importance of understanding the influence of resistors and capacitors, using principles from Euler, in modelling electrical circuits lies in the fact that electrical engineers use these models to predict and control the behavior of a wide variety of systems. By understanding how resistors and capacitors interact in an electrical circuit, engineers can determine the response of the circuit to different frequencies, amplitudes, and phases of electrical signals. This understanding is critical in designing and analysing electronic systems, such as filters, amplifiers, and power supplies.
+The design of these filters involves calculating the impedance of the circuit at different frequencies, as impedance is the combination of resistance and reactance, where reactance depends on the frequency of the AC signal. The impedance of a circuit can be represented as a sinusoidal wave with a real and an imaginary component, with the real component representing resistance, and the imaginary component representing reactance.
+</p>
+
+<p>
+The use of Euler's formula, is important in the design of AC filters as it provides a way to represent the impedance of a circuit in a complex plane, where the magnitude and angle of the complex impedance represent the magnitude and phase angle of the AC signal.
 </p>
