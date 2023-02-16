@@ -46,14 +46,14 @@
     <div>
         <label for="R_RL">Resistance (\(k\Omega\)) value:</label>
         <input type="text" id="R_RL" name="R_RL" placeholder="5">
-        <button type="button" onclick="incrementValue('R_RL', 0.1)">+</button>
-        <button type="button" onclick="decrementValue('R_RL', 0.1)">-</button>
+        <button type="button" onclick="incrementValue('R_RL', 1)">+</button>
+        <button type="button" onclick="decrementValue('R_RL', 1)">-</button>
     </div>
     <div>
         <label for="L_RL">Inductance (\(mH\)) value:</label>
         <input type="text" id="L_RL" name="L_RL" placeholder="50">
-        <button type="button" onclick="incrementValue('L_RL', 1)">+</button>
-        <button type="button" onclick="decrementValue('L_RL', 1)">-</button>
+        <button type="button" onclick="incrementValue('L_RL', 10)">+</button>
+        <button type="button" onclick="decrementValue('L_RL', 10)">-</button>
     </div>
     <div>
         <label for="V_RL">Input voltage (\(V\)) value:</label>

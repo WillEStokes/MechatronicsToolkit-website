@@ -1,10 +1,20 @@
-<p>An RLC circuit is a simple and effective way to implement a band pass filter. It consists of a resistor (R), an inductor (L) and a capacitor (C) connected in series, as shown in the following schematic:</p>
+<p>An RLC circuit is a simple and effective way to implement a band pass filter. It consists of a resistor \(R_1\), an inductor \(L\) and a capacitor \(C\) connected in series. It is good practice to include another resistor, \(R_2\), in series with an Inductor to represent the internal resistance due to its wire, however its value is very small. The series RLC circuit is shown in the following schematic:</p>
 
 <div class="image-centre"><img src="./content/signal-filtering/rlc-pdivide.png"></div>
 
 <p><b>Resonant Frequency</b></p>
 
-<p>The resonant frequency of an RLC circuit is defined as the frequency at which the output voltage is reduced to 70.7% of its maximum value. The resonant frequency can be calculated using the following formula:</p>
+<p>The resonant frequency for an RLC circuit can be derived by finding the frequency at which the impedance of the circuit is purely resistive (i.e., where the imaginary part of the impedance is zero). This occurs when \(X_L = X_C\) and \(Z = R + j(0)\), so, the magnitude of the impedance is simply R, and the phase angle of the impedance is 0 degrees.
+
+<div id="reactance-plot"></div>
+
+<p>At resonance, we can say that:</p>
+
+<p>
+  $$X_L = X_C \rightarrow 2\pi f_rL = \frac{1}{2\pi f_rC}$$
+</p>
+
+<p>And:</p>
 
 <p>
   $$f_r = \frac{1}{2\pi \sqrt{LC}}$$
@@ -44,20 +54,20 @@
     <div>
         <label for="R_RLC">Resistance (\(k\Omega\)) value:</label>
         <input type="text" id="R_RLC" name="R_RL" placeholder="5">
-        <button type="button" onclick="incrementValue('R_RLC', 0.1)">+</button>
-        <button type="button" onclick="decrementValue('R_RLC', 0.1)">-</button>
+        <button type="button" onclick="incrementValue('R_RLC', 1)">+</button>
+        <button type="button" onclick="decrementValue('R_RLC', 1)">-</button>
     </div>
     <div>
         <label for="L_RLC">Inductance (\(H\)) value:</label>
         <input type="text" id="L_RLC" name="L_RLC" placeholder="5">
-        <button type="button" onclick="incrementValue('L_RLC', 1)">+</button>
-        <button type="button" onclick="decrementValue('L_RLC', 1)">-</button>
+        <button type="button" onclick="incrementValue('L_RLC', 10)">+</button>
+        <button type="button" onclick="decrementValue('L_RLC', 10)">-</button>
     </div>
     <div>
         <label for="C_RLC">Capacitance (\(nF\)) value:</label>
         <input type="text" id="C_RLC" name="C_RLC" placeholder="100">
-        <button type="button" onclick="incrementValue('C_RLC', 1)">+</button>
-        <button type="button" onclick="decrementValue('C_RLC', 1)">-</button>
+        <button type="button" onclick="incrementValue('C_RLC', 10)">+</button>
+        <button type="button" onclick="decrementValue('C_RLC', 10)">-</button>
     </div>
     <div>
         <label for="V_RLC">Input voltage (\(V\)) value:</label>
@@ -69,7 +79,7 @@
     <button type="button" onclick="plotGain_RLC()">Generate Plot</button>
 </form>
 <br>
-<div id="gain-plot_rlc"></div>
+    <div id="gain-plot_rlc"></div>
 <br>
 <label>Resonant frequency \((hz)\):</label>
 <input type="text" id="fr-output_rlc" readonly>

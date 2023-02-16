@@ -30,3 +30,16 @@ As for the inductor, current can be represented by Euler's formula as \(I_C = Ae
 </p>
 $$V_C = \frac{1}{C}\frac{I_C}{j\omega}$$
 $$\therefore Z_C = \frac{V_C}{I_C} = \frac{1}{j\omega C}$$
+
+<form>
+    <div>
+        <label for="F_RC">Frequency (\(kHz\)) value:</label>
+        <input type="text" id="F_RC" name="F_RC" placeholder="50">
+        <button type="button" onclick="incrementValue('F_RC', 10)">+</button>
+        <button type="button" onclick="decrementValue('F_RC', 10)">-</button>
+    </div>
+    <br>
+    <button type="button" onclick="cosPlot_C()">Plot Output</button>
+</form>
+<br>
+<div id="capacitor-wave-plot"></div>

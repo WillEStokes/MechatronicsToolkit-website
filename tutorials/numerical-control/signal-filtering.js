@@ -8,6 +8,97 @@ function decrementValue(inputId, amount) {
     input.value = (Number(input.value) - amount).toPrecision(3);
 }
 
+function reactancePlot() {
+    var L = 5;
+    var C = 100;
+    C = C/1000000000;
+
+    var resonantFrequency = 1 / (2 * Math.PI * Math.sqrt(L*C));
+    var frequencies = Array.from({length: 500}, (_, i) => 100 + Math.pow(20, 2 * i / 499));
+
+    var X_L = frequencies.map(function(f) {
+        return 2 * Math.PI * f * L;
+    });
+
+    var X_C = frequencies.map(function(f) {
+        return 1 / (2 * Math.PI * f * C);
+    });
+
+    var capacitorTrace = {
+        x: frequencies,
+        y: X_C,
+        type: 'scatter',
+        name: '$X_C$ (Ω)',
+        // yaxis: 'y'
+    };
+    var inductorTrace = {
+        x: frequencies,
+        y: X_L,
+        type: 'scatter',
+        name: '$X_L$ (Ω)',
+        // yaxis: 'y'
+    };
+
+    var data = [capacitorTrace, inductorTrace ];
+    var layout = {
+        xaxis: {
+            // type: "log",
+            title: "Frequency (Hz)",
+            mirror: true,
+            ticks: 'outside',
+            showline: true,
+        },
+        yaxis: {
+            // type: "log",
+            title: "Reactance (Ω)",
+            mirror: true,
+            ticks: 'outside',
+            showline: true,
+        },
+        shapes: [{
+            type: 'line',
+            x0: resonantFrequency,
+            y0: 2 * Math.PI * resonantFrequency * L,
+            x1: resonantFrequency,
+            y1: 0,
+            xref: 'x',
+            yref: 'y',
+            opacity: 0.4,
+            line: {
+                color: 'black',
+                width: 2,
+                dash: 'dot'
+            }
+        }],
+        annotations: [{
+            x: resonantFrequency + 20,
+            y: 1000,
+            xref: 'x',
+            yref: 'y',
+            text: '$f_r$',
+            font: {
+                size: 18,
+                color: 'red'
+            },
+            showarrow: false,
+        }],
+        title: "Reactance Plot",
+        showlegend: true,
+        autosize: false,
+        width: 400,
+        height: 300,
+        margin: {
+            l: 50,
+            r: 75,
+            t: 50,
+            b: 50
+          }
+        };
+    
+        Plotly.newPlot("reactance-plot", data, layout);
+
+}
+
 function initGainPlot() {
     var frequencies = Array.from({length: 500}, (_, i) => Math.pow(10, 6 * i / 499));
 

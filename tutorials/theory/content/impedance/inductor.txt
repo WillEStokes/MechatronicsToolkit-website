@@ -44,3 +44,16 @@ $$
 <p>
 This expression shows that the impedance of an inductor is proportional to the frequency of the AC signal, and it has a phase shift of 90 degrees with respect to the current.
 </p>
+
+<form>
+    <div>
+        <label for="F_RL">Frequency (\(kHz\)) value:</label>
+        <input type="text" id="F_RL" name="F_RL" placeholder="50">
+        <button type="button" onclick="incrementValue('F_RL', 10)">+</button>
+        <button type="button" onclick="decrementValue('F_RL', 10)">-</button>
+    </div>
+    <br>
+    <button type="button" onclick="cosPlot_L()">Plot Output</button>
+</form>
+<br>
+<div id="inductor-wave-plot"></div>

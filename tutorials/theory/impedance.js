@@ -1,22 +1,49 @@
-function cosPlot() {
-    const x = Array.from({length: 200}, (_, i) => (20 * i) / 200);
-    const y = x.map(angle => Math.cos(angle));
+function incrementValue(inputId, amount) {
+    let input = document.getElementById(inputId);
+    input.value = (Number(input.value) + amount).toPrecision(3);
+}
+
+function decrementValue(inputId, amount) {
+    let input = document.getElementById(inputId);
+    input.value = (Number(input.value) - amount).toPrecision(3);
+}
+
+function initCosPlot() {
+    frequency = 50000;
+    const periods = 3;
+    const numPoints = 200;
+
+    const t = Array.from({ length: numPoints }, (_, i) => ((periods / frequency) * i) / numPoints);
+    const omega = 2 * Math.PI * frequency;
+    const wt = t.map((x) => omega * x);
+    const Vin = wt.map((x) => Math.cos(x));
 
     const data = [{
-    x,
-    y,
-    mode: 'lines',
-    line: {
-        width: 2,
-        color: 'black'
-    }
+        x: t,
+        y: Vin,
+        mode: 'lines',
+        line: {
+            width: 2,
+            color: 'black'
+        },
+        name: '$V_{in}$ (Ω)',
+    },
+    {
+        x: [0, 0],
+        y: [0, 0],
+        mode: 'lines',
+        line: {
+            width: 2,
+            color: 'black',
+            dash: 'dash'
+        },
+        name: '$V_{out}$ (Ω)',
     }];
 
     const layout = {
     xaxis: {
-        range: [0, 20],
         title: {
-        text: 'X',
+        text: 'Time',
         font: {
             size: 26,
             family: 'Times New Roman'
@@ -32,7 +59,7 @@ function cosPlot() {
     yaxis: {
         range: [-2, 2],
         title: {
-        text: 'Re',
+        text: 'Voltage',
         font: {
             size: 26,
             family: 'Times New Roman'
@@ -45,54 +72,73 @@ function cosPlot() {
         showline: true,
         zerolinecolor: 'lightGrey'
     },
-    annotations: [{
-        text: '<i>e<sup>ix</sup>',
-        showarrow: false,
-        x: 1.6,
-        y: 0.8,
-        xref: 'x',
-        yref: 'y',
-        font: {
-        color: 'red',
-        family: 'DejaVu Sans Mono',
-        size: 30
-        }
-    }],
     autosize: false,
     width: 600,
     height: 250,
-    paper_bgcolor: '#FFF8DC',
-    plot_bgcolor: 'rgba(0,0,0,0)',
     margin: {
         l: 50,
-        r: 20,
+        r: 100,
         t: 20,
         b: 50
       }
     };
 
-    Plotly.newPlot('cos-plot', data, layout);
+    Plotly.newPlot('inductor-wave-plot', data, layout);
+    Plotly.newPlot('capacitor-wave-plot', data, layout);
 }
 
-function sinPlot() {
-    const x = Array.from({length: 200}, (_, i) => (20 * i) / 200);
-    const y = x.map(angle => Math.sin(angle));
+function cosPlot_L() {
+    var frequency = parseFloat(document.getElementById("F_RL").value);
+    frequency = frequency*1000;
+    L = 0.001;
+    const R = 330;
+    const periods = 3;
+    const numPoints = 200;
 
-    const data = [{
-    x,
-    y,
-    mode: 'lines',
-    line: {
-        width: 2,
-        color: 'black'
-    }
-    }];
+    const t = Array.from({ length: numPoints }, (_, i) => ((periods / frequency) * i) / numPoints);
+    const omega = 2 * Math.PI * frequency;
+    const wt = t.map((x) => omega * x);
+    const Vin = wt.map((x) => Math.cos(x));
+
+    const z1Ind = math.complex(0, omega * L);
+    const v1Ind = math.divide(math.multiply(1, z1Ind), math.add(R, z1Ind));
+
+    const P = 2 * Vin.map(v => v * v).reduce((sum, v) => sum + v, 0) / Vin.length;
+    const Q = -2 * wt.map(w => Math.sin(w)).map((s, i) => s * Vin[i]).reduce((sum, q) => sum + q, 0) / wt.length;
+
+    const v0f = math.complex(P, Q);
+    const v1f = math.multiply(v0f, v1Ind);
+    const epjwt = wt.map(w => math.exp(math.complex(0, w)));
+    const reconstructed = epjwt.map(epjw => math.multiply(v1f, epjw));
+
+    var inputTrace = {
+        x: t,
+        y: Vin,
+        mode: 'lines',
+        line: {
+            width: 2,
+            color: 'black'
+        },
+        name: '$V_{in}$ (Ω)',
+    };
+    var outputTrace = {
+        x: t,
+        y: reconstructed.map(c => c.im),
+        mode: 'lines',
+        line: {
+            width: 2,
+            color: 'black',
+            dash: 'dash'
+        },
+        name: '$V_{out}$ (Ω)',
+    };
+
+    var data = [inputTrace, outputTrace ];
 
     const layout = {
     xaxis: {
-        range: [0, 20],
         title: {
-        text: 'X',
+        text: 'Time',
         font: {
             size: 26,
             family: 'Times New Roman'
@@ -108,13 +154,12 @@ function sinPlot() {
     yaxis: {
         range: [-2, 2],
         title: {
-        text: 'Im',
+        text: 'Voltage',
         font: {
             size: 26,
             family: 'Times New Roman'
         }
         },
-        ticksuffix: 'i',
         linecolor: 'grey',
         gridcolor: 'lightGrey',
         mirror: true,
@@ -122,99 +167,110 @@ function sinPlot() {
         showline: true,
         zerolinecolor: 'lightGrey'
     },
-    annotations: [{
-        text: '<i>e<sup>ix</sup>',
-        showarrow: false,
-        x: 3.2,
-        y: 0.8,
-        xref: 'x',
-        yref: 'y',
-        font: {
-        color: 'red',
-        family: 'DejaVu Sans Mono',
-        size: 30
-        }
-    }],
     autosize: false,
     width: 600,
     height: 250,
-    paper_bgcolor: '#FFF8DC',
-    plot_bgcolor: 'rgba(0,0,0,0)',
     margin: {
         l: 50,
-        r: 20,
+        r: 100,
         t: 20,
         b: 50
       }
     };
 
-    Plotly.newPlot('sin-plot', data, layout);
+    Plotly.newPlot('inductor-wave-plot', data, layout);
 }
 
-function expPlot() {
-    const x = Array.from({length: 100}, (_, i) => (2 * i) / 100);
-    const y = x.map(x => Math.exp(x));
+function cosPlot_C() {
+    var frequency = parseFloat(document.getElementById("F_RC").value);
+    frequency = frequency*1000;
+    const C = 1e-8;
+    const R = 330;
+    const periods = 3;
+    const numPoints = 200;
 
-    const data = [{x, y, mode: 'lines', line: {width: 2, color: 'black'}}];
+    const t = Array.from({ length: numPoints }, (_, i) => ((periods / frequency) * i) / numPoints);
+    const omega = 2 * Math.PI * frequency;
+    const wt = t.map((x) => omega * x);
+    const Vin = wt.map((x) => Math.cos(x));
 
-    const layout = {
-        xaxis: {
-            range: [0, 2],
-            title: {
-                text: 'X',
-                font: {
-                    size: 26,
-                    family: 'Times New Roman'
-                }
-            },
-            linecolor: 'grey',
-            gridcolor: 'lightGrey',
-            mirror: true,
-            ticks: 'outside',
-            showline: true,
-            zerolinecolor: 'lightGrey'
+    const z1Cap = math.complex(0, 1 / (omega * C));
+    const v1Cap = math.divide(z1Cap, math.add(R, z1Cap));
+
+    const P = 2 * Vin.map(v => v * v).reduce((sum, v) => sum + v, 0) / Vin.length;
+    const Q = -2 * wt.map(w => Math.sin(w)).map((s, i) => s * Vin[i]).reduce((sum, q) => sum + q, 0) / wt.length;
+
+    const v0f = math.complex(P, Q);
+    const v1f = math.multiply(v0f, v1Cap);
+    const epjwt = wt.map(w => math.exp(math.complex(0, w)));
+    const reconstructed = epjwt.map(epjw => math.multiply(v1f, epjw));
+
+    var inputTrace = {
+        x: t,
+        y: Vin,
+        mode: 'lines',
+        line: {
+            width: 2,
+            color: 'black'
         },
-        yaxis: {
-            range: [0, 7],
-            title: {
-                text: 'y',
-                font: {
-                    size: 26,
-                    family: 'Times New Roman'
-                }
-            },
-            linecolor: 'grey',
-            gridcolor: 'lightGrey',
-            mirror: true,
-            ticks: 'outside',
-            showline: true,
-            zerolinecolor: 'lightGrey'
+        name: '$V_{in}$ (Ω)',
+    };
+    var outputTrace = {
+        x: t,
+        y: reconstructed.map(c => c.re),
+        mode: 'lines',
+        line: {
+            width: 2,
+            color: 'black',
+            dash: 'dash'
         },
-        annotations: [{
-            text: '<i>y=e<sup>x</sup>',
-            showarrow: false,
-            x: 1.4,
-            y: 6,
-            xref: 'x',
-            yref: 'y',
-            font: {
-            color: 'red',
-            family: 'DejaVu Sans Mono',
-            size: 30
-            }
-        }],
-        autosize: false,
-        width: 300,
-        height: 300,
-        paper_bgcolor: '#FFF8DC',
-        plot_bgcolor: 'rgba(0,0,0,0)',
-        margin: {
-            l: 50,
-            r: 20,
-            t: 20,
-            b: 50
-        }
+        name: '$V_{out}$ (Ω)',
     };
 
-    Plotly.newPlot('exp-plot', data, layout);
+    var data = [inputTrace, outputTrace ];
+
+    const layout = {
+    xaxis: {
+        title: {
+        text: 'Time',
+        font: {
+            size: 26,
+            family: 'Times New Roman'
+        }
+        },
+        linecolor: 'grey',
+        gridcolor: 'lightGrey',
+        mirror: true,
+        ticks: 'outside',
+        showline: true,
+        zerolinecolor: 'lightGrey'
+    },
+    yaxis: {
+        range: [-2, 2],
+        title: {
+        text: 'Voltage',
+        font: {
+            size: 26,
+            family: 'Times New Roman'
+        }
+        },
+        linecolor: 'grey',
+        gridcolor: 'lightGrey',
+        mirror: true,
+        ticks: 'outside',
+        showline: true,
+        zerolinecolor: 'lightGrey'
+    },
+    autosize: false,
+    width: 600,
+    height: 250,
+    margin: {
+        l: 50,
+        r: 100,
+        t: 20,
+        b: 50
+      }
+    };
+
+    Plotly.newPlot('capacitor-wave-plot', data, layout);
 }
