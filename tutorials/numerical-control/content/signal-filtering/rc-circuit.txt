@@ -80,7 +80,7 @@ $$R_T = R_1 + R_2$$
 
 <p>Now we can calculate the phase shift:</p>
 
-<p>$$\phi = \arctan(\frac{X_C}{R}) = \arctan(\frac{338.6}{4700}) = 0.072 \, rad$$</p>
+<p>$$\phi = \arctan(\frac{X_C}{R}) = \arctan(\frac{338.6}{4700}) = 0.072 \, rad = 4.13^{\circ}$$</p>
 
 <p>Finally, we can calculate the output voltage and gain:</p>
 
@@ -88,7 +88,9 @@ $$R_T = R_1 + R_2$$
 
 <p>$$Gain = 20 * log \frac{V_o}{V_m} = 20 * log \frac{0.719}{10} = -22.9 \, dB$$</p>
 
-<p>So the output voltage has a magnitude of 0.072 V, a phase shift of 0.072 radians and a gain of -22.9 dB.</p>
+<p>So the output voltage has a magnitude of 0.72 V, a phase shift of 4.13\(^{\circ}\) and a gain of -22.9 dB.</p>
+
+<p><a href="/tools/python-console.html">Run this worked example in our Python console</a></p>
 
 <p><b>Frequency-Gain Plot</b></p>
 

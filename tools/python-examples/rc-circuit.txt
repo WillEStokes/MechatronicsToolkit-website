@@ -1,0 +1,36 @@
+#This code calculates the capacitive reactance, total impedance, cutoff frequency, phase
+#shift, output voltage and gain of an RC circuit with a resistance of 4.7 kOhms, a capacitance
+#of 47 nanofarads, a source voltage magnitude of 10 volts and a frequency of 10 kHz. You can
+#change the input variables to simulate different scenarios.
+
+import math
+
+# Input variables
+R = 4700  # Resistance (Ohms)
+C = 47e-9  # Capacitance (Farads)
+V = 10    # Source voltage magnitude (Volts)
+f = 10000  # Frequency (Hz)
+
+# Calculate capacitive reactance
+Xc = 1 / (2 * math.pi * f * C)
+
+# Calculate total impedance
+Z = math.sqrt(R ** 2 + Xc ** 2)
+
+# Calculate cutoff frequency
+fc = 1 / (2 * math.pi * R * C)
+
+# Calculate phase shift
+phi = math.atan(-Xc / R)
+
+# Calculate output voltage and gain
+Vout = V * Xc / Z
+gain = 20 * math.log10(Vout / V)
+
+# Output results
+print("Capacitive reactance = {:.2f} Ohms".format(Xc))
+print("Total impedance = {:.2f} Ohms".format(Z))
+print("Cutoff frequency = {:.2f} Hz".format(fc))
+print("Phase shift = {:.2f} degrees".format(math.degrees(phi)))
+print("Output voltage = {:.2f} Volts".format(Vout))
+print("Gain = {:.2f} dB".format(gain))

@@ -14,11 +14,10 @@
     <div id="sidebar">
       <ul>
           <li><a href="#introduction">Introduction to AC Circuits</a></li>
-          <li><a href="#ac-filters">AC Filters</a></li>
-          <li><a href="#influence-of-components">Influence of Capacitors, Inductors and Resistors</a></li>
-          <li><a href="#rc-circuit">Schematic of an RC Circuit</a></li>
-          <li><a href="#rl-circuit">Schematic of an RL Circuit</a></li>
-          <li><a href="#rlc-circuit">Schematic of an RLC Circuit</a></li>
+          <li><a href="#influence-of-components">Capacitors, Inductors and Resistors</a></li>
+          <li><a href="#rc-circuit">RC Circuit</a></li>
+          <li><a href="#rl-circuit">RL Circuit</a></li>
+          <li><a href="#rlc-circuit">RLC Circuit</a></li>
           <li><a href="#conclusion">Conclusion</a></li>
       </ul>
     </div>
@@ -36,20 +35,8 @@
             });
     </script>
     <section id="ac-filters"></section>
-    <h2>AC Filters</h2>
-    <div id="content-ac-filters"></div>
-    <script>
-        fetch('./content/signal-filtering/ac-filters.txt')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById("content-ac-filters").innerHTML = data;
-            })
-            .catch(error => {
-                console.log(error);
-            });
-    </script>
     <section id="influence-of-components"></section>
-    <h2>Influence of Capacitors, Inductors and Resistors</h2>
+    <h2>Capacitors, Inductors and Resistors</h2>
     <div id="content-influence-of-components"></div>
     <script>
         fetch('./content/signal-filtering/influence-of-components.txt')

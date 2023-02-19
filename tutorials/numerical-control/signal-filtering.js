@@ -174,7 +174,7 @@ function plotGain_RC() {
     });
     var phase = frequencies.map(function(f) {
         var omega = 2 * Math.PI * f;
-        return -Math.atan(omega * R * C) * 180 / Math.PI;
+        return Math.atan(-omega * R * C) * 180 / Math.PI;
     });
 
     var gainTrace = {

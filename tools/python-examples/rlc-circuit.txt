@@ -1,0 +1,31 @@
+#This code calculates the inductive reactance, capacitive reactance, total impedance and
+#resonant frequency of an RLC circuit with a resistance of 1000 Ohms, an inductance of 10
+#millihenries, a capacitance of 1 microfarad, a source voltage magnitude of 10 volts, and
+#a frequency of 1000 Hz. You can change the input variables to simulate different scenarios.
+
+import math
+
+# Input variables
+R = 1000  # Resistance (Ohms)
+L = 10e-3 # Inductance (Henry)
+C = 1e-6  # Capacitance (Farads)
+V = 10    # Source voltage magnitude (Volts)
+f = 1000  # Frequency (Hz)
+
+# Calculate inductive reactance
+Xl = 2 * math.pi * f * L
+
+# Calculate capacitive reactance
+Xc = 1 / (2 * math.pi * f * C)
+
+# Calculate total impedance
+Z = math.sqrt(R ** 2 + (Xl - Xc) ** 2)
+
+# Calculate resonant frequency
+fr = 1 / (2 * math.pi * math.sqrt(L * C))
+
+# Output results
+print("Inductive reactance = {:.2f} Ohms".format(Xl))
+print("Capacitive reactance = {:.2f} Ohms".format(Xc))
+print("Total impedance = {:.2f} Ohms".format(Z))
+print("Resonant frequency = {:.2f} Hz".format(fr))
