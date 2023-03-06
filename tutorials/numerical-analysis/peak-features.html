@@ -6,8 +6,10 @@
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.5/seedrandom.min.js">
+</script>
   </head>
-  <body onload="">
+  <body onload="derivativePlot(), basePlot(), heightFilterPlot(), featuresPlot(), trapeziumRulePlot(), peakArea(), initFindPeaksPlot()">
     <div id="nav"></div>
     <script src="/navigation.js"></script>
     <h1>Peak Features</h1>
@@ -18,8 +20,8 @@
       </ul>
     </div>
     <section id="introduction"></section>
-      <h2>Introduction</h2>
-      <div id="content-intro"></div>
+        <h2>Introduction</h2>
+        <div id="content-intro"></div>
         <script>
             fetch('./content/peak-features/intro.txt')
                 .then(response => response.text())
@@ -30,9 +32,61 @@
                     console.log(error);
                 });
         </script>
+    <section id="peak-identification"></section>
+        <h2>Peak Identification</h2>
+        <div id="content-peak-identification"></div>
+        <script>
+            fetch('./content/peak-features/peak-identification.txt')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("content-peak-identification").innerHTML = data;
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        </script>
+    <section id="grouping-and-filtering"></section>
+        <h2>Grouping and Filtering</h2>
+        <div id="content-grouping-and-filtering"></div>
+        <script>
+            fetch('./content/peak-features/grouping-and-filtering.txt')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("content-grouping-and-filtering").innerHTML = data;
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        </script>
+    <section id="calculating-features"></section>
+        <h2>Calculating Peak Features</h2>
+        <div id="content-calculating-features"></div>
+        <script>
+            fetch('./content/peak-features/calculating-features.txt')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("content-calculating-features").innerHTML = data;
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        </script>
+    <section id="demonstration"></section>
+        <h2>Implementation</h2>
+        <div id="content-implementation"></div>
+        <script>
+            fetch('./content/peak-features/implementation.txt')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("content-implementation").innerHTML = data;
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        </script>
     <section id="conclusion"></section>
-      <h2>Conclusion</h2>
-      <div id="content-conclusion"></div>
+        <h2>Conclusion</h2>
+        <div id="content-conclusion"></div>
         <script>
             fetch('./content/peak-features/conclusion.txt')
                 .then(response => response.text())
@@ -44,6 +98,7 @@
                 });
         </script>
         <script src="./peak-features.js"></script>
+        <script src="./peak-features-demonstration.js"></script>
     </body>
 </html>
 <div class="footer">

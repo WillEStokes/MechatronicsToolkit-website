@@ -1,0 +1,31 @@
+<p>In this section, we will provide a demonstration of how the techniques we have learned can be used to robustly identify peaks in noisy data.</p>
+
+<form>
+    <div class="input-container">
+        <label>Enter location threshold value:</label>
+        <input type="text" id="location-threshold" placeholder="0.5">
+        <button type="button" onclick="incrementValue('location-threshold', 0.1)">+</button>
+        <button type="button" onclick="decrementValue('location-threshold', 0.1)">-</button>
+    </div>
+    <div class="input-container">
+        <label>Enter height threshold value:</label>
+        <input type="text" id="height-threshold" placeholder="0.1">
+        <button type="button" onclick="incrementValue('height-threshold', 0.1)">+</button>
+        <button type="button" onclick="decrementValue('height-threshold', 0.1)">-</button>
+    </div>
+    <div class="input-container">
+        <label>Enter smooth width value:</label>
+        <input type="text" id="smooth-width" placeholder="8">
+        <button type="button" onclick="incrementValue('smooth-width', 1)">+</button>
+        <button type="button" onclick="decrementValue('smooth-width', 1)">-</button>
+    </div>
+    <div class="input-container">
+        <label>Enter peak group value:</label>
+        <input type="text" id="peak-group" placeholder="5">
+        <button type="button" onclick="incrementValue('peak-group', 1)">+</button>
+        <button type="button" onclick="decrementValue('peak-group', 1)">-</button>
+    </div>
+        <button type="button" onclick="findPeaksPlot()">Find Peaks</button>
+</form>
+
+<div id="find-peaks-plot"></div>

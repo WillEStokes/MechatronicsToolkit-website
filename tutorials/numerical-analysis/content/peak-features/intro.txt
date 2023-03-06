@@ -1,0 +1,11 @@
+<p>Peak detection is an important problem in many scientific and engineering applications, including signal processing, chromatography, and spectroscopy. The goal of peak detection is to identify the locations and magnitudes of peaks (i.e., local maxima) in a given signal or data set.</p>
+
+<p>There are many different algorithms and techniques for peak detection, and the choice of method often depends on the specific characteristics of the data being analyzed. In this tutorial, we will focus on a simple and widely used method. This algorithm is based on identifying local maxima in the data, and is often used as a first step in more advanced peak detection and analysis methods.</p>
+
+<p>Using the techniques in this tutorial, we can calculate features from peaks contained in any raw data. We will calculate peak height, peak area and peak width, as demonstrated in the following figure:</p>
+
+<div class="image-centre-shrink">
+    <img src="./content/peak-features/metrics.png">
+</div>
+
+<p>We will first discuss the basic idea behind the peak finding algorithm and how it works. We will then provide a step-by-step implementation of the algorithm in C++, using a set of helper functions for smoothing, differentiation, and numerical integration. Finally, we will test our implementation on some sample data and discuss potential limitations and future directions for improvement.</p>

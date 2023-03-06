@@ -1,0 +1,21 @@
+<p>Once we have identified the peaks in our signal, we can group them together and filter them based on various criteria to extract meaningful information. One common approach is to group peaks that are close together and filter out small peaks that may be noise. Let's explore these concepts in more detail.</p>
+
+<p><b>Grouping Peaks</b></p>
+<p>After identifying peaks, we can group them together based on their proximity to one another. For example, we may want to group together all peaks that are within a certain distance of each other. This can help us identify clusters of peaks that may be related to one another. Below is a zoomed-in plot of the derivative plot we generated earlier, showing peak groups in red:</p>
+
+<div>
+  <button onclick="leftArrowClick_1()"> &lt; </button>
+  <button onclick="rightArrowClick_1()"> &gt; </button>
+</div>
+
+<div id="grouping-plot"></div>
+
+<p><b>Filtering Peaks</b></p>
+<p>Once we have grouped peaks together, we can filter them based on various criteria. For example, we may want to filter out small peaks that may be noise, or we may want to filter out peaks that are too close together. Below is an illustration of how we can filter peaks based on height and distance from each other:</p>
+
+<div>
+  <button onclick="leftArrowClick_2()"> &lt; </button>
+  <button onclick="rightArrowClick_2()"> &gt; </button>
+</div>
+
+<div id="peak-groups-plot"></div>

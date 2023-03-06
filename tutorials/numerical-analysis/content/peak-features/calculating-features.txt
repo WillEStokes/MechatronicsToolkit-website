@@ -1,0 +1,46 @@
+<p>Once we have identified and filtered the peaks in our signal, we can calculate the peak features.</p>
+
+<p><b>Width and Height</b></p>
+
+<p>To calculate peak width, we iterate from the peak maximum towards the left and right until we find the zero crossing of the derivative on either side of the peak. The distance between these two points is the width of the peak.</p>
+
+<p>Peak height is calculated by subtracting the baseline value from the peak maximum value. The baseline value can be estimated using various methods, such as fitting a linear regression line to the data near the peak.</p>
+
+<div id="feature-plot"></div>
+
+<p><b>Peak Area</b></p>
+
+<p>Another important feature is the area under the peak, which can be calculated using numerical integration methods. One common method is the trapezium rule, which involves dividing the peak into small trapezoids and calculating their areas. The sum of these areas gives an estimate of the total area under the peak.</p>
+
+<div id="trapezium-rule-plot"></div>
+
+<p>To calculate the area enclosed by these coordinates: [2, 0], [2, 0.44], [2.67, 0.82], [2.67, 0], we can use the trapezium rule. This rule allows us to approximate the area under a curve by dividing it into trapeziums and summing their areas.</p>
+
+<p>The area of a trapezium can be calculated using the following formula:</p>
+
+$$A = \frac{h}{2}(b_1 + b_2)$$
+
+<p>where:</p>
+
+<ul>
+  <li> A is the area of the trapezium</li>
+  <li> h is the height of the trapezium</li>
+  <li> b1 and b2 are the lengths of the two parallel sides of the trapezium</li>
+</ul>
+
+<p>To calculate the area under the curve using the trapezium rule, we divide the curve into segments and approximate the area of each segment with a trapezium. We then sum the areas of all the trapeziums to get an approximation of the total area:</p>
+
+$$A \approx A_1 + A_2 + \dots + A_n$$
+
+<p>where:</p>
+
+<ul>
+  <li> \(A\) is the total area under the curve</li>
+  <li> \(A_1\) is the area of segment 1</li>
+  <li> \(A_2\) is the area of segment 2</li>
+  <li> \(A_n\) is the area of the n<sup>th</sup> segment</li>
+</ul>
+
+<p>Using this technique, we can accurately estimate the area under our peak:</p>
+
+<div id="peak-area-plot"></div>

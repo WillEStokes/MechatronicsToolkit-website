@@ -1,0 +1,13 @@
+<p><b>Identifying Gradient Changes</b></p>
+
+<p>The <code>findPeaks</code> function is designed to identify peaks in a noisy signal by detecting changes in the signal's gradient. This is based on the assumption that peaks in a signal correspond to local maxima or minima, which are characterized by changes in the direction of the signal's gradient.</p>
+
+<p>To accomplish this, the <code>findPeaks</code> function first calculates the derivative of the input signal using the <code>deriv</code> function. The derivative is a measure of how quickly the signal is changing at each point, and can be used to identify points where the gradient changes sign.</p>
+
+<p>A change in the sign of the derivative corresponds to a local maximum or minimum in the original signal. Peaks are identified as regions of the signal where the derivative changes from positive to negative (for local maxima) or negative to positive (for local minima).</p>
+
+<p>The figure below shows an example signal (blue) with two peaks and the corresponding derivative of the signal (orange). The peaks are identified as the regions where the derivative changes sign, which correspond to the base and tops of the peaks in the original signal.</p>
+
+<div id="derivative-plot"></div>
+
+<p>In the next section, we'll see how the <code>findPeaks</code> function uses this information to group and filter peak data.</p>
