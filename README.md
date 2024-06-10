@@ -1,7 +1,7 @@
 # MechatronicsToolkit-website
 1. Open the repository in VS code
 2. Open a terminal and run 'python -m http.server' to host a local server, this is necessary for the website to call external scripts and json files
-3. Open a browser and go to 'http://localhost:8000/index.html' to view the homepage
+3. Open a browser and go to http://localhost:8000/index.html to view the homepage
 
 Create a new branch before modifying the source code:
 
