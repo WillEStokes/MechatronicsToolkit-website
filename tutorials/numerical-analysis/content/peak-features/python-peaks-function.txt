@@ -1,0 +1,47 @@
+import numpy as np
+from scipy.signal import savgol_filter
+
+def findPeaks(xData, yData, smoothWidth, peakGroup, heightThreshold, locationThreshold):
+    # Smooth the data using the Savitzky-Golay filter
+    smoothedCurrent = savgol_filter(yData, window_length=smoothWidth, polyorder=2)
+
+    # Compute the derivative
+    h = xData[1] - xData[0]
+    derivative = np.gradient(smoothedCurrent, h)
+
+    # Find the peak groups
+    peakGroups = []
+    currentPeakGroup = []
+    lastDerivative = 0
+    for i in range(len(xData)):
+        if np.sign(derivative[i]) != np.sign(lastDerivative):
+            for n in range(int(peakGroup)):
+                currentPeakGroup.append(i+n)
+            peakGroups.append(currentPeakGroup)
+            currentPeakGroup = []
+        lastDerivative = derivative[i]
+
+    # Find the peak locations and heights
+    prevMeanY = 0
+    xFiltered = []
+    yFiltered = []
+    for group in peakGroups:
+        x = xData[group]
+        y = yData[group]
+        meanX = np.mean(x)
+        meanY = np.mean(y)
+        if meanY > prevMeanY + heightThreshold:
+            xFiltered.append(x[0])
+            yFiltered.append(meanY)
+        prevMeanY = meanY
+
+    peakLocations = []
+    peakHeights = []
+    prevXFiltered = 0
+    for i in range(len(xFiltered)):
+        if xFiltered[i] > prevXFiltered + locationThreshold:
+            peakLocations.append(xFiltered[i])
+            peakHeights.append(yFiltered[i])
+        prevXFiltered = xFiltered[i]
+
+    return peakLocations, peakHeights

@@ -1,0 +1,3 @@
+<p>In this tutorial, we have covered the basics of peak detection in noisy data. We have shown how to identify peaks using threshold-based and group-based approaches. Furthermore, we have implemented peak feature extraction functions, including full width at half maximum, peak area, and peak height.</p>
+
+<p>These techniques can be applied to a wide range of data analysis tasks, including chromatography, spectroscopy, and signal processing. By accurately identifying and quantifying peaks in noisy data, researchers and analysts can gain insights into underlying patterns and trends, as well as make informed decisions based on objective data analysis.</p>

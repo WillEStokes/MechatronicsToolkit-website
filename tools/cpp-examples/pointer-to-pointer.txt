@@ -1,6 +1,6 @@
-//This code declares an int variable x, and two pointers ptr1 and ptr2. ptr1 is assigned the address of x,
-//and ptr2 is assigned the address of ptr1. The output of the code demonstrates how the value stored in ptr2
-//and the value stored in the address pointed by ptr2 is the same as the value of x.
+/*This code declares an int variable x, and two pointers ptr1 and ptr2. ptr1 is assigned the address of x,
+and ptr2 is assigned the address of ptr1. The output of the code demonstrates how the value stored in ptr2
+and the value stored in the address pointed by ptr2 is the same as the value of x.*/
 
 #include <iostream>
 

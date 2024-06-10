@@ -1,0 +1,24 @@
+import numpy as np
+from scipy.signal import savgol_filter
+import matplotlib.pyplot as plt
+
+# Set the seed for reproducibility
+np.random.seed(42)
+
+# Generate the noisy data
+numPoints = 300
+voltage = np.linspace(0, 10, numPoints)
+current = (0.5 * np.exp(-((voltage - 3) ** 2 / (2 * 0.5 ** 2))) +
+           0.25 * np.exp(-((voltage - 5.0) ** 2 / (2 * 0.5 ** 2))) +
+           0.06 * (np.random.rand(numPoints) - 0.5) + 0.05)
+
+# Call the findPeaks function
+smoothWidth = 20
+peakGroup = 5
+heightThreshold = 0.1
+locationThreshold = 0.5
+peakLocations, peakHeights, peakIndexes = findPeaks(voltage, current, smoothWidth, peakGroup, heightThreshold, locationThreshold)
+peakArea, fullHeight, FWHM, xValsFullHeight, xValsHalfHeight = findFeatures(voltage, current, peakIndexes, smoothWidth)
+
+print("peakLocations: ", peakLocations, "; peakHeights: ", peakHeights, "; peakIndexes: ", peakIndexes, "; peakArea: ", peakArea,
+      "; fullHeight: ", fullHeight, "; FWHM: ", FWHM)

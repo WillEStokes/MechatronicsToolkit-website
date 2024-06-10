@@ -1,6 +1,6 @@
-//This code declares an integer variable x and initializes it to 10. A pointer ptr to x and a
-//reference ref to x are declared and their values are printed. The value of x is then modified
-//through the pointer and reference, and the updated value is printed.
+/*This code declares an integer variable x and initializes it to 10. A pointer ptr to x and a
+reference ref to x are declared and their values are printed. The value of x is then modified
+through the pointer and reference, and the updated value is printed.*/
 
 #include <iostream>
 using namespace std;

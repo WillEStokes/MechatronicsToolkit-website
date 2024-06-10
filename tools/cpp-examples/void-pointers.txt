@@ -1,9 +1,9 @@
-//In this example, we have a function printValue that takes a void pointer and a string indicating
-//the type of data pointed to by the void pointer. The function uses static_cast to cast the void
-//pointer to a pointer of the specified type and dereferences it to print its value. In main, we
-//define several variables of different types and create void pointers that point to them. We then
-//pass each void pointer to printValue along with a string indicating its type, causing printValue
-//to print their values.
+/*In this example, we have a function printValue that takes a void pointer and a string indicating
+the type of data pointed to by the void pointer. The function uses static_cast to cast the void
+pointer to a pointer of the specified type and dereferences it to print its value. In main, we
+define several variables of different types and create void pointers that point to them. We then
+pass each void pointer to printValue along with a string indicating its type, causing printValue
+to print their values.*/
 
 #include <iostream>
 #include <string>

@@ -1,7 +1,7 @@
-//In this example, Circle is a class with a private member variable radius and a public member
-//function getArea that calculates the area of a circle based on its radius. In the main function,
-//an object of the class Circle is created with a radius of 10.0 and its area is calculated and
-//printed using the getArea member function.
+/*In this example, Circle is a class with a private member variable radius and a public member
+function getArea that calculates the area of a circle based on its radius. In the main function,
+an object of the class Circle is created with a radius of 10.0 and its area is calculated and
+printed using the getArea member function.*/
 
 #include <iostream>
 

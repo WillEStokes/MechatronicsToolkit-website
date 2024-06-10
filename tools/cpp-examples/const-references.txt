@@ -1,8 +1,8 @@
-//In this example, we declare a function print that takes a constant reference to an integer
-//as an argument. This means that the value of num cannot be modified inside the function.
-//When we call the print function and pass x as an argument, we are passing x by reference,
-//allowing us to access its value directly, while also ensuring that its value cannot be
-//changed in the print function.
+/*In this example, we declare a function print that takes a constant reference to an integer
+as an argument. This means that the value of num cannot be modified inside the function.
+When we call the print function and pass x as an argument, we are passing x by reference,
+allowing us to access its value directly, while also ensuring that its value cannot be
+changed in the print function.*/
 
 #include <iostream>
 using namespace std;

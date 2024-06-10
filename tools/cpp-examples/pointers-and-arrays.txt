@@ -1,6 +1,6 @@
-//In this example, the array arr is automatically converted to a pointer to its first element
-//when it is passed to printArray. The pointer arr is used in the function to access the elements
-//of the array using the array subscript operator [].
+/*In this example, the array arr is automatically converted to a pointer to its first element
+when it is passed to printArray. The pointer arr is used in the function to access the elements
+of the array using the array subscript operator [].*/
 
 #include <iostream>
 

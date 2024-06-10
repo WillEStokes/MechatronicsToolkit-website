@@ -1,7 +1,7 @@
-#This code calculates the capacitive reactance, total impedance, cutoff frequency, phase
-#shift, output voltage and gain of an RC circuit with a resistance of 4.7 kOhms, a capacitance
-#of 47 nanofarads, a source voltage magnitude of 10 volts and a frequency of 10 kHz. You can
-#change the input variables to simulate different scenarios.
+'''This code calculates the capacitive reactance, total impedance, cutoff frequency, phase
+shift, output voltage and gain of an RC circuit with a resistance of 4.7 kOhms, a capacitance
+of 47 nanofarads, a source voltage magnitude of 10 volts and a frequency of 10 kHz. You can
+change the input variables to simulate different scenarios.'''
 
 import math
 

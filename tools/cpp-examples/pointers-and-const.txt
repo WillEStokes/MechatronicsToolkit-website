@@ -1,7 +1,7 @@
-//In this example, modifyValue takes a pointer to a constant int as an argument. This means that the
-//value pointed to by the pointer cannot be modified within the modifyValue function. The const keyword
-//enforces this restriction, making it a compile error to try to modify the value pointed to by the pointer.
-//However, the pointer can still be used to access the value it points to.
+/*In this example, modifyValue takes a pointer to a constant int as an argument. This means that the
+value pointed to by the pointer cannot be modified within the modifyValue function. The const keyword
+enforces this restriction, making it a compile error to try to modify the value pointed to by the pointer.
+However, the pointer can still be used to access the value it points to.*/
 
 #include <iostream>
 

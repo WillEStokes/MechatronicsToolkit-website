@@ -1,6 +1,6 @@
-//This code uses typedef to define a new type FunctionPointer, which is a pointer to a function that
-//takes an int and returns an int. Then it uses type casting to convert a FunctionPointer to a void* 
-//and back again.
+/*This code uses typedef to define a new type FunctionPointer, which is a pointer to a function that
+takes an int and returns an int. Then it uses type casting to convert a FunctionPointer to a void* 
+and back again.*/
 
 #include <iostream>
 

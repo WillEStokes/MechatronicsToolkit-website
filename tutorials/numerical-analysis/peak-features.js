@@ -1,3 +1,54 @@
+const peaks_function = document.getElementById("content-python-peaks-function");
+
+fetch('./content/peak-features/python-peaks-function.txt')
+.then(response => response.text())
+.then(data => {
+document.getElementById("content-python-peaks-function").innerHTML = data;
+CodeMirror.fromTextArea(peaks_function, {
+    mode: "python",
+    lineNumbers: true,
+    theme: 'vscode-dark',
+    readOnly: true,
+}); 
+})
+.catch(error => {
+    console.log(error);
+});
+
+const features_function = document.getElementById("content-python-features-function");
+
+fetch('./content/peak-features/python-features-function.txt')
+.then(response => response.text())
+.then(data => {
+document.getElementById("content-python-features-function").innerHTML = data;
+CodeMirror.fromTextArea(features_function, {
+    mode: "python",
+    lineNumbers: true,
+    theme: 'vscode-dark',
+    readOnly: true,
+}); 
+})
+.catch(error => {
+    console.log(error);
+});
+
+const implementation = document.getElementById("content-python-implementation");
+
+fetch('./content/peak-features/python-implementation.txt')
+.then(response => response.text())
+.then(data => {
+document.getElementById("content-python-implementation").innerHTML = data;
+CodeMirror.fromTextArea(implementation, {
+    mode: "python",
+    lineNumbers: true,
+    theme: 'vscode-dark',
+    readOnly: true,
+}); 
+})
+.catch(error => {
+    console.log(error);
+});
+
 let clickCount_1 = 0;
 
 function rightArrowClick_1() {

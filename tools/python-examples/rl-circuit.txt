@@ -1,7 +1,7 @@
-#This code calculates the inductive reactance, total impedance, cutoff frequency, phase shift,
-#output voltage and gain of an RL circuit with a resistance of 1000 Ohms, an inductance of 100
-#millihenries, a source voltage magnitude of 10 volts, and a frequency of 1000 Hz. You can change
-#the input variables to simulate different scenarios.
+'''This code calculates the inductive reactance, total impedance, cutoff frequency, phase shift,
+output voltage and gain of an RL circuit with a resistance of 1000 Ohms, an inductance of 100
+millihenries, a source voltage magnitude of 10 volts, and a frequency of 1000 Hz. You can change
+the input variables to simulate different scenarios.'''
 
 import math
 

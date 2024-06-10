@@ -1,8 +1,8 @@
-//In this example, Rectangle is a class with private data members length and width, and public member
-//functions getArea and getPerimeter that calculate the area and perimeter of a rectangle, respectively.
-//In the main function, an object of the class Rectangle is created with a length of 10.0 and a width of
-//5.0, and the area and perimeter of the rectangle are calculated and printed using the getArea and
-//getPerimeter member functions.
+/*In this example, Rectangle is a class with private data members length and width, and public member
+functions getArea and getPerimeter that calculate the area and perimeter of a rectangle, respectively.
+In the main function, an object of the class Rectangle is created with a length of 10.0 and a width of
+5.0, and the area and perimeter of the rectangle are calculated and printed using the getArea and
+getPerimeter member functions.*/
 
 #include <iostream>
 

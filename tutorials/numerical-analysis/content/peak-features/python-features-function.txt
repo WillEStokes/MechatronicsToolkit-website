@@ -1,0 +1,51 @@
+import numpy as np
+from scipy.signal import savgol_filter
+
+def trapz(x, y, start, end):
+    return np.trapz(y[start:end+1], x[start:end+1])
+
+def findFeatures(xData, yData, indexes, smoothWidth):
+    yData = savgol_filter(yData, window_length=smoothWidth, polyorder=2)
+    yDeriv = np.gradient(yData)
+
+    if indexes[0] == 0:
+        return None
+
+    xValsFullHeight = np.zeros((2, 2), dtype=float)
+    yValsFullWidth = np.zeros((2, 2), dtype=float)
+    fullHeight = np.zeros(2, dtype=float)
+    xValsHalfHeight = np.zeros((2, 2), dtype=float)
+    FWHM = np.zeros(2, dtype=float)
+    peakArea = np.zeros(2, dtype=float)
+    xIndsFullHeight = np.zeros((2, 2), dtype=int)
+
+    for j in range(2):
+        for i in range(indexes[j]-1, -1, -1):
+            if yDeriv[i] < 0:
+                xValsFullHeight[j][0] = xData[i]
+                yValsFullWidth[j][0] = yData[i]
+                xIndsFullHeight[j][0] = i
+                break
+        for i in range(indexes[j]+1, len(xData)):
+            if yDeriv[i] > 0:
+                xValsFullHeight[j][1] = xData[i]
+                yValsFullWidth[j][1] = yData[i]
+                xIndsFullHeight[j][1] = i
+                break
+
+    for j in range(2):
+        fullHeight[j] = yData[indexes[j]] - (yValsFullWidth[j][0] + (yValsFullWidth[j][1] - yValsFullWidth[j][0]) / 2 )
+        for i in range(indexes[j]-1, -1, -1):
+            if yData[i] < yData[indexes[j]] - fullHeight[j] / 2:
+                xValsHalfHeight[j][0] = xData[i]
+                break
+        for i in range(indexes[j]+1, len(xData)):
+            if yData[i] < yData[indexes[j]] - fullHeight[j] / 2:
+                xValsHalfHeight[j][1] = xData[i]
+                break
+        FWHM[j] = xValsHalfHeight[j][1] - xValsHalfHeight[j][0]
+
+    for j in range(2):
+        peakArea[j] = trapz(xData, yData, xIndsFullHeight[j][0], xIndsFullHeight[j][1])
+
+    return peakArea, fullHeight, FWHM, xValsFullHeight, xValsHalfHeight

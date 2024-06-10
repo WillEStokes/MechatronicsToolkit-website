@@ -10,7 +10,7 @@
             "title": "Bayesian Optimisation",
             "image": "/images/bayesian.png",
             "link": "/tutorials/numerical-control/bayesian-optimisation.html",
-            "description": "Learn how to use Bayesian Optimization to efficiently optimize black-box functions."
+            "description": "Learn how to use Bayesian Optimisation to efficiently optimise black-box functions."
         },
         {
             "title": "Signal Filtering",

@@ -1,8 +1,8 @@
-//In this example, PassByValue takes an integer x as an argument, which is passed by value.
-//This means that a copy of x is made and changes made to the copy are not reflected in the
-//original variable. On the other hand, PassByReference takes an integer x as an argument,
-//which is passed by reference. This means that a reference to x is created, allowing changes
-//made to the reference to be reflected in the original variable.
+/*In this example, PassByValue takes an integer x as an argument, which is passed by value.
+This means that a copy of x is made and changes made to the copy are not reflected in the
+original variable. On the other hand, PassByReference takes an integer x as an argument,
+which is passed by reference. This means that a reference to x is created, allowing changes
+made to the reference to be reflected in the original variable.*/
 
 #include <iostream>
 

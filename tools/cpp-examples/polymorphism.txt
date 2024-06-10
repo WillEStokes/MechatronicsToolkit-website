@@ -1,11 +1,11 @@
-//In this example, Shape is a base class with a protected data member area and a pure virtual
-//function getArea that must be implemented by derived classes. Rectangle and Circle are derived
-//classes that inherit from Shape and implement the getArea function to calculate the area of
-//a rectangle and a circle, respectively. The function displayArea takes a reference to a Shape
-//object and uses the getArea function to display the area of the shape. In the main function,
-//objects of the classes Rectangle and Circle are created, and the displayArea function is called
-//with these objects as arguments. The displayArea function works with objects of both derived
-//classes, demonstrating polymorphism in action.
+/*In this example, Shape is a base class with a protected data member area and a pure virtual
+function getArea that must be implemented by derived classes. Rectangle and Circle are derived
+classes that inherit from Shape and implement the getArea function to calculate the area of
+a rectangle and a circle, respectively. The function displayArea takes a reference to a Shape
+object and uses the getArea function to display the area of the shape. In the main function,
+objects of the classes Rectangle and Circle are created, and the displayArea function is called
+with these objects as arguments. The displayArea function works with objects of both derived
+classes, demonstrating polymorphism in action.*/
 
 #include <iostream>
 

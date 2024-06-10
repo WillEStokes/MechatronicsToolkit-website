@@ -1,7 +1,7 @@
-//In this example, a null pointer is declared using the nullptr keyword. The if (ptr) condition checks if
-//the pointer is null, and outputs a message accordingly. The pointer is then assigned the address of a
-//variable, and the condition is checked again, which outputs that the pointer is not null. The pointer is
-//then assigned nullptr again, and the condition is checked once more, which outputs that the pointer is null.
+/*In this example, a null pointer is declared using the nullptr keyword. The if (ptr) condition checks if
+the pointer is null, and outputs a message accordingly. The pointer is then assigned the address of a
+variable, and the condition is checked again, which outputs that the pointer is not null. The pointer is
+then assigned nullptr again, and the condition is checked once more, which outputs that the pointer is null.*/
 
 #include <iostream>
 
