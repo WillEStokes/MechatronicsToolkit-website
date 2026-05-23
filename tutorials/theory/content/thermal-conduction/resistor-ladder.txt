@@ -1,0 +1,454 @@
+<p>
+Another way to model heat transfer along a rod is to represent it as an electrical resistor network.
+</p>
+
+<p>
+The equivalent physical properties are:
+</p>
+
+<ul>
+<li>Temperature \(T\) \(\rightarrow\) Voltage \(V\)</li>
+<li>Heat flow \(q\) \(\rightarrow\) Electrical current \(I\)</li>
+<li>Thermal resistance \(R_{th}\) \(\rightarrow\) Electrical resistance \(R\)</li>
+</ul>
+
+<p>
+Using this analogy, the rod can be divided into many small segments with each segment containing:
+</p>
+
+<ul>
+<li>An axial resistance representing conduction along the rod</li>
+<li>A radial resistance representing heat transfer to the surroundings</li>
+</ul>
+
+<div class="image-centre-shrink">
+    <img src="./content/thermal-conduction/resistor-ladder.png">
+</div>
+
+<h4>Thermal Resistances</h4>
+
+<p>
+For a rod segment of length \(dx\), axial conduction resistance:
+</p>
+
+<p>
+$$
+R_R = \frac{dx}{kA}
+$$
+</p>
+
+<ul>
+<li>\(k\) - thermal conductivity of the rod</li>
+<li>\(A\) - cross-sectional area</li>
+</ul>
+
+<p>
+And radial heat transfer resistance with the surroundings:
+</p>
+
+<p>
+$$
+R_H = \frac{1}{hP\,dx}
+$$
+</p>
+
+<ul>
+<li>\(h\) - heat transfer coefficient</li>
+<li>\(P\) - perimeter of the rod</li>
+</ul>
+
+<p>
+In both cases, thermal resistances \(R_R\) and \(R_H\) have units of \(\frac{K}{W}\), representing the temperature difference required to drive a unit of heat flow.
+</p>
+
+<h4>Node Energy Balance</h4>
+
+<p>
+At each node energy conservation must be satisfied.
+</p>
+
+<p>
+First we consider a simple case with only two thermal resistances connected to the node. Heat arrives from the left through resistance \(R_1\) and leaves to the surroundings through resistance \(R_2\)
+</p>
+
+<p>
+Using the thermal equivalent of Ohm’s law:
+</p>
+
+<p>
+$$
+q = \frac{\Delta T}{R}
+$$
+</p>
+
+<p>
+The heat flows into and out of the node are:
+</p>
+
+<p>
+$$
+q_1 = \frac{T_{i-1} - T_i}{R_1}
+$$
+</p>
+
+<p>
+$$
+q_2 = \frac{T_\infty - T_i}{R_2}
+$$
+</p>
+
+<p>
+At steady state, conservation of energy requires:
+</p>
+
+<p>
+$$
+q_1 + q_2 = 0
+$$
+</p>
+
+<p>
+Substituting the expressions for the heat flows gives:
+</p>
+
+<p>
+$$
+\frac{T_{i-1} - T_i}{R_1}
++
+\frac{T_\infty - T_i}{R_2}
+=0
+$$
+</p>
+
+<p>
+Rearranging for the node temperature:
+</p>
+
+<p>
+$$
+T_i =
+\frac{\frac{T_{i-1}}{R_1} + \frac{T_\infty}{R_2}}
+{\frac{1}{R_1} + \frac{1}{R_2}}
+$$
+</p>
+
+<p>
+This is the same algebra as when solving a simple electrical node with two resistors.
+</p>
+
+<!-- Force new page on print -->
+<div class="print-page-break"></div>
+
+<p>
+The full ladder network adds a third heat path to the same node representing conduction from the right neighbour:
+</p>
+
+<p>
+$$
+\frac{T_{i-1} - T_i}{R_R}
++
+\frac{T_{i+1} - T_i}{R_R}
++
+\frac{T_\infty - T_i}{R_H}
+=0
+$$
+</p>
+
+<p>
+Rearranging for node temperature:
+</p>
+
+<p>
+$$
+T_i =
+\frac{\frac{T_{i-1}}{R_R} + \frac{T_{i+1}}{R_R} + \frac{T_\infty}{R_H}}
+{\frac{2}{R_R} + \frac{1}{R_H}}
+$$
+</p>
+
+<p>
+This equation is identical to applying Kirchhoff’s Current Law in the electrical circuit analogue.
+</p>
+
+<h4>Connection to the Fin Equation</h4>
+
+<p>
+The ladder network becomes equivalent to the continuous fin equation when the segment size becomes very small.
+</p>
+
+<p>
+If we substitute
+</p>
+
+<p>
+$$
+R_R = \frac{dx}{kA}
+\quad\text{and}\quad
+R_H = \frac{1}{hP\,dx}
+$$
+</p>
+
+<p>
+into the nodal energy balance, and the excess temperature substitution \(\theta = T - T_\infty\) is applied, as the segment length \(dx \rightarrow 0\), the discrete ladder model converges to the continuous fin equation:
+</p>
+
+<p>
+$$
+\frac{d^2\theta}{dx^2} - m^2\theta = 0
+$$
+</p>
+
+<p>
+The resistor ladder is a finite-difference approximation of the governing heat conduction equation.
+</p>
+
+<!--
+<h4>Substituting Physical Resistances</h4>
+
+<p>
+Substituting the expressions for the conduction and convection resistances
+</p>
+
+<p>
+$$
+R_R = \frac{dx}{kA}
+\quad\text{and}\quad
+R_H = \frac{1}{hP\,dx}
+$$
+</p>
+
+<p>
+into the node balance equation gives:
+</p>
+
+<p>
+$$
+\frac{kA}{dx}(T_{i-1}-T_i)
++
+\frac{kA}{dx}(T_{i+1}-T_i)
++
+hPdx(T_\infty - T_i)
+=0
+$$
+</p>
+
+<p>
+Grouping the conduction terms produces:
+</p>
+
+<p>
+$$
+\frac{kA}{dx}(T_{i+1}-2T_i+T_{i-1})
++
+hPdx(T_\infty - T_i)
+=0
+$$
+</p>
+
+<p>
+Dividing through by \(kA\,dx\) gives:
+</p>
+
+<p>
+$$
+\frac{T_{i+1}-2T_i+T_{i-1}}{dx^2}
++
+\frac{hP}{kA}(T_\infty - T_i)
+=0
+$$
+</p>
+
+<p>
+Define the excess temperature relative to the surrounding fluid:
+</p>
+
+<p>
+$$
+\theta_i = T_i - T_\infty
+$$
+</p>
+
+<p>
+Substituting this into the equation gives:
+</p>
+
+<p>
+$$
+\frac{\theta_{i+1}-2\theta_i+\theta_{i-1}}{dx^2}
+-
+\frac{hP}{kA}\theta_i
+=0
+$$
+</p>
+
+<p>
+The expression
+</p>
+
+<p>
+$$
+\frac{\theta_{i+1}-2\theta_i+\theta_{i-1}}{dx^2}
+$$
+</p>
+
+<p>
+is the finite-difference representation of the second derivative:
+</p>
+
+<p>
+$$
+\frac{d^2\theta}{dx^2}
+$$
+</p>
+
+<p>
+As the segment length becomes very small \((dx \rightarrow 0)\), the discrete ladder network approaches the continuous fin equation:
+</p>
+
+<p>
+$$
+\frac{d^2\theta}{dx^2} - \frac{hP}{kA}\theta = 0
+$$
+</p>
+-->
+
+<!-- Force new page on print -->
+<div class="print-page-break"></div>
+
+<div id="ladder-plot" style="width:100%;max-width:700px;height:420px;"></div>
+
+<!-- Force new page on print -->
+<div class="print-page-break"></div>
+
+<h4>Including Thermal Capacitance and Time Response</h4>
+
+<p>
+To model transient behaviour each node must store thermal energy, achieved by adding a thermal capacitance at each node:
+</p>
+
+<p>
+$$
+C = mc
+$$
+</p>
+
+<ul>
+<li>\(m\) - mass of the segment</li>
+<li>\(c\) - specific heat capacity</li>
+</ul>
+
+<p>
+The node energy balance now becomes:
+</p>
+
+<p>
+$$
+\frac{T_{i-1} - T_i}{R_R}
++
+\frac{T_{i+1} - T_i}{R_R}
++
+\frac{T_\infty - T_i}{R_H}
+=
+C \frac{dT_i}{dt}
+$$
+</p>
+
+<p>
+This equation describes how temperature evolves over time due to both heat flow and stored energy. It is identical to the equation we use for the finite element method in the section below.
+</p>
+
+<h4>Time Lag and Dynamic Response</h4>
+
+<p>
+The addition of capacitance introduces a time lag in the system response. Instead of temperatures adjusting instantly, each node responds gradually depending on its thermal time constant:
+</p>
+
+<p>
+$$
+\tau = R C
+$$
+</p>
+
+<p>
+This is directly analogous to an electrical RC circuit, where voltage lags behind current.
+</p>
+
+<p>
+Physically, this means:
+</p>
+
+<ul>
+<li>Large thermal mass → slower response</li>
+<li>High resistance → slower heat transfer → slower response</li>
+</ul>
+
+<h4>Role of Imaginary Numbers (Frequency Domain View)</h4>
+
+<p>
+If the system is analysed in the frequency domain (for example under oscillating heat input), the time derivative becomes:
+</p>
+
+<p>
+$$
+\frac{d}{dt} \rightarrow i\omega
+$$
+</p>
+
+<p>
+and the governing equation becomes:
+</p>
+
+<p>
+$$
+\frac{T_{i-1} - T_i}{R_R}
++
+\frac{T_{i+1} - T_i}{R_R}
++
+\frac{T_\infty - T_i}{R_H}
+=
+i\omega C T_i
+$$
+</p>
+
+<p>
+Here, the capacitance introduces a phase lag between heat input and temperature response, just like an electrical capacitor. The imaginary term \(i\omega C\) represents energy storage and delayed response.
+</p>
+
+<h4>Lumped Capacitance Simplification</h4>
+
+<p>
+If the temperature within the body can be assumed uniform, the entire system can be reduced to a single node with one capacitance:
+</p>
+
+<p>
+$$
+C \frac{dT}{dt} = Q
+$$
+</p>
+
+<p>
+which has the simple solution:
+</p>
+
+<p>
+$$
+T(t) = T_{ss} + (T_0 - T_{ss})e^{-t/\tau}
+$$
+</p>
+
+<p>
+where \(T_{ss}\) is the steady-state temperature and \(\tau\) is the time constant.
+</p>
+
+<p>
+$$
+T_{ss} = \frac{\frac{T_0}{R_H} + \frac{T_\infty}{R_R}}{\frac{1}{R_H} + \frac{1}{R_R}}
+$$
+</p>
+
+<p>
+This avoids spatial discretisation entirely and provides a closed-form solution without iteration.
+</p>
+
+<!-- Force new page on print -->
+<div class="print-page-break"></div>

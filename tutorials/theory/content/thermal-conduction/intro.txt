@@ -1,0 +1,19 @@
+<p>
+Analysis of temperature distribution along a rod using Fourier's law in analytical methods, electrical analogies and finite element methods.
+</p>
+
+<!--
+<p>
+<ul>
+<li>Derivation of the differential equation for temperature</li>
+<li>Why exponential and hyperbolic functions appear in the modelling</li>
+<li>Affect of boundary conditions on the models</li>
+<li>Fin parameter \(m\) and thermal decay</li>
+<li>Comparison with electrical analogies and finite elements</li>
+</ul>
+</p>
+-->
+
+<div class="image-centre-shrink">
+    <img src="./content/thermal-conduction/rod-heat-flow.png">
+</div>

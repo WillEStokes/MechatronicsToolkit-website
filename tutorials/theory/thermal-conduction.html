@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Thermal Conduction</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <script src="./thermal-conduction.js"></script>
+    <script src="/navigation.js"></script>
+    <script>
+        function loadSection(file, elementId, callback) {
+            fetch(file)
+            .then(r => r.text())
+            .then(data => {
+                document.getElementById(elementId).innerHTML = data;
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+                if (callback) callback();
+            })
+            .catch(error => console.log(error));
+        }
+        window.onload = function() {
+            loadSection(
+            './content/thermal-conduction/intro.txt',
+            'content-intro'
+            );
+            loadSection(
+            './content/thermal-conduction/temperature.txt',
+            'content-temperature'
+            );
+            // loadSection(
+            // './content/thermal-conduction/energy-conservation.txt',
+            // 'content-energy-conservation'
+            // );
+            loadSection(
+            './content/thermal-conduction/fouriers-law.txt',
+            'content-fouriers-law',
+            fourierLawPlot
+            );
+            loadSection(
+            './content/thermal-conduction/rod-segment.txt',
+            'content-rod-segment',
+            governingEquationPlot
+            );
+            loadSection(
+            './content/thermal-conduction/exponentials.txt',
+            'content-why-exponentials',
+            // exponentialSolutionPlot
+            exponentialsSectionPlots
+            );
+            loadSection(
+            './content/thermal-conduction/hyperbolic-functions.txt',
+            'content-hyperbolic-functions',
+            // hyperbolicFunctionsPlot
+            hyperbolicFunctionsPlots
+            );
+            loadSection(
+            './content/thermal-conduction/boundary-conditions.txt',
+            'content-boundary-conditions',
+            boundaryConditionsPlot
+            );
+            loadSection(
+            './content/thermal-conduction/resistor-ladder.txt',
+            'content-resistor-ladder',
+            ladderTemperaturePlot
+            );
+            loadSection(
+            './content/thermal-conduction/finite-element-method.txt',
+            'content-finite-element-method'
+            );
+            loadSection(
+            './content/thermal-conduction/conclusion.txt',
+            'content-conclusion'
+            );
+        }
+    </script>
+</head>
+<body class="thermal-conduction">
+    <button id="nav-toggle">☰</button>
+    <div id="nav"></div>
+    <h1>Thermal Conduction</h1>
+    <div id="sidebar">
+        <ul>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#temperature">Temperature</a></li>
+            <!-- <li><a href="#energy-conservation">Energy Conservation</a></li> -->
+            <li><a href="#fouriers-law">Law of Heat Conduction</a></li>
+            <li><a href="#rod-segment">Heat Transfer with a Small Segment</a></li>
+            <li><a href="#why-exponentials">Why Exponentials Appear in the Solution</a></li>
+            <li><a href="#hyperbolic-functions">Hyperbolic Functions</a></li>
+            <li><a href="#boundary-conditions">Boundary Conditions</a></li>
+            <li><a href="#resistor-ladder">Electrical Analogies</a></li>
+            <li><a href="#finite-element-method">Finite Element Method</a></li>
+            <li><a href="#conclusion">Conclusion</a></li>
+        </ul>
+    </div>
+    <section id="introduction">
+        <h2>Introduction</h2>
+        <div id="content-intro"></div>
+    </section>
+    <section id="temperature">
+        <h2>Temperature</h2>
+        <div id="content-temperature"></div>
+    </section>
+    <!-- <section id="energy-conservation">
+        <h2>Energy Conservation</h2>
+        <div id="content-energy-conservation"></div>
+    </section> -->
+    <section id="fouriers-law">
+        <h2>Law of Heat Conduction</h2>
+        <div id="content-fouriers-law"></div>
+    </section>
+    <section id="rod-segment">
+        <h2>Heat Transfer with a Small Segment</h2>
+        <div id="content-rod-segment"></div>
+    </section>
+    <section id="why-exponentials">
+        <h2>Why Exponentials Appear in the Solution</h2>
+        <div id="content-why-exponentials"></div>
+    </section>
+    <section id="hyperbolic-functions">
+        <h2>Hyperbolic Functions</h2>
+        <div id="content-hyperbolic-functions"></div>
+    </section>
+    <section id="boundary-conditions">
+        <h2>Boundary Conditions</h2>
+        <div id="content-boundary-conditions"></div>
+    </section>
+    <section id="resistor-ladder">
+        <h2>Electrical Analogies</h2>
+        <div id="content-resistor-ladder"></div>
+    </section>
+    <section id="finite-element-method">
+        <h2>Finite Element Method</h2>
+        <div id="content-finite-element-method"></div>
+    </section>
+    <section id="conclusion">
+        <h2>Conclusion</h2>
+        <div id="content-conclusion"></div>
+    </section>
+</div>
+</body>
+</html>

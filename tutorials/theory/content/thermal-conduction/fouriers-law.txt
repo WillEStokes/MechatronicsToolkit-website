@@ -1,0 +1,53 @@
+<p>
+The law describing how heat moves through a solid was discovered experimentally by French physicist Joseph Fourier in 1822. Fourier observed that heat always flows from regions of higher temperature toward regions of lower temperature.
+</p>
+
+<p>
+Fourier's Law is the fundamental law of heat conduction:
+</p>
+
+<p>
+$$
+q = -kA \frac{dT}{dx}
+$$
+</p>
+
+<ul>
+<li>\(q\) - heat transfer rate</li>
+<li>\(k\) - thermal conductivity of the material</li>
+<li>\(A\) - cross-sectional area through which heat flows</li>
+<li>\(\frac{dT}{dx}\) - temperature gradient along the material</li>
+</ul>
+
+<p>
+A large temperature gradient means temperature is changing rapidly along the material, which drives a larger heat flow. While the negative sign produces a positive heat flow, indicating that heat moves in the positive \(x\) direction in our example. Materials with higher thermal conductivity transfer heat more easily.
+</p>
+
+<p>
+For our cylindrical rod, heat entering a small segment at position \(x\) can be written as:
+</p>
+
+<p>
+$$
+q_x = -kA \frac{dT}{dx}
+$$
+</p>
+
+<p>
+At the other side of the segment, \(x + dx\), the heat flow will be slightly different because the temperature gradient has changed. The heat leaving the segment can be written as:
+</p>
+
+<p>
+$$
+q_{x+dx} = -kA \frac{dT}{dx}\Big|_{x+dx}
+$$
+</p>
+
+<p>
+The difference between these two heat flows represents the amount of heat that is lost or gained in this segment.
+</p>
+
+<div id="fourier-plot" style="width:100%;max-width:550px;height:300px;"></div>
+
+<!-- Force new page on print -->
+<div class="print-page-break"></div>

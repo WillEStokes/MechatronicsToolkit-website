@@ -8,6 +8,7 @@
     <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
   </head>
   <body onload="iPlot(), wavePlot(), cosPlot(), sinPlot(), expPlot(), magPhasePlot(), waveFuncPlot()">
+    <button id="nav-toggle">☰</button>
     <div id="nav"></div>
     <script src="/navigation.js"></script>
     <h1>Euler's Formula</h1>
@@ -25,108 +26,108 @@
     </div>
     <section id="introduction"></section>
       <h2>Introduction</h2>
-      <div id="content-intro"></div>
-        <script>
-            fetch('./content/eulers-formula/intro.txt')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById("content-intro").innerHTML = data;
-                })
-                .catch(error => {
-                    console.log(error);
-                });
-        </script>
+        <div id="content-intro"></div>
+            <script>
+                fetch('./content/eulers-formula/intro.txt')
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById("content-intro").innerHTML = data;
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    });
+            </script>
     <section id="imaginary-unit"></section>
       <h2>Understanding the Imaginary Unit "i"</h2>
-      <div id="content-imaginary-unit"></div>
-        <script>
-            fetch('./content/eulers-formula/imaginary-unit.txt')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById("content-imaginary-unit").innerHTML = data;
-                })
-                .catch(error => {
-                    console.log(error);
-                });
-        </script>
+        <div id="content-imaginary-unit"></div>
+            <script>
+                fetch('./content/eulers-formula/imaginary-unit.txt')
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById("content-imaginary-unit").innerHTML = data;
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    });
+            </script>
     <section id="taylor-series"></section>
       <h2>Taylor Series Expansion of Sine and Cosine</h2>
-      <div id="content-taylor-series"></div>
-        <script>
-            fetch('./content/eulers-formula/taylor-series.txt')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById("content-taylor-series").innerHTML = data;
-                })
-                .catch(error => {
-                    console.log(error);
-                });
-        </script>
+        <div id="content-taylor-series"></div>
+            <script>
+                fetch('./content/eulers-formula/taylor-series.txt')
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById("content-taylor-series").innerHTML = data;
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    });
+            </script>
     <section id="eulers-formula"></section>
       <h2>Deriving Euler's formula using Sine and Cosine</h2>
-      <div id="content-eulers-formula"></div>
-        <script>
-            fetch('./content/eulers-formula/eulers-formula.txt')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById("content-eulers-formula").innerHTML = data;
-                })
-                .catch(error => {
-                    console.log(error);
-                });
-        </script>
+        <div id="content-eulers-formula"></div>
+            <script>
+                fetch('./content/eulers-formula/eulers-formula.txt')
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById("content-eulers-formula").innerHTML = data;
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    });
+            </script>
     <section id="mag-and-phase"></section>
       <h2>Calculating Magnitude and Phase</h2>
-      <div id="content-mag-and-phase"></div>
-        <script>
-            fetch('./content/eulers-formula/mag-and-phase.txt')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById("content-mag-and-phase").innerHTML = data;
-                })
-                .catch(error => {
-                    console.log(error);
-                });
-        </script>
+        <div id="content-mag-and-phase"></div>
+            <script>
+                fetch('./content/eulers-formula/mag-and-phase.txt')
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById("content-mag-and-phase").innerHTML = data;
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    });
+            </script>
     <section id="wave-function"></section>
-    <h2>Defining the Wave Function</h2>
-    <div id="content-wave-function"></div>
-      <script>
-          fetch('./content/eulers-formula/wave-function.txt')
-              .then(response => response.text())
-              .then(data => {
-                  document.getElementById("content-wave-function").innerHTML = data;
-              })
-              .catch(error => {
-                  console.log(error);
-              });
-      </script>
+      <h2>Defining the Wave Function</h2>
+        <div id="content-wave-function"></div>
+            <script>
+                fetch('./content/eulers-formula/wave-function.txt')
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById("content-wave-function").innerHTML = data;
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    });
+            </script>
     <section id="wave-function-complex"></section>
-    <h2>The Complex Exponential Wave Function</h2>
-    <div id="content-wave-function-complex"></div>
-      <script>
-          fetch('./content/eulers-formula/wave-function-complex.txt')
-              .then(response => response.text())
-              .then(data => {
-                  document.getElementById("content-wave-function-complex").innerHTML = data;
-              })
-              .catch(error => {
-                  console.log(error);
-              });
-      </script>
+      <h2>The Complex Exponential Wave Function</h2>
+        <div id="content-wave-function-complex"></div>
+            <script>
+                fetch('./content/eulers-formula/wave-function-complex.txt')
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById("content-wave-function-complex").innerHTML = data;
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    });
+            </script>
     <section id="conclusion"></section>
       <h2>Conclusion</h2>
-      <div id="content-conclusion"></div>
-        <script>
-            fetch('./content/eulers-formula/conclusion.txt')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById("content-conclusion").innerHTML = data;
-                })
-                .catch(error => {
-                    console.log(error);
-                });
-        </script>
+        <div id="content-conclusion"></div>
+            <script>
+                fetch('./content/eulers-formula/conclusion.txt')
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById("content-conclusion").innerHTML = data;
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    });
+            </script>
         <script src="./eulers-formula.js"></script>
     </body>
 </html>

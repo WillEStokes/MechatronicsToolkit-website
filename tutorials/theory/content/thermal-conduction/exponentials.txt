@@ -1,0 +1,94 @@
+<p>
+Now we have the governing differential equation for temperature along the rod, but why do  exponential's appear in the solutions?
+</p>
+
+<p>
+An exponential function \(y = e^{rx}\) has the property that its derivative is proportional to itself:
+</p>
+
+<p>
+$$
+\frac{d}{dx} e^{rx} = r e^{rx}, \quad \frac{d^2}{dx^2} e^{rx} = r^2 e^{rx}
+$$
+</p>
+
+<p>
+If we take the governing differential equation \(\frac{d^2 \theta}{dx^2} - m^2 \theta = 0\) and try a solution of a known form with an unknown parameter \(r\):
+</p>
+
+<p>
+$$ \theta(x) = e^{rx} $$
+</p>
+
+<p>
+and substitute it into the differential equation:
+</p>
+
+<p>
+$$
+\frac{d^2 \theta}{dx^2} - m^2 \theta
+=
+r^2 e^{rx} - m^2 e^{rx}
+= 0
+$$
+</p>
+
+<p>
+$$
+e^{rx}(r^2 - m^2) = 0
+$$
+</p>
+
+<p>
+Dividing both sides by \(e^{rx}\):
+</p>
+
+<p>
+$$
+r^2 - m^2 = 0 \quad \Rightarrow \quad r = \pm m
+$$
+</p>
+
+<p>
+This confirms the exponential term we tried is a solution, and there are two variants that satisfy the differential equation:
+</p>
+
+<p>
+$$
+e^{mx} \quad \text{and} \quad e^{-mx}
+$$
+</p>
+
+<p>
+Because the differential equation is linear (the unknown function \(\theta\) and its derivatives appear only next to the first power) and homogeneous (the right-hand side is zero), any linear combination of valid solutions is also a solution. Therefore the general solution to the fin temperature equation is:
+</p>
+
+<p>
+$$
+\theta(x) = C_1 e^{m x} + C_2 e^{-m x}
+$$
+</p>
+
+<ul>
+<li>\(C_1\) and \(C_2\) are constants determined by boundary conditions</li>
+<li>The term \(e^{-mx}\) decays along the rod; the term \(e^{mx}\) grows, which may or may not be physically relevant depending on boundary conditions</li>
+</ul>
+
+<!-- Force new page on print -->
+<div class="print-page-break"></div>
+
+<div id="exponential-plot" style="width:100%;max-width:700px;height:420px;"></div>
+
+<p>
+The figure shows how the two exponential components behave along the rod. One grows and one decays.
+</p>
+
+<p>
+The plot below shows how changing the constants \(C_1\) and \(C_2\) changes the
+shape of the solution while still satisfying the differential equation.
+</p>
+
+<div id="finPlot" style="width:600px;height:400px;"></div>
+
+<!-- Force new page on print -->
+<div class="print-page-break"></div>

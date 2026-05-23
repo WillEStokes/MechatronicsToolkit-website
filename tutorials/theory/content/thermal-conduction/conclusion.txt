@@ -1,0 +1,13 @@
+<p>
+We have demonstrated the derivation of the analytical temperature distribution along a cylindrical rod with radial heat transfer.  
+</p>
+
+<p>
+<ul>
+<li>Energy conservation and Fourier’s law form the foundation for the governing differential equation</li>
+<li>Small rod segments allow us to quantify axial conduction and radial heat transfer</li>
+<li>Second-order differential equations naturally produce exponential solutions, which can be recast as hyperbolic functions for easier application of boundary conditions</li>
+<li>Boundary conditions determine the constants in the solution, leading to the final analytical expression for \(\theta(x)\).</li>
+<li>The parameter \(m = \sqrt{h P / k A}\) controls the rate of temperature decay along the rod</li>
+</ul>
+</p>

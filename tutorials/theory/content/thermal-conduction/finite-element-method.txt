@@ -1,0 +1,172 @@
+<p>
+Another way to model heat transfer along the rod is the finite element method (FEM).  
+This approach can simulate the transient thermal behaviour of the rod as it evolves with time.
+</p>
+
+<div class="image-centre-shrink">
+    <img src="./content/thermal-conduction/finite-element-method.png">
+</div>
+
+<p>
+Each finite element represents a small rod segment of length \(dx\) with cross-sectional area \(A\).
+</p>
+
+<p>
+The element volume is:
+</p>
+
+<p>
+$$
+V = A\,dx
+$$
+</p>
+
+<p>
+and the thermal mass of the element is:
+</p>
+
+<p>
+$$
+m = \rho V
+$$
+</p>
+
+<p>
+The temperature of the element changes depending on the net heat flow into the element.  
+Applying conservation of energy over a time step \(dt\) gives:
+</p>
+
+<p>
+$$
+m c \frac{dT}{dt} = q_{left} + q_{right} - q_{radial}
+$$
+</p>
+
+<p>
+where
+</p>
+
+<ul>
+<li>\(c\) - specific heat capacity of the rod material</li>
+</ul>
+
+
+<p>
+and the three heat flows correspond to:
+</p>
+
+<ul>
+<li>Axial conduction from the neighbouring element on the left</li>
+<li>Axial conduction from the neighbouring element on the right</li>
+<li>Radial heat transfer between the rod and the surroundings</li>
+</ul>
+
+<!-- Force new page on print -->
+<div class="print-page-break"></div>
+
+<h4>Axial Conduction</h4>
+
+<p>
+Heat transfer between neighbouring elements is calculated using Fourier’s law of conduction:
+</p>
+
+<p>
+$$
+q = kA \frac{\Delta T}{dx}
+$$
+</p>
+
+<p>
+This expression describes the heat flowing between adjacent elements due to the temperature difference along the rod.
+</p>
+
+<h4>Radial Heat Transfer</h4>
+
+<p>
+Heat can also exchange radially with the surroundings.  
+This radial conduction through the cylindrical gap can be described using the logarithmic resistance of a cylindrical wall:
+</p>
+
+<p>
+$$
+q_{radial}
+=
+\frac{2\pi k dx (T - T_\infty)}
+{\ln(r_o / r_i)}
+$$
+</p>
+
+<ul>
+<li>\(k\) - thermal conductivity of the surrounding material</li>
+<li>\(r_i\) - rod radius</li>
+<li>\(r_o\) - outer radius of the surrounding region</li>
+</ul>
+
+<p>
+This expression represents heat conduction through the cylindrical layer surrounding the rod.
+</p>
+
+<h4>Transient Temperature Update</h4>
+
+<p>
+The element temperature is updated using the energy balance:
+</p>
+
+<p>
+$$
+\Delta T =
+\frac{q_{net}\, dt}{m c}
+$$
+</p>
+
+<p>
+where
+</p>
+
+<p>
+$$
+q_{net} = q_{left} + q_{right} - q_{radial}
+$$
+</p>
+
+<p>
+By repeatedly applying this update over many small time steps, the temperature distribution gradually evolves until it reaches steady state.
+</p>
+
+<!-- Force new page on print -->
+<div class="print-page-break"></div>
+
+<h4>Boundary Conditions</h4>
+
+<p>
+Consider the base of the rod has a fixed temperature:
+</p>
+
+<p>
+$$
+T(0) = T_{base}
+$$
+</p>
+
+<p>
+As the simulation progresses, heat flows from the base along the rod and into the surroundings until a stable distribution is reached.
+</p>
+
+<h4>Relationship to the Fin Equation</h4>
+
+<p>
+As the element size becomes small and the time step approaches zero, the transient finite element model approaches the same governing equation used in the analytical solution:
+</p>
+
+<p>
+$$
+\frac{d^2\theta}{dx^2} - m^2 \theta = 0
+$$
+</p>
+
+<p>
+The finite element model provides a transient solution of the same physical problem.
+</p>
+
+<!-- Force new page on print -->
+<div class="print-page-break"></div>

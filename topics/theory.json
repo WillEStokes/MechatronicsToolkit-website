@@ -11,6 +11,12 @@
             "image": "/images/impedance.png",
             "link": "/tutorials/theory/impedance.html",
             "description": "Understand how to model impedance in inductors and capacitors."
+        },
+        {
+            "title": "Thermal Conduction",
+            "image": "/images/thermal-conduction.png",
+            "link": "/tutorials/theory/thermal-conduction.html",
+            "description": "Understand how to model thermal conduction in materials."
         }
     ]
 }

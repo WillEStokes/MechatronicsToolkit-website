@@ -1,0 +1,163 @@
+<p>
+While the general solution to the governing differential equation \(\theta(x) = C_1 e^{m x} + C_2 e^{-m x}\) is mathematically correct, expressing it in a hyperbolic form can make applying boundary conditions easier. Hyperbolic sine and cosine are defined as linear combinations of exponentials:
+</p>
+
+<p>
+$$
+\cosh(mx) = 1 + \frac{(mx)^2}{2!} + \frac{(mx)^4}{4!} + \dotsb
+$$
+</p>
+
+<p>
+$$
+\sinh(mx) = mx + \frac{(mx)^3}{3!} + \frac{(mx)^5}{5!} + \dotsb
+$$
+</p>
+
+<p>
+$$
+e^{mx} = 1 + mx + \frac{(mx)^2}{2!} + \frac{(mx)^3}{3!} + \frac{(mx)^4}{4!} + \dotsb
+$$
+</p>
+
+<p>
+$$
+e^{-mx} = 1 - mx + \frac{(mx)^2}{2!} - \frac{(mx)^3}{3!} + \frac{(mx)^4}{4!} - \dotsb
+$$
+</p>
+
+<p>
+$$
+\cosh(mx) = \frac{e^{mx} + e^{-mx}}{2}, \quad \sinh(mx) = \frac{e^{mx} - e^{-mx}}{2}
+$$
+</p>
+
+<p>
+Rearrange:
+</p>
+
+<p>
+$$
+e^{mx} = \cosh(mx) + \sinh(mx), \quad e^{-mx} = \cosh(mx) - \sinh(mx)
+$$
+</p>
+
+<p>
+And the solution can be written as:
+</p>
+
+<p>
+$$
+\theta(x) = A \cosh(mx) + B \sinh(mx)
+$$
+</p>
+
+<ul>
+<li>\(A\) and \(B\) are constants determined by boundary conditions (like fixed base temperature or insulated tip)</li>
+<li>This form is convenient because \(\cosh\) is symmetric and \(\sinh\) is antisymmetric about \(x=0\)</li>
+</ul>
+
+<!-- Force new page on print -->
+<div class="print-page-break"></div>
+
+<div id="hyperbolicPlot" style="width:600px;height:400px;"></div>
+
+<p>
+By substituting \(\cosh(mx) = \frac{e^{mx} + e^{-mx}}{2}\) and \(\sinh(mx) = \frac{e^{mx} - e^{-mx}}{2}\) into the hyperbolic form of the solution, we can determine that the constants \(A\) and \(B\) relate to the exponential constants \(C_1\) and \(C_2\) as follows:
+</p>
+
+<p>
+$$
+C_1 = \frac{A + B}{2}, \quad C_2 = \frac{A - B}{2}
+$$
+</p>
+
+<p>
+Meaning that if \(A = 1\) and \(B = 1\) then \(C_1 = 1\) and \(C_2 = 0\).
+</p>
+
+<!-- Force new page on print -->
+<div class="print-page-break"></div>
+
+<h3>Exponential vs Hyperbolic Forms</h3>
+
+<p>
+Rewriting the solution in terms of \(\cosh\) and \(\sinh\) allows us to easily apply boundary conditions and derive the final analytical formula. This is because hyperbolic functions behave very conveniently at the base:
+</p>
+
+<p>
+$$
+\cosh(0) = 1, \quad \sinh(0) = 0
+$$
+</p>
+
+<p>
+So if
+</p>
+
+<p>
+$$
+\theta(x) = A \cosh(mx) + B \sinh(mx)
+$$
+</p>
+
+<p>
+then at <em>x = 0</em>:
+</p>
+
+<p>
+$$
+\theta(0) = A
+$$
+</p>
+
+<p>
+The constant <strong>A</strong> directly equals the base temperature difference.
+</p>
+
+<p>
+However with the exponential form of the differential equation \(\theta(x) = C_1 e^{m x} + C_2 e^{-m x}\) the solution at <em>x = 0</em> would be :
+</p>
+
+<p>
+$$
+\theta(0) = C_1 + C_2
+$$
+</p>
+
+<p>
+which is less convenient. But certain situations exist where the exponential form is cleaner, such as for an infinitely long fin, the boundary condition
+</p>
+
+<p>
+$$
+\theta(x\rightarrow\infty) = 0
+$$
+</p>
+
+<p>
+forces the growing exponential term \(e^{m x}\) to be zero (otherwise the temperature would diverge). This eliminates one constant:
+</p>
+
+<p>
+$$
+C_1 = 0
+$$
+</p>
+
+<p>
+leaving
+</p>
+
+<p>
+$$
+\theta(x) = C_2 e^{-m x}
+$$
+</p>
+
+<p>
+And the exponential form is more compact for this case.
+</p>
+
+<!-- Force new page on print -->
+<div class="print-page-break"></div>

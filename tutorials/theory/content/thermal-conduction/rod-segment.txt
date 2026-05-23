@@ -1,0 +1,178 @@
+<p>
+Now we combine the ideas of energy conservation and Fourier's law on a very small segment, which is termed a "control volume".
+</p>
+
+<p>
+In addition to axial conduction, the segment can transfer heat radially with the surroundings. We call this radial transfer \(q_r\).
+</p>
+
+<p>
+By convection:
+</p>
+
+<p>
+$$
+q_r = h P \, (T - T_\infty) dx
+$$
+</p>
+
+<ul>
+<li>\(h\) - convective heat transfer coefficient of the surrounding layer</li>
+<li>\(P\) - perimeter of the rod</li>
+<li>\(T_\infty\) - temperature of the surroundings</li>
+<li>\(dx\) - length of the segment</li>
+</ul>
+
+<!--
+<p>
+By conduction:
+</p>
+
+<p>
+$$
+q_r = k P \frac{\, (T - T_\infty)}{\ln\frac{r_o}{r_i}} dx
+$$
+</p>
+
+<ul>
+<li>\(k\) - thermal conductivity of the surrounding layer</li>
+<li>\(P\) - perimeter of the rod</li>
+<li>\(r_o\) - outer radius of the surrounding layer</li>
+<li>\(r_i\) - inner radius of the surrounding layer</li>
+<li>\(dx\) - length of the segment</li>
+</ul>
+-->
+
+<p>
+Applying the energy balance to the segment at steady state (no accumulation, no internal generation):
+</p>
+
+<p>
+$$
+\text{Energy In} - \text{Energy Out} - \text{Radial Transfer} = 0
+$$
+</p>
+
+<p>
+Substituting the expressions for each term:
+</p>
+
+<p>
+$$
+q_x - q_{x+dx} - q_r = 0
+$$
+</p>
+
+<p>
+Dividing by \(dx\) and taking the limit as \(dx \to 0\), the difference \(q_{x+dx}-q_x\) becomes a derivative:
+</p>
+
+<p>
+$$
+\frac{dq_x}{dx} - \frac{q_r}{dx} = 0
+$$
+</p>
+
+<p>
+Substituting Fourier's law \(q_x=-kA \frac{dT}{dx}\):
+</p>
+
+<p>
+$$
+\frac{d}{dx}\Big[-kA \frac{dT}{dx}\Big] - \frac{q_r}{dx} = 0
+$$
+</p>
+
+<!-- Force new page on print -->
+<div class="print-page-break"></div>
+
+<p>
+Simplifying, assuming \(k\) and \(A\) are constant along the rod:
+</p>
+
+<p>
+$$
+kA \frac{d^2T}{dx^2} - \frac{q_r}{dx} = 0
+$$
+</p>
+
+<p>
+This is the governing differential equation describing the temperature distribution along a rod exchanging heat with its surroundings. The terms represent:
+</p>
+
+<ul>
+<li>\(kA \frac{d^2T}{dx^2}\) - axial conduction into and out of the segment</li>
+<li>\(\frac{q_r}{dx}\) - radial heat transfer with the surroundings \(h P \, (T - T_\infty)\)</li>
+</ul>
+
+<div class="image-centre-shrink">
+    <img src="./content/thermal-conduction/rod-segment-heat-flow-radial.png">
+</div>
+
+<p>
+It's convenient to express temperature relative to the surroundings by defining:
+</p>
+
+<p>
+$$
+\theta = T - T_\infty
+$$
+</p>
+
+<p>
+Substituting this gives:
+</p>
+
+<p>
+$$
+\frac{d^2 \theta}{dx^2} - \frac{hP}{kA} \theta = 0
+$$
+</p>
+
+<p>
+The grouped term
+</p>
+
+<p>
+$$
+m^2 = \frac{hP}{kA}
+$$
+</p>
+
+<p>
+is known as the square of the fin parameter. Using this definition, the governing equation takes the compact form:
+</p>
+
+<p>
+$$
+\frac{d^2 \theta}{dx^2} - m^2 \theta = 0
+$$
+</p>
+
+<!-- Force new page on print -->
+<div class="print-page-break"></div>
+
+<p>
+The fin parameter \(m\) characterises how strongly the rod exchanges heat with its surroundings relative to how effectively heat is conducted along its length.
+</p>
+
+<ul>
+<li>\(h\) - strength of heat transfer between the rod surface and the surrounding fluid</li>
+<li>\(P\) - perimeter of the rod influencing the heat exchange area</li>
+<li>\(k\) - how effectively heat can conduct along the rod material</li>
+<li>\(A\) - cross-sectional area for axial conduction</li>
+</ul>
+
+<p>
+Physically, this equation describes the balance between axial conduction within the rod and heat exchange with the environment along its surface.
+</p>
+
+<ul>
+<li>If \(m\) is small, conduction along the rod dominates and temperature changes slowly with distance</li>
+<li>If \(m\) is large, heat exchange with the surroundings dominates and the temperature approaches the surrounding temperature rapidly</li>
+</ul>
+
+<div id="governing-plot" style="width:100%;max-width:700px;height:420px;"></div>
+
+<!-- Force new page on print -->
+<div class="print-page-break"></div>

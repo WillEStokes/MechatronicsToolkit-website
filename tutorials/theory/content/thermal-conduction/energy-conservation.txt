@@ -1,0 +1,20 @@
+<p>
+Energy cannot be created or destroyed so the total energy of a closed system remains constant. We consider an energy balance on a small section of the rod which is in steady state:
+</p>
+
+<p>
+$$
+\text{Energy In} = \text{Energy Out}
+$$
+</p>
+
+<p>
+The rod segment has length \(dx\). Heat enters at position \(x\), leaves at position \(x + dx\) and some heat transfers radially with surroundings:
+</p>
+
+<div class="image-centre-shrink">
+    <img src="./content/thermal-conduction/rod-segment-heat-flow.png">
+</div>
+
+<!-- Force new page on print -->
+<div class="print-page-break"></div>

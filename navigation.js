@@ -3,6 +3,13 @@ fetch('/navigation.html')
     .then(html => {
     let navContainer = document.getElementById("nav");
     navContainer.innerHTML = html;
+
+    // Toggle ONLY the nav pane
+    const toggle = document.getElementById("nav-toggle");
+    toggle.addEventListener("click", function () {
+        navContainer.classList.toggle("hidden"); // only nav hides
+    });
+
     const currentPage = window.location.pathname;
     const links = document.querySelectorAll('a');
     links.forEach(link => {

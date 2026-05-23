@@ -1,0 +1,29 @@
+<p>
+Temperature is a measure of the kinetic energy of particles in a material:
+<ul>
+<li>Atoms and molecules in a solid or fluid move or vibrate</li>
+<li>The faster they move the higher the temperature</li>
+<li>Temperature differences drive heat flow from hot regions to cold regions</li>
+</ul>
+</p>
+
+<p>
+In this modelling \(\theta(x)\) is the temperature difference relative to the surroundings representing the energy available to flow along or out of the rod:
+</p>
+
+<p>
+$$
+\theta(x) = T(x) - T_\infty
+$$
+</p>
+
+<p>
+<ul>
+<li>\(T(x)\) - actual temperature at position \(x\) along the rod</li>
+<li>\(T_\infty\) - temperature of the surroundings</li>
+<li>\(\theta(x)\) - temperature difference</li>
+</ul>
+</p>
+
+<!-- Force new page on print -->
+<div class="print-page-break"></div>

@@ -18,7 +18,7 @@ $$V(f) = Ae^{j\phi} \times Ae^{j\omega t}$$
 
 <p>And expanded out to:</p>
 
-$$V(f) = A(cos(\phi) + jsin(\phi)) \times (cos(\Omega t) + jsin(\Omega t))$$
+$$V(f) = A(cos(\phi) + jsin(\phi)) \times (cos(\omega t) + jsin(\omega t))$$
 
 <p>If we define P and Q as:</p>
 

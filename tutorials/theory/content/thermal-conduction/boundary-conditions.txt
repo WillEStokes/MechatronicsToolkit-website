@@ -1,0 +1,698 @@
+<p>
+To determine the temperature distribution along the rod we apply boundary conditions to the general solution of the governing differential equation:
+</p>
+
+<p>
+$$
+\theta(x) = A \cosh(mx) + B \sinh(mx)
+$$
+</p>
+
+<h3>1. Thermally Constant Base and Convective Heat Transfer at the Tip</h3>
+
+<h4>Base of the Rod (x = 0)</h4>
+
+<div class="image-centre-shrink">
+    <img src="./content/thermal-conduction/boundary-conditions.png">
+</div>
+
+<p>
+The rod is thermally anchored at the base, so its temperature difference relative to the surroundings is:
+</p>
+
+<p>
+$$
+\theta(0) = \theta_b
+$$
+</p>
+
+<p>
+Substituting \(x = 0\) into the general solution:
+</p>
+
+<p>
+$$
+\theta_b = A \cosh(0) + B \sinh(0)
+$$
+</p>
+
+<p>
+Using the identities:
+</p>
+
+<p>
+$$
+\cosh(0)=1, \qquad \sinh(0)=0
+$$
+</p>
+
+<p>
+we obtain:
+</p>
+
+<p>
+$$
+\theta_b = A
+$$
+</p>
+
+<p>
+So the temperature distribution becomes:
+</p>
+
+<p>
+$$
+\theta(x) = \theta_b \cosh(mx) + B \sinh(mx)
+$$
+</p>
+
+<!-- Force new page on print -->
+<div class="print-page-break"></div>
+
+<h4>Tip of the Rod (x = L)</h4>
+
+<p>
+At the tip of the rod, heat arriving by conduction along the rod must equal the heat leaving the tip.  
+This heat loss can occur either by convection or conduction.
+</p>
+
+<p>
+Heat arriving at the tip by conduction along the rod is given by Fourier’s law:
+</p>
+
+<p>
+$$
+q_x\big|_{x=L} = -k_f A_k \left(\frac{dT}{dx}\right)_{x=L}
+$$
+</p>
+
+<ul>
+<li>\(k_f\) - thermal conductivity of the rod</li>
+<li>\(A_k\) - cross-sectional area of the rod</li>
+</ul>
+
+<h4>Convective Heat Loss from the Tip</h4>
+
+<p>
+If the tip is exposed to a surrounding fluid, heat leaves the tip by convection:
+</p>
+
+<p>
+$$
+q_e = h_e A_k (T_L - T_\infty)
+$$
+</p>
+
+<p>
+At steady state, heat conducted to the tip equals heat leaving the tip:
+</p>
+
+<p>
+$$
+-k_f A_k \left(\frac{dT}{dx}\right)_{x=L}
+=
+h_e A_k (T_L - T_\infty)
+$$
+</p>
+
+<p>
+Dividing by \(k_f A_k\):
+</p>
+
+<p>
+$$
+-\left(\frac{dT}{dx}\right)_{x=L}
+=
+\frac{h_e}{k_f}(T_L - T_\infty)
+$$
+</p>
+
+<p>
+Since \( \theta = T - T_\infty \), this becomes:
+</p>
+
+<p>
+$$
+-\left(\frac{d\theta}{dx}\right)_{x=L} = \frac{h_e}{k_f}\theta(L)
+$$
+</p>
+
+<p>
+or equivalently:
+</p>
+
+<p>
+$$
+\frac{d\theta}{dx}\Big|_{x=L} + \frac{h_e}{k_f}\theta(L) = 0
+$$
+</p>
+
+<!-- Force new page on print -->
+<div class="print-page-break"></div>
+
+<!--
+<h4>Conductive Heat Loss from the Tip</h4>
+
+<p>
+If the tip transfers heat into another solid, heat leaving the tip can be written using a simple conduction relation:
+</p>
+
+<p>
+$$
+q_e = k_2 A_k \frac{T_L - T_2}{L_2}
+$$
+</p>
+
+<ul>
+<li>\(k_2\) - conductivity of the surrounding material</li>
+<li>\(L_2\) - characteristic conduction distance</li>
+<li>\(T_2\) - temperature of the receiving medium</li>
+</ul>
+
+<p>
+Equating heat conducted along the rod with heat conducted into the surrounding material:
+</p>
+
+<p>
+$$
+-k_f A_k \left(\frac{dT}{dx}\right)_{x=L}
+=
+k_2 A_k \frac{T_L - T_2}{L_2}
+$$
+</p>
+
+<p>
+Dividing by \(k_f A_k\):
+</p>
+
+<p>
+$$
+-\left(\frac{dT}{dx}\right)_{x=L}
+=
+\frac{k_2}{k_f L_2}(T_L - T_2)
+$$
+</p>
+
+<p>
+Rearranging:
+</p>
+
+<p>
+$$
+\frac{dT}{dx}\Big|_{x=L}
++
+\frac{k_2}{k_f L_2}(T_L - T_2)
+=
+0
+$$
+</p>
+
+<p>
+This has the same mathematical structure as the convection boundary condition.  
+If we define an effective heat transfer coefficient
+</p>
+
+<p>
+$$
+h_{eq} = \frac{k_2}{L_2}
+$$
+</p>
+
+<p>
+then the conduction boundary condition becomes
+</p>
+
+<p>
+$$
+\frac{dT}{dx}\Big|_{x=L}
++
+\frac{h_{eq}}{k_f}(T_L - T_2)
+=
+0
+$$
+</p>
+
+<p>
+which is identical in form to the convection expression.
+</p>
+-->
+
+<h4>Applying the Boundary Condition to the Hyperbolic Solution</h4>
+
+<p>
+The general solution of the governing differential equation is
+</p>
+
+<p>
+$$
+\theta(x) = A\cosh(mx) + B\sinh(mx)
+$$
+</p>
+
+<p>
+Its derivative is
+</p>
+
+<p>
+$$
+\frac{d\theta}{dx}
+=
+A m\sinh(mx)
++
+B m\cosh(mx)
+$$
+</p>
+
+<p>
+Plugging these into the equation \(\frac{d\theta}{dx}\Big|_{x=L} + \frac{h_e}{k_f}\theta(L) = 0\) for the boundary condition at \(x=L\):
+</p>
+
+<p>
+$$
+A m \sinh(mL)
++
+B m \cosh(mL)
++
+\frac{h}{k}
+\big(A\cosh(mL)+B\sinh(mL)\big)
+=
+0
+$$
+</p>
+
+<h4>Solving for \(B\)</h4>
+
+<p>
+Expand the expression:
+</p>
+
+<p>
+$$
+A m\sinh(mL)
++
+B m\cosh(mL)
++
+\frac{h}{k}A\cosh(mL)
++
+\frac{h}{k}B\sinh(mL)
+=
+0
+$$
+</p>
+
+<p>
+Group the constants:
+</p>
+
+<p>
+$$
+A\left[m\sinh(mL)+\frac{h}{k}\cosh(mL)\right]
++
+B\left[m\cosh(mL)+\frac{h}{k}\sinh(mL)\right]
+=
+0
+$$
+</p>
+
+<p>
+Solving for \(B\):
+</p>
+
+<p>
+$$
+B
+=
+-
+A
+\frac{m\sinh(mL)+\frac{h}{k}\cosh(mL)}
+{m\cosh(mL)+\frac{h}{k}\sinh(mL)}
+$$
+</p>
+
+<p>
+Using the base boundary condition \(A=\theta_b\):
+</p>
+
+<p>
+$$
+B
+=
+-
+\theta_b
+\frac{m\sinh(mL)+\frac{h}{k}\cosh(mL)}
+{m\cosh(mL)+\frac{h}{k}\sinh(mL)}
+$$
+</p>
+
+<!-- Force new page on print -->
+<div class="print-page-break"></div>
+
+<h4>Substituting Back into the Solution</h4>
+
+<p>
+$$
+\theta(x)
+=
+\theta_b\cosh(mx)
+-
+\theta_b
+\frac{m\sinh(mL)+\frac{h}{k}\cosh(mL)}
+{m\cosh(mL)+\frac{h}{k}\sinh(mL)}
+\sinh(mx)
+$$
+</p>
+
+<p>
+Dividing through by \( \theta_b \) gives the normalised temperature distribution:
+</p>
+
+<p>
+$$
+\frac{\theta(x)}{\theta_b}
+=
+\cosh(mx)
+-
+\frac{m\sinh(mL)+\frac{h}{k}\cosh(mL)}
+{m\cosh(mL)+\frac{h}{k}\sinh(mL)}
+\sinh(mx)
+$$
+</p>
+
+<p>
+Using hyperbolic identities and rearranging terms, this expression can be written in a more compact form:
+</p>
+
+<p>
+$$
+\frac{\theta(x)}{\theta_b}
+=
+\frac{
+\cosh\big(m(L-x)\big)
++
+\frac{h}{mk}\sinh\big(m(L-x)\big)
+}{
+\cosh(mL)
++
+\frac{h}{mk}\sinh(mL)
+}
+$$
+</p>
+
+<ul>
+<li>\(\theta_b\) - temperature difference at the base relative to the surroundings</li>
+<li>\(\cosh(m(L-x))\) - describes the conductive temperature decay along the rod</li>
+<li>\(\sinh(m(L-x))\) - accounts for the effect of heat loss from the tip</li>
+<li>\(\frac{h}{mk}\) - dimensionless parameter representing the relative strength of tip convection</li>
+</ul>
+
+<!-- Force new page on print -->
+<div class="print-page-break"></div>
+
+<h3>2. No Heat Transfer: Adiabatic (Insulated) Tip</h3>
+
+<p>
+If the tip is insulated, no heat leaves the end of the rod:
+</p>
+
+<p>
+$$
+q_x\big|_{x=L} = 0
+$$
+</p>
+
+<p>
+From Fourier’s law this means the temperature gradient at the tip must be zero:
+</p>
+
+<p>
+$$
+\left(\frac{dT}{dx}\right)_{x=L} = 0
+$$
+</p>
+
+<p>
+Since \( \theta = T - T_\infty \), the same condition applies to \( \theta \):
+</p>
+
+<p>
+$$
+\left(\frac{d\theta}{dx}\right)_{x=L} = 0
+$$
+</p>
+
+<h4>Applying the Boundary Condition to the Hyperbolic Solution</h4>
+
+<p>
+The general solution for the temperature distribution along the rod is:
+</p>
+
+<p>
+$$
+\theta(x) = A\cosh(mx) + B\sinh(mx)
+$$
+</p>
+
+<p>
+The derivative of this expression is:
+</p>
+
+<p>
+$$
+\frac{d\theta}{dx}
+=
+A m\sinh(mx)
++
+B m\cosh(mx)
+$$
+</p>
+
+<p>
+Plugging these into the equation \(\frac{d\theta}{dx}\Big|_{x=L} = 0\) for the adiabatic boundary condition at \(x=L\):
+</p>
+
+<p>
+$$
+A m\sinh(mL)
++
+B m\cosh(mL)
+=
+0
+$$
+</p>
+
+<h4>Solving for \(B\)</h4>
+
+<p>
+Divide through by \(m\):
+</p>
+
+<p>
+$$
+A\sinh(mL)
++
+B\cosh(mL)
+=
+0
+$$
+</p>
+
+<p>
+Rearranging gives:
+</p>
+
+<p>
+$$
+B\cosh(mL) = -A\sinh(mL)
+$$
+</p>
+
+<p>
+so
+</p>
+
+<p>
+$$
+B = -A \tanh(mL)
+$$
+</p>
+
+<p>
+Using the base boundary condition \(A = \theta_b\):
+</p>
+
+<p>
+$$
+B = -\theta_b \tanh(mL)
+$$
+</p>
+
+<!-- Force new page on print -->
+<div class="print-page-break"></div>
+
+<h4>Substituting Back into the Solution</h4>
+
+<p>
+Substituting \(A\) and \(B\) into the general solution:
+</p>
+
+<p>
+$$
+\theta(x)
+=
+\theta_b\cosh(mx)
+-
+\theta_b\tanh(mL)\sinh(mx)
+$$
+</p>
+
+<p>
+Dividing through by \( \theta_b \) gives the normalised temperature distribution:
+</p>
+
+<p>
+$$
+\frac{\theta(x)}{\theta_b}
+=
+\cosh(mx)
+-
+\tanh(mL)\sinh(mx)
+$$
+</p>
+
+<p>
+Using hyperbolic identities, this expression can be rearranged into:
+</p>
+
+<p>
+$$
+\frac{\theta(x)}{\theta_b}
+=
+\frac{\cosh\big(m(L-x)\big)}{\cosh(mL)}
+$$
+</p>
+
+<ul>
+<li>\(\theta_b\) - temperature difference at the base relative to surroundings</li>
+<li>\(\cosh(m(L-x))\) - describes how temperature decays along the rod</li>
+<li>\(\cosh(mL)\) - ensures the base temperature boundary condition is satisfied</li>
+</ul>
+
+<div id="boundary-conditions-plot" style="width:100%;max-width:700px;height:420px;"></div>
+
+<!-- Force new page on print -->
+<div class="print-page-break"></div>
+
+<h3>Worked Example</h3>
+
+<p>
+Using the following values:
+</p>
+
+<ul>
+<li>\(T_{\text{pipe}} = 30 \, \text{K}\)</li>
+<li>\(T_{\text{base}} = 300 \, \text{K}\)</li>
+<li>\(L = 0.4 \, \text{m}\)</li>
+<li>\(r = 0.003 \, \text{m}\)</li>
+<li>\(k_{\text{rod}} = 15 \, \text{W/(m·K)}\)</li>
+<li>\(h = 5 \, \text{W/(m}^2\text{·K)}\)</li>
+</ul>
+
+<h4>Step 1: Define Temperature Difference</h4>
+
+<p>
+$$
+\theta(x) = T(x) - T_{\text{pipe}}
+$$
+</p>
+
+<p>
+$$
+\theta_b = T_{\text{base}} - T_{\text{pipe}} = 300 - 30 = 270 \, \text{K}
+$$
+</p>
+
+<h4>Step 2: Fin Parameter</h4>
+
+<p>
+$$
+m = \sqrt{\frac{h P}{k A}}
+$$
+</p>
+
+<p>
+For a cylindrical rod:
+</p>
+
+<p>
+$$
+P = 2\pi r, \qquad A = \pi r^2, \qquad m = \sqrt{\frac{2h}{k r}}
+$$
+</p>
+
+<p>
+Substituting values:
+</p>
+
+<p>
+$$
+m = \sqrt{\frac{2 \cdot 5}{15 \cdot 0.003}} = \sqrt{\frac{10}{0.045}} = \sqrt{222.2} \approx 14.9 \, \text{m}^{-1}
+$$
+</p>
+
+<h4>Step 3: Temperature Distribution</h4>
+
+<p>
+Using the adiabatic tip solution:
+</p>
+
+<p>
+$$
+\frac{\theta(x)}{\theta_b} = \frac{\cosh\big(m(L-x)\big)}{\cosh(mL)}
+$$
+</p>
+
+<p>
+Converting back to temperature:
+</p>
+
+<p>
+$$
+T(x) = \frac{\cosh\big(m(L-x)\big)}{\cosh(mL)} (T_{\text{base}} - T_{\text{pipe}}) + T_{\text{pipe}}
+$$
+</p>
+
+<!-- Force new page on print -->
+<div class="print-page-break"></div>
+
+<h4>Step 4: Evaluate</h4>
+
+<p><strong>At the base (\(x=0\)):</strong></p>
+
+<p>
+$$
+T(0) = 300 \, \text{K}
+$$
+</p>
+
+<p><strong>At the tip (\(x=L=0.4\)):</strong></p>
+
+<p>
+$$
+mL = 14.9 \cdot 0.4 \approx 5.96
+$$
+</p>
+
+<p>
+$$
+\cosh(5.96) \approx 193
+$$
+</p>
+
+<p>
+$$
+T(L) = \frac{1}{193} \cdot 270 + 30 \approx 31.4 \, \text{K}
+$$
+</p>
+
+<!-- Force new page on print -->
+<div class="print-page-break"></div>
